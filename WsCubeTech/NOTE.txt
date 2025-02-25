@@ -1,0 +1,36 @@
+// Day 1
+-> Theory
+
+ML Types
+-> 1. Supervised (Labeled old data -> used to predict -> new data)
+   - Example: Predicting house prices using past sales data.
+-> 2. Unsupervised (Mixed raw data -> grouped into -> categories)
+   - Example: Customer segmentation in marketing.
+-> 3. Reinforcement (Learns dynamically -> adjusts decisions based on new data)
+   - Example: Self-driving cars adjusting to new road conditions.
+
+ML Roadmap
+
+Python Libraries Needed for ML
+-> 1. NumPy       (Numerical operations, arrays)
+-> 2. Pandas      (Data handling & manipulation)
+-> 3. Matplotlib  (Basic data visualization)
+-> 4. Seaborn     (Advanced statistical visualizations)
+-> 5. Scikit-learn (Core ML algorithms: classification, regression, clustering)
+-> 6. TensorFlow  (Deep Learning framework)
+-> 7. SciPy       (Scientific computing, optimization)
+-> 8. NLTK        (Natural Language Processing - text data)
+-> 9. OpenCV      (Computer Vision - image & video processing)
+
+Data Types for ML in CSV or Excel
+
+                                        |---> Discrete (Fixed countable values, e.g., number of students)
+          |--> Numerical (int/float) ---|
+          |                             |---> Continuous (Range values, e.g., height, weight)
+          |
+Variable -|
+          |                 |---> Ordinal (Ordered categories, e.g., ranking: low, medium, high)
+          |--> Categorical--|
+          |                 |---> Nominal (No order, e.g., colors: red, blue, green)
+          |--> Date & Times  (Timestamps, e.g., 2024-02-25 10:00:00)
+          |--> Mixed         (Combination of different types, e.g., tables with text & numbers)
