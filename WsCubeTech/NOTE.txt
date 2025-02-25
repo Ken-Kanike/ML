@@ -1,5 +1,5 @@
-// Day 1
--> Theory
+#Day 1
+Theory
 
 ML Types
 -> 1. Supervised (Labeled old data -> used to predict -> new data)
@@ -34,3 +34,9 @@ Variable -|
           |                 |---> Nominal (No order, e.g., colors: red, blue, green)
           |--> Date & Times  (Timestamps, e.g., 2024-02-25 10:00:00)
           |--> Mixed         (Combination of different types, e.g., tables with text & numbers)
+
+
+#Day 2   40:00
+
+Data Cleaning
+
