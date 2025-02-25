@@ -1,0 +1,10 @@
+#day 1
+
+// installations 
+pip install sklearn
+pip install pandas
+pip install quandl  // quandl was not found using openpyxl for data set 
+pip install openpyxl
+
+
+#regression

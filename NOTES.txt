@@ -1,4 +1,0 @@
-// installations 
-pip install sklearn
-pip install pandas
-pip install quandl
