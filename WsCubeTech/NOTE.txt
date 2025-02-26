@@ -36,7 +36,65 @@ Variable -|
           |--> Mixed         (Combination of different types, e.g., tables with text & numbers)
 
 
+=====================================================================================================================================
+
 #Day 2   40:00
 
-Data Cleaning
+// Data Cleaning
 
+-> 1. Handling Missing Data  
+   - Fill missing values (mean, median, mode) or remove them.  
+   - Example: Filling missing ages in a dataset with the median age.  
+
+-> 2. Outlier Detection and Handling  
+   - Identify extreme values using statistical methods (IQR, Z-score).  
+   - Example: Removing unusually high house prices in real estate data.  
+
+-> 3. Data Scaling and Transformation  
+   - Normalize or standardize numerical data for better ML performance.  
+   - Example: Converting salary data to a 0-1 scale for neural networks.  
+
+-> 4. Encoding Categorical Variables  
+   - Convert text data into numbers (One-Hot Encoding, Label Encoding).  
+   - Example: Converting "Male"/"Female" into 0 and 1.  
+
+-> 5. Handling Duplicates  
+   - Remove repeated rows to prevent bias in ML models.  
+   - Example: Removing duplicate customer records in a sales dataset.  
+
+-> 6. Dealing with Inconsistent Data  
+   - Fix typos, formatting issues, and unify categories.  
+   - Example: Standardizing "NYC" and "New York City" into one category.  
+
+--------------------------------------------------------
+
+// Jupyter Notebook Setup  
+
+1️⃣Add Python to Environment Variables
+   - C:\Program Files\Python312  
+   - C:\Program Files\Python312\Scripts  
+   - C:\Users\junai\AppData\Roaming\Python\Python312\site-packages\pip  
+
+2️⃣Install Jupyter Notebook  
+   ```sh
+   pip install jupyter
+   ```  
+
+3️⃣Open Jupyter Notebook
+   - Go to your project folder  
+   - Type `cmd` in the folder path  
+   - Run:  
+     ```sh
+     jupyter notebook
+     ```  
+   - Jupyter will open in your browser  
+
+4️⃣Alternative Ways to Open Jupyter 
+   - Open in **VS Code** (Install Jupyter extension)  
+   - Directly type in browser:  
+     ```
+     http://localhost:8888/tree
+     ```
+     (after starting the Jupyter server in cmd) 
+
+=====================================================================================================================================
