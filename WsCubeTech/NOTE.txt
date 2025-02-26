@@ -97,9 +97,382 @@ Variable -|
      ```
      (after starting the Jupyter server in cmd) 
 
------------------------------------------------------------------------------
-data Cleaning
-seaborn
+-----------------------------------------------------------------------------------------
+Data Cleaning
 
+ML Data Cleaning - Commands & Explanation
+
+1️⃣ Importing Required Libraries  
+```python
+import pandas as pd
+import seaborn as sns  # for graphs
+import matplotlib.pyplot as plt
+```
+- **Pandas**: Handles data operations (reading, cleaning, manipulation).  
+- **Seaborn**: Used for visualizing missing values.  
+- **Matplotlib**: Plots graphs.
+
+---
+
+2️⃣ Reading the Dataset 
+```python
+dataset = pd.read_excel("C:/Users/junai/Desktop/coding/ML/yahoo_data.xlsx")
+dataset.head(3)
+```
+- Reads the **Excel file** into a Pandas DataFrame.  
+- `head(3)`: Displays the **first 3 rows**.
+
+---
+
+3️⃣ Checking Data Shape  
+```python
+dataset.shape
+```
+- Returns **(rows, columns)** count.  
+- Helps understand dataset size.
+
+---
+
+4️⃣ Finding Missing Values  
+```python
+dataset.isnull()
+```
+- Returns **True/False** for each cell.  
+- `True` means the value is **missing**.
+
+---
+
+5️⃣ Counting Null Values in Each Column 
+```python
+dataset.isnull().sum()
+```
+- Counts **total missing values** per column.
+
+---
+6️⃣ Finding % of Null Values in Each Column 
+```python
+(dataset.isnull().sum() / dataset.shape[0]) * 100
+```
+- **Formula:** `(total missing values in column / total rows) * 100`.  
+- Helps decide whether to keep or remove a column.
+
+---
+7️⃣ Total Missing Values in Dataset
+```python
+dataset.isnull().sum().sum()
+```
+- Gives total **missing values** in the entire dataset.
+
+---
+8️⃣ Finding % of Null Values in Entire Dataset 
+```python
+(dataset.isnull().sum().sum() / (dataset.shape[0] * dataset.shape[1])) * 100
+```
+- **Formula:** `(total missing values / total cells in dataset) * 100`.  
+- Helps assess overall data quality.
+
+---
+9️⃣ Visualizing Missing Data 
+```python
+sns.heatmap(dataset.isnull())
+plt.show()
+```
+- **Seaborn Heatmap**: Graphically shows missing values.  
+- **Lighter areas** indicate missing values.
+
+---
+🔟 Cleaning Strategy for Missing Data
+- **If a column has more than 50% null values → Delete it.**  
+- **Otherwise, handle missing values (e.g., fill with mean/mode/forward fill).**  
+
+Final Thoughts
+These commands analyze & clean missing data effectively.
+Next step: Decide how to handle missing values (drop, fill, or replace). 🚀
+
+---------------------------------------------------------------------------------------------
+
+ML Data Cleaning - Dropping Null Values (Commands & Explanation) 
+
+---
+
+#### **1️⃣ Importing Required Libraries**  
+```python
+import pandas as pd
+import seaborn as sns  # for graphs
+import matplotlib.pyplot as plt
+```
+- **Pandas**: Handles data operations (reading, manipulation).  
+- **Seaborn**: Used for visualizing missing values.  
+- **Matplotlib**: Plots graphs.
+
+---
+
+#### **2️⃣ Loading the Dataset**  
+```python
+dataset = pd.read_excel("C:/Users/junai/Desktop/coding/ML/uncleaned_data.xlsx")
+dataset.head(10)
+```
+- Reads the **Excel file** into a Pandas DataFrame.  
+- `head(10)`: Displays the **first 10 rows**.
+
+---
+
+#### **3️⃣ Checking Data Shape**  
+```python
+dataset.shape
+```
+- Returns **(rows, columns)** count.  
+- Helps understand dataset size.
+
+---
+
+#### **4️⃣ Checking Missing Values in Each Column**  
+```python
+dataset.isnull().sum()
+```
+- Counts **total missing values** per column.
+
+---
+
+#### **5️⃣ Visualizing Missing Data**  
+```python
+sns.heatmap(dataset.isnull())
+plt.show()
+```
+- **Seaborn Heatmap**: Graphically represents missing values.  
+- **Lighter areas** indicate missing values.
+
+---
+
+### **🛑 Dropping Columns with Too Many Null Values**
+#### **6️⃣ Dropping a Column (But Not Saving the Change)**
+```python
+dataset.drop(columns=['Open'])
+```
+- Deletes the **'Open'** column **temporarily** (returns a new dataset).  
+- **Original dataset remains unchanged.**
+
+#### **7️⃣ Dropping a Column Permanently**
+```python
+dataset.drop(columns=['Open'], inplace=True)
+sns.heatmap(dataset.isnull())
+plt.show()
+```
+- **`inplace=True`** → Deletes **'Open'** column **permanently** from the dataset.  
+- Heatmap confirms if missing data is reduced.
+
+---
+
+### **🛑 Dropping Rows with Null Values**
+#### **8️⃣ Dropping Rows with Missing Values (But Not Saving the Change)**
+```python
+dataset.dropna()
+```
+- Deletes all **rows with missing values** **temporarily**.  
+- **Original dataset remains unchanged.**
+
+#### **9️⃣ Dropping Rows with Null Values Permanently**
+```python
+dataset.dropna(inplace=True)
+sns.heatmap(dataset.isnull())
+plt.show()
+```
+- **`inplace=True`** → Deletes **all rows with missing values permanently**.  
+- Heatmap confirms if missing data is completely removed.
+
+---
+
+### **Final Thoughts**
+- **Dropped columns/rows** with excessive missing values.  
+- Used **heatmaps** to visualize changes.  
+- **Next step**: Handle missing values differently (e.g., fill with mean/mode). 🚀
+
+---------------------------------------------------------------------------------------------------
+ML Data Cleaning - Filling Null Values (Commands & Explanation) 
+
+---
+
+### **1️⃣ Importing Required Libraries**  
+```python
+import pandas as pd
+import seaborn as sns  # for graphs
+import matplotlib.pyplot as plt
+```
+- **Pandas**: Handles data operations (reading, filling missing values).  
+- **Seaborn**: Visualizes missing data.  
+- **Matplotlib**: Plots graphs.
+
+---
+
+### **2️⃣ Loading the Dataset**  
+```python
+dataset = pd.read_excel("C:/Users/junai/Desktop/coding/ML/catg_data.xlsx")
+dataset.head(10)
+```
+- Reads the **Excel file** into a Pandas DataFrame.  
+- `head(10)`: Displays the **first 10 rows**.
+
+---
+
+### **3️⃣ Checking for Missing Values**  
+```python
+dataset.isnull().sum()
+```
+- Counts **total missing values** per column.
+
+---
+
+### **4️⃣ Filling Missing Values with a Fixed Number (Not Recommended)**  
+```python
+dataset.fillna(10).head(10)
+```
+- Replaces all **NaN values** with `10`.  
+- **Not a proper approach** because numerical values don’t always make sense in categorical columns.
+
+---
+
+### **5️⃣ Checking Data Types for Better Filling**  
+```python
+dataset.info()
+```
+- Displays **data types** of each column.  
+- Helps decide appropriate filling strategies.
+
+---
+
+### **6️⃣ Filling Methods**
+#### **🔵 Backward Fill (bfill) - Fill with Next Value in Column**
+```python
+dataset.fillna(method='bfill')
+```
+- **Fills missing values** with the next available value in the **same column**.  
+- Useful for **time-series data**.
+
+#### **🟢 Forward Fill (ffill) - Fill with Previous Value in Column**
+```python
+dataset.fillna(method='ffill')
+```
+- **Fills missing values** with the previous available value in the **same column**.  
+- Preserves trends in **time-series data**.
+
+#### **🟠 Column-wise Filling (Row-wise Propagation)**
+```python
+dataset.fillna(method='ffill', axis=1)
+dataset.fillna(method='bfill', axis=1)
+```
+- **`axis=1`** → Moves **left to right** in a row to fill missing values.  
+- Used when **data across columns** is related.
+
+---
+
+### **7️⃣ Filling Categorical Data with Mode (Most Repeated Value)**
+#### **🔴 Getting Mode (Most Frequent Value)**
+```python
+dataset['CatD'].mode()[0]  
+```
+- Finds the **most repeated value** in the `'CatD'` column.
+
+#### **🟣 Filling Categorical Data with Mode**
+```python
+dataset['CatD'].fillna(dataset['CatD'].mode()[0])
+```
+- Fills missing values with **most repeated category**.
+
+---
+
+### **8️⃣ Filling Missing Values in All Categorical Columns**
+```python
+# Select categorical columns
+dataset.select_dtypes(include='object')
+
+# Count missing values in categorical columns
+dataset.select_dtypes(include='object').isnull().sum()
+
+# Get names of categorical columns
+dataset.select_dtypes(include='object').columns
+
+# Fill missing values in each categorical column using mode
+for col in dataset.select_dtypes(include='object').columns:
+    dataset[col].fillna(dataset[col].mode()[0], inplace=True)
+```
+- Selects **all categorical columns**.  
+- Fills missing values with the **most repeated value (mode)**.  
+- **Loop ensures all categorical columns** are filled properly.
+
+---
+
+### **9️⃣ Performing All Operations on Real Data**
+```python
+dataset = pd.read_excel("C:/Users/junai/Desktop/coding/ML/catg_data.xlsx")
+```
+- Reads the dataset again to apply filling methods properly.
+
+#### **✅ Using Both Forward & Backward Fill**
+```python
+dataset = dataset.bfill()
+dataset = dataset.ffill()
+```
+- **First uses `bfill`** → fills missing values with the **next available value**.  
+- **Then `ffill`** → fills remaining missing values with **previous values**.
+
+#### **✅ Row-wise Forward & Backward Fill**
+```python
+dataset = dataset.T.ffill().T  # Fill row-wise (transpose, fill, then revert)
+dataset = dataset.T.bfill().T  # Fill row-wise (backward)
+```
+- **Ensures NaN values across rows** are filled properly.
+
+#### **✅ Filling Categorical Columns with Mode**
+```python
+for col in dataset.select_dtypes(include='object').columns:
+    dataset[col] = dataset[col].fillna(dataset[col].mode().iloc[0])  
+```
+- Uses **`.iloc[0]`** to get mode correctly and avoid warnings.  
+
+---
+
+### **🔟 Fixing Data Type Issues**
+```python
+dataset = dataset.infer_objects(copy=False)
+pd.set_option('future.no_silent_downcasting', True)
+```
+- **Ensures categorical columns** don’t change to incorrect types.  
+- Avoids **future Pandas version warnings**.
+
+---
+
+### **1️⃣1️⃣ Saving the Cleaned Data**
+```python
+dataset.to_excel("C:/Users/junai/Desktop/coding/ML/catg_data.xlsx", index=False)
+```
+- **Writes cleaned data** back to an Excel file.  
+- **No index saved** to keep it clean.
+
+---
+
+### **1️⃣2️⃣ Final Check for Missing Values**
+```python
+dataset.isnull().sum()
+```
+- Ensures that **all missing values** are filled.
+
+```python
+sns.heatmap(dataset.isnull())
+plt.show()
+```
+- **Visual check** → Heatmap should now **show no missing values**.
+
+---
+
+### **Summary of What We Did**
+✅ Checked missing values in the dataset.  
+✅ Used **different methods** (forward fill, backward fill, mode) to fill NaN values.  
+✅ Ensured **categorical columns were handled properly** using mode.  
+✅ Fixed **data type issues** to prevent future errors.  
+✅ **Saved the cleaned dataset** back to an Excel file.  
+
+🔥 **Now, the dataset is ready for further processing in ML!** 🚀
 
 =====================================================================================================================================
+
+#Day 3   1:27:00
