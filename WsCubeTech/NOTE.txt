@@ -471,7 +471,6 @@ plt.show()
 ✅ Fixed **data type issues** to prevent future errors.  
 ✅ **Saved the cleaned dataset** back to an Excel file.  
 
-🔥 **Now, the dataset is ready for further processing in ML!** 🚀
 
 =====================================================================================================================================
 #Day 3   1:27:00
@@ -737,6 +736,132 @@ pd.DataFrame(ar, columns=["Gender_Male", "Married_Yes"])
 
 ------------------------------------------------------------------------------------------------
 
+📌 Label Encoding
+
+## **Introduction**  
+Today, I learned about **Label Encoding**, a technique used to convert categorical data into numerical format, making it suitable for machine learning models. Below is a step-by-step breakdown of what I did.  
+
+---
+
+## **1️⃣ Importing Required Libraries**  
+```python
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+```
+- `pandas`: Used for handling tabular data (loading, cleaning, and manipulating datasets).  
+- `LabelEncoder`: A class from `sklearn.preprocessing` used to convert categorical labels into numerical values.  
+
+---
+
+## **2️⃣ Creating a Demo Dataset**  
+```python
+df = pd.DataFrame({"Fruits":['Apple', 'Banana', 'Cherry','Dragon Fruit','Lemon']})
+df
+```
+- Created a **Pandas DataFrame** with a single column, **"Fruits"**, containing categorical values.  
+- This dataset is used for **demonstrating label encoding** before applying it to real data.  
+
+---
+
+## **3️⃣ Applying Label Encoding on Fruits Column**  
+```python
+le = LabelEncoder()
+le.fit_transform(df['Fruits'])
+```
+- **`LabelEncoder()`** initializes the encoder.  
+- **`.fit_transform(df['Fruits'])`**:  
+  - **`fit()`**: Learns the mapping from categories to numbers.  
+  - **`transform()`**: Converts categorical values into numerical values.  
+
+---
+
+## **4️⃣ Adding Encoded Values to DataFrame**  
+```python
+df['en_fruits'] = le.fit_transform(df['Fruits'])
+df
+```
+- A new column **"en_fruits"** is added to the DataFrame.  
+- Now, each fruit has a corresponding numerical value (e.g., Apple → 0, Banana → 1, etc.).  
+
+---
+
+## **5️⃣ Applying Label Encoding to a Real Dataset**  
+```python
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\gender_cat_data.xlsx")
+dataset.head(10)
+```
+- Loaded an Excel dataset containing **categorical data**.  
+- **`.head(10)`** displays the first 10 rows to understand the dataset.  
+
+---
+
+## **6️⃣ Label Encoding the "Location" Column**  
+```python
+la = LabelEncoder()
+la.fit(dataset["Location"])
+```
+- Created a new `LabelEncoder` instance for encoding the **"Location"** column.  
+- **`.fit()`** learns the unique categories in the "Location" column.  
+
+---
+
+## **7️⃣ Transforming the "Location" Column**  
+```python
+la.transform(dataset["Location"])
+```
+- Converts categorical location names into corresponding numerical labels.  
+- If `dataset["Location"]` had values like `['New York', 'London', 'Paris']`, they would be converted into `[0, 1, 2]`.  
+
+---
+
+## **8️⃣ Checking Unique Values Before Encoding**  
+```python
+dataset["Location"].unique()
+```
+- Displays all **unique location names** before encoding.  
+- Helps verify if encoding is necessary.  
+
+---
+
+## **9️⃣ Storing the Encoded Values Back in the Dataset**  
+```python
+dataset["Location"] = la.transform(dataset["Location"])
+```
+- Replaces the original categorical values in the **"Location"** column with encoded numerical values.  
+- Ensures the dataset is ready for further **data preprocessing or ML model training**.  
+
+---
+
+## **🔟 Displaying the First 200 Rows of the Encoded Dataset**  
+```python
+dataset.head(200)
+```
+- Checks the first **200 rows** to ensure encoding was applied correctly.  
+
+---
+
+## **📌 Summary of What I Learned Today**  
+- **Label Encoding** is used to convert categorical text data into numerical format.  
+- It is **essential for machine learning models** that cannot process text directly.  
+- **Steps involved in label encoding:**  
+  - Created a **dummy dataset** for demonstration.  
+  - Applied `LabelEncoder` on the **"Fruits"** column.  
+  - Used `LabelEncoder` on a **real dataset** to encode the **"Location"** column.  
+  - Verified unique values before encoding.  
+  - Stored encoded values back into the dataset.  
+
+### **💡 Why is Label Encoding Important?**  
+- Many ML models require numerical inputs.  
+- Label encoding helps convert **categorical values into numbers** while preserving information.  
+- It’s an essential preprocessing step for **classification and regression tasks**.
 
 
 =====================================================================================================================================
+
+#Day 4   1:58:00
+
+Ordinal Encoding
+
+=====================================================================================================================================
+
+

@@ -122,3 +122,24 @@
 
 # print("Excel file 'gender_cat_data.xlsx' generated successfully!")
 
+
+
+# import pandas as pd
+# import random
+
+# # Load existing data
+# df = pd.read_excel("gender_cat_data.xlsx")
+
+# # Function to generate random locations
+# def random_location():
+#     countries = ["USA", "Canada", "UK", "Germany", "France", "India", "China", "Brazil", "Australia", "Japan"]
+#     return random.choice(countries)
+
+# # Append new 'Location' column
+# df["Location"] = [random_location() for _ in range(len(df))]
+
+# # Save updated file
+# df.to_excel("gender_cat_data.xlsx", index=False)
+
+# print("Excel file 'gender_cat_data.xlsx' updated successfully with Location column!")
+
