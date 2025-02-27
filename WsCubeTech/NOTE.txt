@@ -474,5 +474,143 @@ plt.show()
 🔥 **Now, the dataset is ready for further processing in ML!** 🚀
 
 =====================================================================================================================================
-
 #Day 3   1:27:00
+
+📌Handling Missing Data with `sklearn.impute`
+
+## **Introduction**  
+Today, I learned how to handle missing values in a dataset using the `SimpleImputer` class from `sklearn.impute`. The dataset contained missing numerical values, and I used imputation techniques to replace them. Below is a step-by-step explanation of each command I executed.
+
+---
+
+## **1️⃣ Importing Required Libraries**  
+```python
+import pandas as pd
+import seaborn as sns  # for graphs
+import matplotlib.pyplot as plt
+```
+- `pandas`: Used for handling tabular data (loading, cleaning, and manipulating datasets).  
+- `seaborn`: A visualization library (not used in this notebook, but useful for graphing trends).  
+- `matplotlib.pyplot`: Another graphing library (not used here but helpful for visualizing missing data).  
+
+---
+
+## **2️⃣ Loading the Dataset**  
+```python
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\uncleaned_data.xlsx")
+dataset.head(10)
+```
+- `pd.read_excel()`: Loads an Excel file into a Pandas DataFrame.  
+- `dataset.head(10)`: Displays the first 10 rows of the dataset to get an overview of the data.  
+
+---
+
+## **3️⃣ Checking for Missing Values**  
+```python
+dataset.isnull().sum()
+```
+- `isnull()`: Identifies missing (NaN) values in each column.  
+- `sum()`: Counts the total number of missing values per column.  
+- This helps us understand which columns have missing data that need to be handled.  
+
+---
+
+## **4️⃣ Checking Dataset Information**  
+```python
+dataset.info()
+```
+- Displays details about the dataset, including:  
+  - Number of rows and columns.  
+  - Data types (float, int, object, etc.).  
+  - Non-null values in each column.  
+- Helps in understanding which columns are numerical and which ones contain missing values.  
+
+---
+
+## **5️⃣ Selecting Numerical Columns**  
+```python
+dataset.select_dtypes(include="float64").columns
+```
+- `select_dtypes(include="float64")`: Filters out only the **float (decimal) columns** from the dataset.  
+- `.columns`: Returns the names of these numerical columns.  
+- This step ensures that we apply imputation only to numerical data (since categorical data needs a different approach).  
+
+---
+
+## **6️⃣ Importing `SimpleImputer`**  
+```python
+from sklearn.impute import SimpleImputer
+```
+- `SimpleImputer`: A class in `sklearn.impute` used for handling missing values in datasets.  
+- It allows replacing missing values with strategies like **mean, median, mode, or a constant value**.  
+
+---
+
+## **7️⃣ Applying Mean Imputation**  
+```python
+si = SimpleImputer(strategy="mean")
+```
+- Creates an instance of `SimpleImputer` with **mean imputation**.  
+- `strategy="mean"`: This means missing values will be replaced with the **mean** (average) of the respective column.  
+
+---
+
+## **8️⃣ Transforming Data with Imputer**  
+```python
+ar = si.fit_transform(dataset[['Open', 'High', 'Low', 'Close*', 'Adj Close**', 'Volume']])
+```
+- `.fit_transform()`:  
+  - `fit()`: Calculates the mean of each selected column.  
+  - `transform()`: Replaces missing values with the calculated mean.  
+- `[['Open', 'High', 'Low', 'Close*', 'Adj Close**', 'Volume']]`: Selecting only the **numerical columns** for imputation.  
+- The transformed dataset is stored in `ar` as a **NumPy array**.  
+
+---
+
+## **9️⃣ Converting Transformed Data Back to DataFrame**  
+```python
+new_dataset = pd.DataFrame(ar, columns=dataset.select_dtypes(include="float64").columns)
+```
+- Converts the NumPy array `ar` back into a **Pandas DataFrame**.  
+- Assigns the **original column names** to ensure data consistency.  
+- The new DataFrame (`new_dataset`) now has **no missing values** in numerical columns.  
+
+---
+
+## **🔟 Verifying the Imputation Process**  
+```python
+new_dataset.isnull().sum()
+```
+- Checks if there are any remaining missing values after imputation.  
+- If all values are **0**, it means missing values were successfully replaced.  
+
+---
+
+## **🔹 Final Output - Cleaned Dataset**  
+```python
+new_dataset
+```
+- Displays the cleaned dataset with imputed values.  
+- Now, this dataset is ready for further **data preprocessing, feature engineering, or model training**.  
+
+---
+
+## **📌 Summary of What I Learned Today**  
+- **Identified missing values** in a dataset using `isnull().sum()`.  
+- **Selected numerical columns** to apply imputation.  
+- **Used `SimpleImputer`** to replace missing values with the mean.  
+- **Converted imputed data back** into a DataFrame for further use.  
+- **Ensured missing values were removed** successfully.  
+
+### **💡 Why is this Important?**
+- Missing data can cause errors in ML models.
+- Imputation helps retain valuable data instead of dropping rows/columns.
+- Mean imputation is a simple yet effective technique for numerical data.  
+
+---------------------------------------------------------------------------------------------------------
+
+ One hot Encoding 
+catagorical data -> numerical data
+
+
+=====================================================================================================================================
