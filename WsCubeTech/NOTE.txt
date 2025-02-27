@@ -609,8 +609,134 @@ new_dataset
 
 ---------------------------------------------------------------------------------------------------------
 
- One hot Encoding 
-catagorical data -> numerical data
+📌 ML Notes - One Hot Encoding (OHE) 
+
+## **Introduction**  
+Today, I learned how to convert categorical data into numerical data using **One Hot Encoding (OHE)**. This is useful for ML models since they work better with numerical values.  
+
+---
+
+## **1️⃣ Understanding One Hot Encoding (OHE)**  
+- **Categorical Data** (e.g., "Male"/"Female") needs to be converted into numerical form for ML models.  
+- **One Hot Encoding** converts categories into separate columns with **binary values (0 or 1)**.  
+
+### **Example:**
+| Gender  | Gender_Male | Gender_Female |
+|---------|------------|--------------|
+| Male    | 1          | 0            |
+| Female  | 0          | 1            |
+
+There are **2 ways** to perform **One Hot Encoding** in Python:  
+1. `pd.get_dummies()` (Pandas method)  
+2. `OneHotEncoder` (from `sklearn.preprocessing`)  
+
+---
+
+## **2️⃣ Importing Required Libraries**  
+```python
+import pandas as pd
+```
+- `pandas`: Used to handle and manipulate datasets.  
+
+---
+
+## **3️⃣ Loading the Dataset**  
+```python
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\gender_cat_data.xlsx")
+dataset.head(10)
+```
+- `pd.read_excel()`: Reads an Excel file into a Pandas DataFrame.  
+- `.head(10)`: Displays the first 10 rows of the dataset.  
+
+---
+
+## **4️⃣ Selecting Categorical Columns for Encoding**  
+```python
+en_data = dataset[["Gender", "Married"]]
+en_data
+```
+- Extracts the **"Gender"** and **"Married"** columns for encoding.  
+
+---
+
+## **5️⃣ One Hot Encoding Using `pd.get_dummies()`**  
+```python
+pd.get_dummies(en_data)
+```
+- Converts categorical columns into multiple binary columns.  
+- Example Output:
+  | Gender_Male | Gender_Female | Married_Yes | Married_No |
+  |------------|--------------|------------|------------|
+  | 1          | 0            | 0          | 1          |
+  | 0          | 1            | 1          | 0          |
+
+```python
+pd.get_dummies(en_data).info()
+```
+- `.info()`: Checks the data types.  
+- The new columns are created as **Boolean values (True/False)**, which need to be converted to **numerical (0/1)**.
+
+---
+
+## **6️⃣ One Hot Encoding Using `OneHotEncoder` (sklearn)**  
+```python
+from sklearn.preprocessing import OneHotEncoder
+```
+- `OneHotEncoder` is imported from `sklearn.preprocessing`.  
+
+### **Fitting and Transforming Data**  
+```python
+ohe = OneHotEncoder()
+ohe.fit_transform(en_data)
+```
+- `.fit_transform(en_data)`:  
+  - **fit()**: Learns the unique values in the categorical columns.  
+  - **transform()**: Converts them into **sparse matrix format** (saves memory).  
+
+```python
+# Converting Sparse Matrix to NumPy Array
+ar = ohe.fit_transform(en_data).toarray()
+```
+- **Converts the sparse matrix** into a **NumPy array** for easier use.  
+
+```python
+pd.DataFrame(ar, columns=["Gender_Female", "Gender_Male", "Married_No", "Married_Yes"])
+```
+- Converts the array into a **Pandas DataFrame** with proper column names.  
+
+---
+
+## **7️⃣ Dropping Unnecessary Columns (`drop='first'`)**  
+```python
+ohe = OneHotEncoder(drop='first')
+ohe.fit_transform(en_data)
+ar = ohe.fit_transform(en_data).toarray()
+pd.DataFrame(ar, columns=["Gender_Male", "Married_Yes"])
+```
+- `drop='first'`: Removes the first column of each category to **avoid redundancy**.  
+- **Example Output:**
+  | Gender_Male | Married_Yes |
+  |------------|------------|
+  | 1          | 0          |
+  | 0          | 1          |
+
+---
+
+## **📌 Summary of What I Learned Today**  
+- **One Hot Encoding** is used to convert categorical data into numerical form.  
+- **Two ways to apply OHE**: `pd.get_dummies()` and `OneHotEncoder`.  
+- **Sparse Matrix vs. Dense Format**:  
+  - `OneHotEncoder` returns a **sparse matrix** (efficient for memory).  
+  - It must be **converted to an array** and then to a DataFrame for easy handling.  
+- **Dropping the first category (`drop='first'`)** reduces unnecessary columns.  
+
+### **💡 Why is this Important?**  
+- ML models **cannot process categorical data** directly.  
+- One Hot Encoding **ensures numerical representation** without introducing bias.  
+- Reducing redundant columns **prevents multicollinearity** in models.  
+
+------------------------------------------------------------------------------------------------
+
 
 
 =====================================================================================================================================

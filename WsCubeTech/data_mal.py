@@ -91,3 +91,34 @@
 # df.to_excel("C:/Users/junai/Desktop/coding/ML/catg_data.xlsx", index=False)
 
 # print(f"Randomly removed values from {num_to_remove} cells in column {column_name}!")
+
+
+## gender catgorial data generation
+# import pandas as pd
+# import random
+# import string
+
+# def random_name():
+#     length = random.randint(5, 10)  # Name length between 5 to 10 characters
+#     return ''.join(random.choices("ABCDX", k=length))  # Random combination of 'A', 'B', 'C', 'D', 'X'
+
+# def random_gender():
+#     return random.choice(["Male", "Female"])  # Randomly select Male or Female
+
+# def random_married():
+#     return random.choice(["Yes", "No"])  # Randomly select Yes or No
+
+# # Generate 1000 records
+# data = {
+#     "Name": [random_name() for _ in range(1000)],
+#     "Gender": [random_gender() for _ in range(1000)],
+#     "Married": [random_married() for _ in range(1000)]
+# }
+
+# df = pd.DataFrame(data)
+
+# # Save to Excel file
+# df.to_excel("gender_cat_data.xlsx", index=False)
+
+# print("Excel file 'gender_cat_data.xlsx' generated successfully!")
+
