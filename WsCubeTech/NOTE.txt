@@ -860,7 +860,105 @@ dataset.head(200)
 
 #Day 4   1:58:00
 
-Ordinal Encoding
+📌 Ordinal Encoding
+
+Introduction
+Today, I learned about Ordinal Encoding, a technique used to convert categorical data into an ordered numerical format, which is useful for machine learning models that require numerical input and where the order of categories matters (e.g., sizes like small < medium < large). Below is a step-by-step breakdown of what I did.
+
+1️⃣ Importing Required Libraries
+python
+Copy
+Edit
+import pandas as pd
+from sklearn.preprocessing import OrdinalEncoder
+pandas: For data manipulation and DataFrame operations.
+
+OrdinalEncoder: From sklearn.preprocessing, used to assign ordered numerical values to categorical data.
+
+2️⃣ Creating a Demo Dataset
+python
+Copy
+Edit
+df = pd.DataFrame({"Size":["s","m","l","xl","s","m","l","s","s","l","xl","m"]})
+df.head(3)
+Created a simple dataset with a "Size" column containing ordered categories like "s", "m", "l", and "xl".
+
+3️⃣ Defining Category Order for Encoding
+python
+Copy
+Edit
+ord_data = [["s","m","l","xl"]]
+Defined the explicit order of the categories, which is essential for ordinal encoding.
+
+4️⃣ Applying Ordinal Encoding with sklearn
+python
+Copy
+Edit
+oe = OrdinalEncoder(categories=ord_data)
+df["Size_en"] = oe.fit_transform(df[["Size"]])
+OrdinalEncoder initialized with category order.
+
+fit_transform() applied on the "Size" column to create a new column "Size_en" with ordered numeric values.
+
+5️⃣ Alternative Encoding Using map()
+python
+Copy
+Edit
+ord_data2 = {"s":0,"m":1,"l":2,"xl":3}
+df["Size_en_map"] = df["Size"].map(ord_data2)
+Used Python’s map() to manually assign values to categories.
+
+Created another encoded column "Size_en_map" as an alternative to OrdinalEncoder.
+
+6️⃣ Loading a Real Dataset for Practice
+python
+Copy
+Edit
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\gender_cat_data.xlsx")
+dataset.head(10)
+Loaded a real-world Excel file containing categorical data, including a "Location" column.
+
+7️⃣ Exploring Unique Categorical Values
+python
+Copy
+Edit
+dataset["Location"].unique()
+Displayed all unique location values before encoding to understand the data and prepare for ordering.
+
+8️⃣ Defining Location Order for Encoding
+python
+Copy
+Edit
+en_data_ord = [['UK', 'Canada', 'Germany', 'USA', 'Japan', 'China', 'India', 'Brazil', 'Australia', 'France']]
+Specified the desired order for "Location" categories.
+
+9️⃣ Applying Ordinal Encoding on "Location"
+python
+Copy
+Edit
+oen = OrdinalEncoder(categories=en_data_ord)
+dataset["Location"] = oen.fit_transform(dataset[["Location"]])
+Encoded the "Location" column using the predefined order.
+
+Replaced the original column with the encoded values.
+
+🔟 Verifying Results
+python
+Copy
+Edit
+dataset.head(10)
+Displayed the first 10 rows of the dataset to confirm that encoding was successful.
+
+
+
+
+=====================================================================================================================================
+#Day 5   2:12:00
+
+Otlier in python
+
+
+
 
 =====================================================================================================================================
 
