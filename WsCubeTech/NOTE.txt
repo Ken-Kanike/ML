@@ -957,6 +957,149 @@ Displayed the first 10 rows of the dataset to confirm that encoding was successf
 
 Otlier in python
 
+Here's a clean and structured version of the **notes for your learning on Outliers** today, written like a notebook summary:
+
+---
+
+# 📊 Outlier Detection & Removal - Summary Notes
+
+## 🧠 What is an Outlier?
+
+An **outlier** is a data point that lies far outside the expected range in a dataset.
+It can:
+
+* Distort statistical measures like **mean**.
+* Introduce **noise** in machine learning models.
+* Lead to **inaccurate predictions**.
+
+---
+
+## 🎯 Example: Impact on Mean
+
+* **Without Outlier**:
+
+```python
+data = {5, 5, 6, 4, 6, 4, 6, 5 , 8 , 5, 8, 9, 5, 4}
+mean = sum(data)/len(data)
+```
+
+* **With Outlier (100)**:
+
+```python
+data = {5, 5, 6, 4, 6, 4, 6, 5 , 100 , 5, 8, 9, 5, 4}
+mean = sum(data)/len(data)  # Result significantly skewed
+```
+
+---
+
+## 🛠️ How to Handle Outliers
+
+1. **Outlier Detection**
+2. **Outlier Removal**
+
+---
+
+## 📦 Dataset Overview
+
+Used Yahoo stock data: `yahoo_data.xlsx`
+
+### Tools:
+
+* `pandas`, `seaborn`, `matplotlib`
+
+```python
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+dataset = pd.read_excel("yahoo_data.xlsx")
+```
+
+---
+
+## 📌 Outlier Detection Techniques
+
+### 1. **Box Plot**
+
+```python
+sns.boxplot(x="Volume", data=dataset)
+plt.show()
+```
+
+* Shows outliers clearly beyond whiskers.
+
+### 2. **Distribution Plot**
+
+```python
+sns.distplot(dataset["Adj Close**"])
+plt.show()
+```
+
+* Long tail on the curve indicates possible outliers.
+
+---
+
+## 🔍 Outlier Removal Techniques
+
+### ✅ 1. IQR Method (Interquartile Range)
+
+```python
+Q1 = dataset["Volume"].quantile(0.25)
+Q3 = dataset["Volume"].quantile(0.75)
+IQR = Q3 - Q1
+
+min_range = Q1 - (1.5 * IQR)
+max_range = Q3 + (1.5 * IQR)
+
+new_dataset = dataset[(dataset["Volume"] >= min_range) & (dataset["Volume"] <= max_range)]
+```
+
+**Result**: 55 outliers removed from `Volume`.
+
+---
+
+### ✅ 2. Z-Score Method
+
+#### Method 1: Manual Z-score Range
+
+```python
+mean = dataset["Adj Close**"].mean()
+std = dataset["Adj Close**"].std()
+
+min_range = mean - (3 * std)
+max_range = mean + (3 * std)
+
+new_dataset2 = dataset[dataset["Adj Close**"] <= max_range]
+```
+
+**Result**: 2 outliers removed from `Adj Close**`.
+
+#### Method 2: Using Z-score Formula
+
+```python
+dataset["z_score"] = (dataset["Adj Close**"] - dataset["Adj Close**"].mean()) / dataset["Adj Close**"].std()
+filtered = dataset[dataset["z_score"] < 3]
+```
+
+---
+
+## ✅ Observations
+
+* Outliers were found in `Volume` and `Adj Close**`.
+* IQR and Z-Score both effectively cleaned the data.
+* Box plots and distribution plots are **great visual tools** for outlier detection.
+
+---
+
+Let me know if you want this saved as a `.ipynb` notebook or `.md` file for your project folders!
+
+
+
+
+=====================================================================================================================================
+#Day 6   2:56:00
+
+standardization in python ( Feature Scaling)
 
 
 
