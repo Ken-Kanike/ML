@@ -1101,6 +1101,117 @@ Let me know if you want this saved as a `.ipynb` notebook or `.md` file for your
 
 Feature Scaling
 
+## 💡 What is Feature Scaling?
+
+Feature Scaling is the technique of **bringing all features to a similar scale**, especially when there are vast differences in magnitude.
+
+### 🔍 Why It’s Important:
+
+* Prevents **features with large values** from dominating others during model training.
+* Ensures **fair treatment** of each feature.
+* Maintains **original nature** of the data.
+* Does **not remove outliers**, but reduces their **impact** by minimizing magnitude.
+
+---
+
+## 🧰 Types of Feature Scaling
+
+### 1. **Standardization (Z-score Normalization)**
+
+Transforms the data to have a **mean of 0** and **standard deviation of 1**.
+
+#### 📌 Formula:
+
+$$
+X_{\text{new}} = \frac{X_i - \text{mean}(X)}{\text{std}(X)}
+$$
+
+* Makes data **centered** around 0
+* Suitable for algorithms assuming normally distributed data (e.g. Logistic Regression, SVM)
+
+---
+
+### 📈 Example – Standardization of `Adj Close**`
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+ss = StandardScaler()
+ss.fit(dataset[["Adj Close**"]])
+dataset["Adj Close**_ss"] = ss.transform(dataset[["Adj Close**"]])
+```
+
+#### 🔍 Before vs After:
+
+* Before: Skewed with large range
+* After: Compressed, but distribution shape remains similar
+
+```python
+plt.subplot(1,2,1)
+sns.distplot(dataset["Adj Close**"])
+plt.title("Before")
+
+plt.subplot(1,2,2)
+sns.distplot(dataset["Adj Close**_ss"])
+plt.title("After")
+plt.show()
+```
+
+---
+
+### 2. **Normalization (Min-Max Scaling)**
+
+Rescales features to a **fixed range \[0, 1]**
+
+#### 📌 Formula:
+
+$$
+X_{\text{new}} = \frac{X_i - \min(X)}{\max(X) - \min(X)}
+$$
+
+* Maintains **original distribution**
+* Useful in models sensitive to feature magnitudes (e.g. KNN, Neural Networks)
+
+---
+
+### 📈 Example – Min-Max Scaling on `Volume`
+
+```python
+from sklearn.preprocessing import MinMaxScaler
+
+mms = MinMaxScaler()
+mms.fit(dataset[["Volume"]])
+dataset["Volume_mms"] = mms.transform(dataset[["Volume"]])
+```
+
+#### 🔍 Before vs After:
+
+* Before: Large values dominating
+* After: Rescaled to 0–1 range
+
+```python
+plt.subplot(1,2,1)
+sns.distplot(dataset["Volume"])
+plt.title("Before")
+
+plt.subplot(1,2,2)
+sns.distplot(dataset["Volume_mms"])
+plt.title("After")
+plt.show()
+```
+
+---
+
+## ✅ Key Takeaways
+
+| Feature            | Standardization                | Normalization               |
+| ------------------ | ------------------------------ | --------------------------- |
+| Range              | Mean = 0, Std = 1              | Fixed between \[0, 1]       |
+| Distribution       | May be negative or positive    | Always positive             |
+| Use Case           | ML models with distance metric | When features vary in scale |
+| Effect on Outliers | Reduces impact only            | Doesn't handle directly     |
+
+
 
 =====================================================================================================================================
 #Day 7   3:27:00
