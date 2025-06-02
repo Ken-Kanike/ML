@@ -1216,7 +1216,147 @@ plt.show()
 =====================================================================================================================================
 #Day 7   3:27:00
 
-Handling Duplicates
+
+## 🔁 1. Handling Duplicates
+
+When the **entire row is repeated**, it is considered **duplicate data**.
+
+### 👉 Example Dataset
+
+```python
+import pandas as pd
+
+data = { 
+    "name": ["a", "b", "c", "d", "a", "c"],
+    "eng": [8, 5, 7, 8, 8, 7],
+    "hindi": [2, 3, 4, 5, 2, 6]
+}
+
+df = pd.DataFrame(data)
+print(df)
+```
+
+### 🔍 Finding & Removing Duplicates
+
+```python
+# Check for duplicates (returns boolean)
+df["is_duplicate"] = df.duplicated()
+
+# Drop duplicate rows
+df.drop_duplicates(inplace=True)
+print(df)
+```
+
+### 📄 Real Dataset Example
+
+```python
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\yahoo_data.xlsx")
+print(dataset.head())
+print(dataset.shape)
+
+# Drop duplicate rows if any
+dataset = dataset.drop_duplicates()
+print(dataset.shape)
+```
+
+---
+
+## 🔁 2. Replacing Data & Changing Data Types
+
+Sometimes columns like `Age` are stored as strings with symbols (e.g., `'18+'`). You need to clean them for analysis.
+
+### 🧹 Cleaning Mixed Data in `Age` Column
+
+```python
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\mixed_data.xlsx")
+
+# Check column data types and unique values
+print(dataset["Age"].value_counts())
+print(dataset["Age"].dtypes)
+```
+
+### 🔧 Remove '+' and Convert to Integer
+
+```python
+# Ensure the column is string type
+dataset["Age"] = dataset["Age"].astype(str)
+
+# Remove '+' character
+dataset["Age"] = dataset["Age"].str.replace("+", "", regex=False)
+
+# Convert to integer
+dataset["Age"] = dataset["Age"].astype(int)
+
+# Final Check
+print(dataset["Age"].dtypes)
+print(dataset.head())
+```
+
+---
+
+## 🔁 3. Function Transformation
+
+To normalize **non-normal** distributed data, transformation functions like `log1p` or squaring can be used.
+
+### 📈 Step-by-Step Transformation
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.preprocessing import FunctionTransformer
+
+# Load data
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\yahoo_data.xlsx")
+
+# Check nulls
+print(dataset.isnull().sum())
+```
+
+### 📊 Visualize Distribution
+
+```python
+sns.histplot(dataset["Adj Close**"], kde=True)
+plt.title("Original Distribution")
+plt.show()
+```
+
+### 🧹 Remove Outliers using IQR
+
+```python
+q1 = dataset["Adj Close**"].quantile(0.25)
+q3 = dataset["Adj Close**"].quantile(0.75)
+IQR = q3 - q1
+
+min_r = q1 - (1.5 * IQR)
+max_r = q3 + (1.5 * IQR)
+
+dataset = dataset[(dataset["Adj Close**"] > min_r) & (dataset["Adj Close**"] <= max_r)]
+```
+
+### 🔁 Apply Function Transformation
+
+```python
+ft = FunctionTransformer(func=np.log1p)
+dataset["Adj Close**_tf_data"] = ft.fit_transform(dataset[["Adj Close**"]])
+```
+
+### 🔍 Before & After Plot
+
+```python
+plt.figure(figsize=(12, 5))
+
+plt.subplot(1, 2, 1)
+plt.title("Before Transformation")
+sns.histplot(dataset["Adj Close**"], kde=True)
+
+plt.subplot(1, 2, 2)
+plt.title("After log1p Transformation")
+sns.histplot(dataset["Adj Close**_tf_data"], kde=True)
+
+plt.tight_layout()
+plt.show()
+
 
 
 =====================================================================================================================================
