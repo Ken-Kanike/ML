@@ -1015,7 +1015,7 @@ import matplotlib.pyplot as plt
 dataset = pd.read_excel("yahoo_data.xlsx")
 ```
 
----
+-------------------------------------------------------------------------------------------------------------------------
 
 ## 📌 Outlier Detection Techniques
 
@@ -1037,7 +1037,7 @@ plt.show()
 
 * Long tail on the curve indicates possible outliers.
 
----
+----------------------------------------------------------------------------------------------------------------------
 
 ## 🔍 Outlier Removal Techniques
 
@@ -1056,7 +1056,7 @@ new_dataset = dataset[(dataset["Volume"] >= min_range) & (dataset["Volume"] <= m
 
 **Result**: 55 outliers removed from `Volume`.
 
----
+-------------------------------------------------------------------------------------------------------------------
 
 ### ✅ 2. Z-Score Method
 
@@ -1112,7 +1112,7 @@ Feature Scaling is the technique of **bringing all features to a similar scale**
 * Maintains **original nature** of the data.
 * Does **not remove outliers**, but reduces their **impact** by minimizing magnitude.
 
----
+----------------------------------------------------------------------------------------------------------
 
 ## 🧰 Types of Feature Scaling
 
@@ -1157,7 +1157,7 @@ plt.title("After")
 plt.show()
 ```
 
----
+-------------------------------------------------------------------------------------------------------------
 
 ### 2. **Normalization (Min-Max Scaling)**
 
@@ -1259,7 +1259,7 @@ dataset = dataset.drop_duplicates()
 print(dataset.shape)
 ```
 
----
+------------------------------------------------------------------------------------------------------------------------------
 
 ## 🔁 2. Replacing Data & Changing Data Types
 
@@ -1292,7 +1292,7 @@ print(dataset["Age"].dtypes)
 print(dataset.head())
 ```
 
----
+--------------------------------------------------------------------------------------------------------------
 
 ## 🔁 3. Function Transformation
 
@@ -1449,9 +1449,9 @@ print("Selected features:", fs.k_feature_names_)
 print("Cross-validation R2 score:", fs.k_score_)
 ```
 
----
+--------------------------------------------------------------------------------------------------
 
-# Data Training and Testing Split
+# Splitting Training Data and Testing Data
 
 * In **supervised learning**, data is split into training and testing sets.
 * In **unsupervised learning**, typically no splitting is done.
