@@ -1357,22 +1357,126 @@ sns.histplot(dataset["Adj Close**_tf_data"], kde=True)
 plt.tight_layout()
 plt.show()
 
-
-
 =====================================================================================================================================
-#Day 3:47:00
+#Day 8   4:5:00
 
-Function Transformation
+# Feature Selection
 
-=====================================================================================================================================
-#Day 8 4:5:00
+Feature selection is the process of choosing which columns (features) of the data should be used to build a machine learning model. Selecting the right features helps improve model performance and reduce complexity.
 
-Feature Selection 
+## Common Feature Selection Methods
 
-=====================================================================================================================================
-#Day 
+1. **Forward Elimination**
+2. **Backward Elimination**
 
-dataset train and test
+---
+
+## Forward Elimination
+
+* Start with no features.
+* Add features one-by-one based on which feature improves the model's accuracy the most.
+* Keep adding until adding new features does not improve accuracy.
+
+### Example Logic:
+
+| Step | Selected Features | Reasoning                                |
+| ---- | ----------------- | ---------------------------------------- |
+| 1    | col3              | col3 gives highest accuracy alone        |
+| 2    | col3, col1        | Adding col1 with col3 improves accuracy  |
+| 3    | col3, col1, col2  | Add col2 if combination improves further |
+| ...  | ...               | ...                                      |
+
+---
+
+## Backward Elimination
+
+* Start with all features.
+* Remove the least significant feature one-by-one.
+* Continue until removing more features decreases model performance.
+
+### Concept:
+
+```
+4  -> 3  -> 2 -> 1 -> (features removed step by step)
+```
+
+This is the reverse process of forward elimination.
+
+---
+
+# Feature Selection Using Code
+
+```python
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from mlxtend.feature_selection import SequentialFeatureSelector
+
+# Load dataset
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\yahoo_data.xlsx")
+
+# Separate features and target variable
+x = dataset.iloc[:, :-1]
+y = dataset.iloc[:, -1]  # assuming last column is target
+
+# Remove non-numeric columns (e.g. dates)
+if 'Date' in x.columns:
+    x = x.drop(columns=['Date'])
+
+# Alternatively, keep only numeric columns automatically
+x = x.select_dtypes(include=['number'])
+
+print(f"Features used for model: {x.columns.tolist()}")
+
+# Initialize Linear Regression model
+lr = LinearRegression()
+
+# Initialize Sequential Feature Selector for forward elimination
+fs = SequentialFeatureSelector(
+    lr,
+    k_features=min(6, x.shape[1]),  # select up to 6 features
+    forward=True,                  # True for forward elimination, False for backward
+    floating=False,
+    scoring='r2',                  # Use R^2 regression metric
+    cv=5,                         # 5-fold cross-validation
+    n_jobs=-1                     # Use all processors
+)
+
+# Fit feature selector on data
+fs.fit(x, y)
+
+# Print selected features and CV score
+print("Selected features:", fs.k_feature_names_)
+print("Cross-validation R2 score:", fs.k_score_)
+```
+
+---
+
+# Data Training and Testing Split
+
+* In **supervised learning**, data is split into training and testing sets.
+* In **unsupervised learning**, typically no splitting is done.
+
+## Example: Splitting Data
+
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\yahoo_data.xlsx")
+
+# Features and target
+input_data = dataset.iloc[:, :-1]
+output_data = dataset["Volume"]
+
+# Split into train (75%) and test (25%)
+x_train, x_test, y_train, y_test = train_test_split(input_data, output_data, test_size=0.25)
+
+# Check first few rows of train and test data
+print(x_train.head())
+print(x_test.head())
+print(y_train.head())
+print(y_test.head())
+
 
 =====================================================================================================================================
 #Day    4:31:00
