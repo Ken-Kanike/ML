@@ -71,7 +71,158 @@ These algorithms capture complex relationships that a straight line can't.
 =====================================================================================================================================
 #Day    4:36:00
 
-Simple Linear Regression
+## 📘 Simple Linear Regression
+
+### ✅ Definition:
+
+Simple Linear Regression is used when there is only **one independent variable (input feature)** to predict a **continuous dependent variable (output)**.
+
+* **Equation used**:
+
+  $$
+  y = mx + c
+  $$
+
+  where:
+
+  * `x` = independent variable
+  * `y` = dependent variable
+  * `m` = slope of the line
+  * `c` = intercept (bias)
+
+* **Slope Formula**:
+
+  $$
+  m = \frac{y2 - y1}{x2 - x1}
+  $$
+
+---
+
+## 🧪 Step-by-Step Implementation
+
+### 1. **Import Libraries**
+
+```python
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+```
+
+---
+
+### 2. **Load the Dataset**
+
+```python
+dataset = pd.read_csv("student_placements.csv")
+dataset.head()
+```
+
+---
+
+### 3. **Check for Null Values**
+
+```python
+dataset.isnull().sum()
+```
+
+---
+
+### 4. **Visualize Linearity**
+
+```python
+sns.scatterplot(x="CGPA", y="Package(LPA)", data=dataset)
+plt.show()
+```
+
+✅ **Observation**: The graph shows an upward trend → Indicates **positive linearity** between CGPA and Package.
+
+---
+
+### 5. **Define X and Y**
+
+```python
+x = dataset[["CGPA"]]  # Independent variable (2D)
+y = dataset["Package(LPA)"]  # Dependent variable (1D)
+```
+
+---
+
+### 6. **Split Data into Train & Test Sets**
+
+```python
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+```
+
+* Use different `random_state` values (e.g., 30–70) to explore best splits.
+
+---
+
+### 7. **Train the Model**
+
+```python
+lr = LinearRegression()
+lr.fit(x_train, y_train)
+```
+
+---
+
+### 8. **Model Accuracy**
+
+```python
+lr.score(x_test, y_test)  # R² Score, e.g., 0.89 = 89% accuracy
+```
+
+---
+
+### 9. **Make Predictions**
+
+```python
+lr.predict([[7.00]])  # Predict package for CGPA = 7.00
+```
+
+---
+
+### 10. **Get Coefficients**
+
+```python
+lr.coef_       # m (slope)
+lr.intercept_  # c (intercept)
+```
+
+Use these to understand the learned linear equation:
+
+```python
+y = m * x + c
+```
+
+Example:
+If `m = 2.79` and `c = -13.86`, then:
+
+```python
+y = 2.79 * 7 + (-13.86) ≈ 5.67 LPA
+```
+
+---
+
+### 11. **Visualize Prediction Line**
+
+```python
+y_pred = lr.predict(x)
+
+sns.scatterplot(x="CGPA", y="Package(LPA)", data=dataset)
+plt.plot(dataset["CGPA"], y_pred, color="red")
+plt.legend(["Prediction Line", "Original Data"])
+plt.show()
+```
+
+---
+
+✅ **Summary**:
+
+* Simple Linear Regression works well when the relation between X and Y is **linearly increasing or decreasing**.
+* It is **interpretable**, **easy to implement**, and forms the basis for more complex regressions.
 
 
 =====================================================================================================================================
