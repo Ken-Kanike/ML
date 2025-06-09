@@ -2,12 +2,82 @@
 =====================================================================================================================================
 #Day    4:31:00
 
-Supervised machine learning
-1) Regression learning
-2) Classification learning
+
+## 📘 Supervised Machine Learning
+
+Supervised learning is a type of machine learning where the model is trained on labeled data — the input data and the corresponding correct output.
+
+### Two Main Types:
+- **A) Regression Learning** – When the target variable is **continuous**.
+- **B) Classification Learning** – When the target variable is **categorical**.
+
+---
+
+## 🔷 A) Regression Analysis
+
+Used when the output variable is **continuous** (e.g., salary, price, temperature, etc.).
+
+### 🔹 1) Linear Regression Algorithms
+
+#### i) Simple Linear Regression
+- Involves a **single independent variable**.
+- Fits a straight line to the data:  
+  `y = mx + c`
+- Example: Predicting salary based on years of experience.
+
+#### ii) Multiple Linear Regression
+- Involves **multiple independent variables**.
+- General form:  
+  `y = b0 + b1*x1 + b2*x2 + ... + bn*xn`
+
+#### iii) Lasso Regression
+- **L1 regularization** technique.
+- Adds a penalty to the model to prevent overfitting by **shrinking coefficients**.
+- Can eliminate irrelevant features (feature selection).
+
+#### iv) Ridge Regression
+- **L2 regularization** technique.
+- Shrinks coefficients but does not eliminate them completely.
+- Helps with multicollinearity and improves generalization.
+
+---
+
+### 🔹 2) Non-Linear Regression Algorithms
+
+These algorithms capture complex relationships that a straight line can't.
+
+#### i) Polynomial Regression
+- Fits a **curve** to the data using polynomial terms like `x²`, `x³`, etc.
+- Useful when data shows a **non-linear trend**.
+
+#### ii) Decision Tree Regression
+- Splits the dataset into decision nodes and leaves to make predictions.
+- **Non-parametric** and easy to interpret.
+
+#### iii) Random Forest Regression
+- An ensemble of multiple decision trees.
+- Aggregates output from all trees (average for regression).
+- Reduces overfitting and increases accuracy.
+
+#### iv) Support Vector Machine (SVM)
+- Originally used for classification but can be adapted for regression (`SVR`).
+- Finds a **margin of tolerance** (epsilon) within which predictions are acceptable.
+
+#### v) k-Nearest Neighbour (k-NN)
+- Predicts the output based on the **average of k nearest data points**.
+- Non-parametric and simple, but sensitive to data scaling.
 
 
+=====================================================================================================================================
+#Day    4:36:00
 
+Simple Linear Regression
+
+
+=====================================================================================================================================
+#Day    5:13:00
+
+Multiple Linear Regression
 
 
 =====================================================================================================================================
