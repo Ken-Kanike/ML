@@ -228,7 +228,134 @@ plt.show()
 =====================================================================================================================================
 #Day    5:13:00
 
-Multiple Linear Regression
+## 📘 Multiple Linear Regression
+
+### ✅ **Definition**
+
+* **Multiple Linear Regression** is used when we need to predict **one dependent variable (output)** using **multiple independent variables (inputs)**.
+* It assumes a **linear relationship** between the inputs and the output.
+
+---
+
+### 🧮 **Equation**
+
+
+y = m_1x_1 + m_2x_2 + \dots + m_nx_n + c
+
+
+* $y$ → predicted output (e.g., Salary)
+* $x_1, x_2, ..., x_n$ → input features (e.g., Age, Experience)
+* $m_1, m_2, ..., m_n$ → weights/coefficients
+* $c$ → intercept
+
+---
+
+### 🧠 **Conceptual Steps**
+
+1. **Check if the relationship is linear**.
+
+   * Use **graphs and correlation**.
+2. If **not linear**, perform **feature selection or transformation**.
+3. **Split the dataset** into training and test sets.
+4. **Train the model** using the LinearRegression class.
+5. Evaluate model performance using `.score()` or prediction error metrics.
+
+---
+
+### 🧪 **Practical Steps with Code**
+
+#### 📥 Load Data
+
+```python
+import pandas as pd
+dataset = pd.read_csv("student_data.csv")
+dataset.head()
+```
+
+#### 📊 Check Data
+
+```python
+dataset.shape                # View size
+dataset.isnull().sum()       # Check missing values
+```
+
+#### 📈 Visualize Data
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.pairplot(data=dataset)  # Check linear patterns visually
+sns.heatmap(dataset.corr(), annot=True)  # Check correlation between features
+```
+
+#### 📂 Prepare Data
+
+```python
+x = dataset.iloc[:, :-1]     # Independent variables
+y = dataset["Salary"]        # Dependent variable
+```
+
+#### 🔀 Train-Test Split
+
+```python
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+```
+
+#### 🤖 Build & Train Model
+
+```python
+from sklearn.linear_model import LinearRegression
+lr = LinearRegression()
+lr.fit(x_train, y_train)
+```
+
+#### 📊 Model Evaluation
+
+```python
+lr.score(x_test, y_test)  # Accuracy score (e.g., 95%)
+```
+
+#### 📌 Model Parameters
+
+```python
+lr.coef_      # Coefficients for each input variable
+lr.intercept_ # Intercept value
+```
+
+#### 🧮 Manual Prediction Formula (for 2 inputs)
+
+Example:
+
+```python
+# y = m1 * Age + m2 * Experience + intercept
+y_pred = 15.82 * Age - 2985.49 * Experience + lr.intercept_
+```
+
+#### 🔍 Predict on Test Set
+
+```python
+lr.predict(x_test)
+```
+
+---
+
+### ✅ Key Points Summary
+
+* Use **pairplot** and **heatmap** to validate linearity.
+* Train model using `LinearRegression` after data preparation.
+* Extract `coefficients` and `intercept` to form the prediction equation.
+* Accuracy is evaluated using `.score(x_test, y_test)`.
+
+
+
+
+=====================================================================================================================================
+#Day    5:35:00
+
+Polynomial Regression
+ 
 
 
 =====================================================================================================================================

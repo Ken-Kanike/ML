@@ -143,3 +143,48 @@
 
 # print("Excel file 'gender_cat_data.xlsx' updated successfully with Location column!")
 
+
+
+
+
+
+
+
+# import pandas as pd
+# import numpy as np
+# import random
+
+# # Set seed for reproducibility
+# random.seed(42)
+# np.random.seed(42)
+
+# # Generate 100 students
+# num_students = 100
+
+# # Age: between 18 and 30
+# ages = np.random.randint(18, 31, num_students)
+
+# # Experience: between 0 and (Age - 18) years (since no one works before 18)
+# experiences = [random.randint(0, age - 18) for age in ages]
+
+# # Salary: Base salary + (experience * multiplier) + (random noise)
+# # Example: Base = 15,000, multiplier = 3,000
+# base_salary = 15000
+# salary = [
+#     base_salary + (exp * 3000) + np.random.randint(-2000, 2000)
+#     for exp in experiences
+# ]
+
+# # Create DataFrame
+# df = pd.DataFrame({
+#     'Age': ages,
+#     'Experience': experiences,
+#     'Salary': salary
+# })
+
+# # Save to CSV
+# df.to_csv('student_data.csv', index=False)
+
+# print("CSV file 'student_data.csv' created with 100 rows.")
+
+
