@@ -354,13 +354,348 @@ lr.predict(x_test)
 =====================================================================================================================================
 #Day    5:35:00
 
-Polynomial Regression
+
+# 📘 Polynomial Regression –  (Experience vs Salary)
+
+## 🧠 Concept:
+
+* Since “Level vs Salary” data wasn’t available, used “**Experience vs Salary**”.
+* Polynomial regression is a type of regression that models the relationship as a **non-linear curve**.
+
+### Polynomial Equation Format:
+
+```
+Y = b0 + b1*x + b2*x^2 + b3*x^3 + ... + bn*x^n
+```
+
+* Where `^n` is the **degree** of the polynomial.
+* Commonly forms **curves** or **arches** in the data.
+
+---
+
+## 🧪 Dataset:
+
+* Loaded CSV: `student_data.csv`
+* Columns: `Experience` (independent), `Salary` (dependent)
+
+### 🔍 Exploratory Data Analysis:
+
+```python
+plt.scatter(dataset["Experience"], dataset["Salary"])
+```
+
+* Linear-like data, but using it for polynomial demonstration
+* Correlation was **highly linear**, so it's an ideal candidate for testing polynomial fit
+
+---
+
+## ⚙️ Steps:
+
+### 1. **Data Preparation**
+
+```python
+x = dataset[["Experience"]]
+y = dataset["Salary"]
+```
+
+### 2. **Polynomial Transformation**
+
+```python
+from sklearn.preprocessing import PolynomialFeatures
+pf = PolynomialFeatures(degree=2)
+x = pf.fit_transform(x)
+```
+
+### 3. **Train-Test Split**
+
+```python
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+```
+
+### 4. **Model Training (LinearRegression for Poly Features)**
+
+```python
+from sklearn.linear_model import LinearRegression
+lr = LinearRegression()
+lr.fit(x_train, y_train)
+```
+
+### 5. **Model Evaluation**
+
+```python
+score = lr.score(x_test, y_test)  # R² score
+```
+
+### 6. **Prediction & Plot**
+
+```python
+prd = lr.predict(x)
+plt.scatter(dataset["Experience"], dataset["Salary"])
+plt.plot(dataset["Experience"], prd, c="red")
+```
+
+* Red line shows predicted curve.
+* Curve may not appear prominently if data is mostly linear.
+
+---
+
+## 🧮 Coefficients (Manual Prediction)
+
+```python
+lr.coef_
+lr.intercept_
+```
+
+### Predicted Formula (based on output):
+
+```
+Y = 2924.98 * x + 7.93 * x^2 + 15105.99
+```
+
+---
+
+## ✅ Summary:
+
+* Used polynomial features to model a non-linear relationship using linear regression.
+* Even if the data appears linear, polynomial fitting can help when you expect curvature.
+* Visualization helps check if the model is underfitting or capturing curve patterns.
+
+---
+
+Let me know if you'd like a `.md` or `.ipynb` version for saving, or notes for another ML topic!
+
  
 
 
 =====================================================================================================================================
 #Day    5:56:00
 
-Cost Function
+
+
+## 📊 **Cost Function – **
+
+### 🔎 What is a Cost Function?
+
+* A formula used to **evaluate model performance** by measuring prediction error.
+* The lower the cost, the better the model is at prediction.
+
+---
+
+## 🔢 **Types of Cost Functions**
+
+### 1️⃣ **Regression Cost Functions** (used for continuous outputs)
+
+---
+
+### 🔷 **MSE – Mean Squared Error**
+
+**Formula**:
+
+$$
+\text{MSE} = \frac{1}{n} \sum (y_i - \hat{y}_i)^2
+$$
+
+✅ **Advantages**:
+
+* Penalizes large errors heavily
+* Differentiable and widely used in optimization (like gradient descent)
+
+❌ **Disadvantages**:
+
+* Sensitive to outliers (squared terms exaggerate large differences)
+
+---
+
+### 🔷 **MAE – Mean Absolute Error**
+
+**Formula**:
+
+$$
+\text{MAE} = \frac{1}{n} \sum |y_i - \hat{y}_i|
+$$
+
+✅ **Advantages**:
+
+* Robust against outliers
+* Easy to interpret (error in original units)
+
+❌ **Disadvantages**:
+
+* Not differentiable at 0 (can complicate optimization)
+* May not penalize large errors as strongly as MSE
+
+---
+
+### 🔷 **RMSE – Root Mean Squared Error**
+
+**Formula**:
+
+$$
+\text{RMSE} = \sqrt{\text{MSE}}
+$$
+
+✅ **Advantages**:
+
+* Same unit as output
+* Penalizes large errors
+* Easier to interpret than MSE
+
+❌ **Disadvantages**:
+
+* Still sensitive to outliers
+
+---
+
+### 🔷 **R² Score – Coefficient of Determination**
+
+**Formula**:
+
+$$
+R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}
+$$
+
+✅ **Advantages**:
+
+* Shows how well the model explains the variance in output
+* Intuitive: 1 = perfect fit, 0 = no fit
+
+❌ **Disadvantages**:
+
+* Can be negative if the model is worse than just predicting the mean
+* Not reliable for non-linear models unless adjusted
+
+---
+
+### 2️⃣ **Classification Cost Functions** (used for categories)
+
+---
+
+### 🔷 **Binary Cross-Entropy (Log Loss)**
+
+**Formula**:
+
+$$
+- \frac{1}{n} \sum \left[ y \cdot \log(\hat{y}) + (1 - y) \cdot \log(1 - \hat{y}) \right]
+$$
+
+✅ **Advantages**:
+
+* Works well for binary classification
+* Penalizes confident wrong predictions
+
+❌ **Disadvantages**:
+
+* Not intuitive in interpretation
+* Requires careful numerical handling (log(0) issues)
+
+---
+
+### 🔷 **Categorical Cross-Entropy**
+
+Used for multi-class classification.
+
+✅ **Advantages**:
+
+* Works well with softmax output for classification
+* Penalizes wrong predictions proportionally to their probability
+
+❌ **Disadvantages**:
+
+* Same as binary — requires stable computation
+* Becomes complex with many classes
+
+---
+
+
+=====================================================================================================================================
+#Day    6:34:00
+
+
+## 🛡️ **Regularization Techniques**
+
+### 🎯 Goal:
+
+* Reduce **overfitting**
+* Improve **generalization**
+* Eliminate or reduce irrelevant features
+
+---
+
+### 🔷 What is Overfitting?
+
+When the model learns the noise of training data, causing poor performance on new (test) data. Symptoms:
+
+* High training accuracy
+* Low test accuracy
+
+---
+
+### 1️⃣ **Lasso Regularization (L1)**
+
+**Loss Function**:
+
+$$
+\text{Loss} = \text{MSE} + \lambda \sum |w|
+$$
+
+✅ **Advantages**:
+
+* Performs **feature selection** by shrinking some weights to 0
+* Good for sparse datasets with many features
+
+❌ **Disadvantages**:
+
+* Can be unstable when features are correlated
+* May drop useful features in some cases
+
+---
+
+### 2️⃣ **Ridge Regularization (L2)**
+
+**Loss Function**:
+
+$$
+\text{Loss} = \text{MSE} + \lambda \sum w^2
+$$
+
+✅ **Advantages**:
+
+* Reduces overfitting
+* Works well with multicollinearity
+* Keeps all features, just reduces their impact
+
+❌ **Disadvantages**:
+
+* Doesn’t perform feature elimination
+* Less interpretable if many small weights remain
+
+---
+
+### 3️⃣ **ElasticNet (L1 + L2 Combo)**
+
+**Loss Function**:
+
+$$
+\text{Loss} = \text{MSE} + \lambda_1 \sum |w| + \lambda_2 \sum w^2
+$$
+
+✅ **Advantages**:
+
+* Combines benefits of Lasso and Ridge
+* Balances feature selection with model stability
+
+❌ **Disadvantages**:
+
+* Requires tuning of two hyperparameters (`λ1`, `λ2`)
+
+---
+
+
+
+=====================================================================================================================================
+#Day    6:45:00
+
+Regularization Techniques Practical
 
 =====================================================================================================================================
