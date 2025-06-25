@@ -222,80 +222,128 @@
 
 
 
+# import pandas as pd
+# import numpy as np
+# import random
+
+# # Set random seed for reproducibility
+# np.random.seed(42)
+
+# # Number of records
+# num_records = 500
+
+# # Generate base fields
+# bedrooms = np.random.randint(1, 6, size=num_records)
+# bathrooms = np.round(np.random.uniform(1, 4, size=num_records), 1)
+# sqft_living = np.random.randint(500, 4000, size=num_records)
+# sqft_lot = np.random.randint(1000, 15000, size=num_records)
+# floors = np.round(np.random.choice([1, 1.5, 2, 2.5, 3], size=num_records), 1)
+# waterfront = np.random.choice([0, 1], size=num_records, p=[0.95, 0.05])
+# view = np.random.randint(0, 5, size=num_records)
+# condition = np.random.randint(1, 6, size=num_records)
+# yr_built = np.random.randint(1900, 2024, size=num_records)
+
+# # Generate sqft_above and sqft_basement from sqft_living
+# sqft_above = []
+# sqft_basement = []
+# for sqft in sqft_living:
+#     above = int(sqft * np.random.uniform(0.6, 0.95))
+#     sqft_above.append(above)
+#     sqft_basement.append(sqft - above)
+
+# # Generate yr_renovated with valid year logic
+# yr_renovated = []
+# for year in yr_built:
+#     if np.random.rand() < 0.2 and (year + 5) <= 2024:
+#         yr_renovated.append(random.randint(year + 5, 2024))
+#     else:
+#         yr_renovated.append(0)
+
+# # Generate synthetic price based on weighted features
+# prices = []
+# for i in range(num_records):
+#     base_price = (
+#         sqft_living[i] * 300 +
+#         sqft_lot[i] * 2 +
+#         bathrooms[i] * 10000 +
+#         bedrooms[i] * 5000 +
+#         waterfront[i] * 50000 +
+#         view[i] * 10000 +
+#         condition[i] * 5000
+#     )
+#     age = 2024 - yr_built[i]
+#     price = base_price * (1 - age * 0.002)  # Depreciation over age
+#     prices.append(int(price))
+
+# # Create DataFrame
+# df = pd.DataFrame({
+#     "bedrooms": bedrooms,
+#     "bathrooms": bathrooms,
+#     "sqft_living": sqft_living,
+#     "sqft_lot": sqft_lot,
+#     "floors": floors,
+#     "waterfront": waterfront,
+#     "view": view,
+#     "condition": condition,
+#     "sqft_above": sqft_above,
+#     "sqft_basement": sqft_basement,
+#     "yr_built": yr_built,
+#     "yr_renovated": yr_renovated,
+#     "price": prices
+# })
+
+# # Save to CSV
+# df.to_csv("house_prices_data.csv", index=False)
+# print("✅ CSV file 'house_prices_data.csv' generated with 500 records.")
+
+
+
+
 import pandas as pd
 import numpy as np
 import random
 
-# Set random seed for reproducibility
 np.random.seed(42)
 
-# Number of records
-num_records = 500
+n = 500
 
-# Generate base fields
-bedrooms = np.random.randint(1, 6, size=num_records)
-bathrooms = np.round(np.random.uniform(1, 4, size=num_records), 1)
-sqft_living = np.random.randint(500, 4000, size=num_records)
-sqft_lot = np.random.randint(1000, 15000, size=num_records)
-floors = np.round(np.random.choice([1, 1.5, 2, 2.5, 3], size=num_records), 1)
-waterfront = np.random.choice([0, 1], size=num_records, p=[0.95, 0.05])
-view = np.random.randint(0, 5, size=num_records)
-condition = np.random.randint(1, 6, size=num_records)
-yr_built = np.random.randint(1900, 2024, size=num_records)
+# Age between 18 and 60
+ages = np.random.randint(18, 61, size=n)
 
-# Generate sqft_above and sqft_basement from sqft_living
-sqft_above = []
-sqft_basement = []
-for sqft in sqft_living:
-    above = int(sqft * np.random.uniform(0.6, 0.95))
-    sqft_above.append(above)
-    sqft_basement.append(sqft - above)
-
-# Generate yr_renovated with valid year logic
-yr_renovated = []
-for year in yr_built:
-    if np.random.rand() < 0.2 and (year + 5) <= 2024:
-        yr_renovated.append(random.randint(year + 5, 2024))
+# Salary based on age (more realistic relationship)
+salaries = []
+for age in ages:
+    if age < 25:
+        salaries.append(np.random.randint(15000, 40000))
+    elif 25 <= age <= 40:
+        salaries.append(np.random.randint(35000, 100000))
     else:
-        yr_renovated.append(0)
+        salaries.append(np.random.randint(25000, 80000))
 
-# Generate synthetic price based on weighted features
-prices = []
-for i in range(num_records):
-    base_price = (
-        sqft_living[i] * 300 +
-        sqft_lot[i] * 2 +
-        bathrooms[i] * 10000 +
-        bedrooms[i] * 5000 +
-        waterfront[i] * 50000 +
-        view[i] * 10000 +
-        condition[i] * 5000
-    )
-    age = 2024 - yr_built[i]
-    price = base_price * (1 - age * 0.002)  # Depreciation over age
-    prices.append(int(price))
+# Target variable: Purchased
+purchased = []
+for age, salary in zip(ages, salaries):
+    # Good conditions to purchase
+    if 25 <= age <= 40 and salary >= 50000:
+        prob = 0.85
+    elif salary > 80000:
+        prob = 0.75
+    elif age < 23 or salary < 25000:
+        prob = 0.1
+    else:
+        prob = 0.3
+    purchased.append(1 if random.random() < prob else 0)
+
+# Check balance of 0s and 1s
+print(f"Class 1 Count: {sum(purchased)} / {n}")
 
 # Create DataFrame
 df = pd.DataFrame({
-    "bedrooms": bedrooms,
-    "bathrooms": bathrooms,
-    "sqft_living": sqft_living,
-    "sqft_lot": sqft_lot,
-    "floors": floors,
-    "waterfront": waterfront,
-    "view": view,
-    "condition": condition,
-    "sqft_above": sqft_above,
-    "sqft_basement": sqft_basement,
-    "yr_built": yr_built,
-    "yr_renovated": yr_renovated,
-    "price": prices
+    'Age': ages,
+    'EstimatedSalary': salaries,
+    'Purchased': purchased
 })
 
 # Save to CSV
-df.to_csv("house_prices_data.csv", index=False)
-print("✅ CSV file 'house_prices_data.csv' generated with 500 records.")
-
-
-
-
+df.to_csv("accurate_subscription_data.csv", index=False)
+print("✅ High-quality dataset saved as 'accurate_subscription_data.csv'")

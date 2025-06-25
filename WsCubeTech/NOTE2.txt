@@ -944,7 +944,445 @@ This shows how:
 =====================================================================================================================================
 #Day    7:07:00
 
-Classification
+# Classification
+
+Classification is a **supervised learning task** where the goal is to **predict the class label** of new instances based on past observations.
+
+- Used when the **target/output** variable is **discrete (categorical)**.
+- Each record belongs to a class/group.
+- The model learns from **labeled training data** to classify new examples.
+
+### 📌 Real-Life Examples:
+- Classifying emails as **spam or not spam**
+- Classifying animals into **mammals, reptiles, birds**, etc.
+- Identifying whether a **transaction is fraudulent**
+- Predicting whether a **customer will churn**
+
+---
+
+
+### A) Classification Analysis
+When the **target variable is categorical** (discrete in nature), and we want to assign data into predefined labels or groups, we perform **classification analysis**.
+
+Classification can be broadly categorized into:
+
+---
+
+#### i) Binary Class Classification
+- When the output variable has **two possible outcomes** such as:
+  - Yes / No
+  - Spam / Not Spam
+  - Positive / Negative
+- Common in:
+  - Medical diagnosis (disease or no disease)
+  - Loan approvals (approved / rejected)
+
+#### ii) Multi-Class Classification
+- The output variable has **more than two categories**:
+  - Example: Classifying fruits as Apple, Mango, Banana
+  - Handwritten digit recognition (0 to 9)
+
+---
+
+### 1) Linear Classification Algorithms
+
+These assume **linear decision boundaries**, i.e., they separate classes using a straight line (in 2D), or a hyperplane (in higher dimensions).
+
+#### i) Logistic Regression
+- Despite the name, it’s used for **classification**, not regression.
+- Uses the **sigmoid function** to map input values to probabilities.
+- Ideal for binary classification.
+- Output: probability between 0 and 1.
+
+#### ii) Support Vector Machine (Linear Kernel)
+- Finds the **optimal separating hyperplane** that maximizes margin between classes.
+- Works well with linearly separable data.
+- Can be extended to non-linear problems with **kernel trick**.
+
+---
+
+### 2) Non-Linear Classification Algorithms
+
+These models **do not assume linear decision boundaries** and can handle complex data patterns.
+
+#### i) k-Nearest Neighbour (KNN)
+- A **lazy learning algorithm**.
+- Classifies a data point based on the **majority vote** of its k nearest neighbors.
+- Distance metric (like Euclidean) is used to find neighbors.
+
+#### ii) SVM (with Non-linear Kernel)
+- When data is not linearly separable, **non-linear kernels** (like RBF or polynomial) are used.
+- Transforms data into higher dimensions to find a hyperplane.
+
+#### iii) Naive Bayes
+- Based on **Bayes’ Theorem** and assumes **feature independence**.
+- Works well with text classification problems (e.g., spam filtering).
+- Fast and efficient, even with large datasets.
+
+#### iv) Decision Tree Classification
+- A tree-like structure where nodes represent features, branches represent decisions, and leaves represent outcomes.
+- Handles both numerical and categorical data.
+- Prone to overfitting if not pruned.
+
+#### v) Random Forest Classification
+- An **ensemble method** built using multiple decision trees.
+- Reduces overfitting by averaging predictions.
+- Robust and performs well in many real-world applications.
+
+> Note: You've written "Decision tree Regression" and "Random Forest Regression" — if used for classification, these should be *Decision Tree Classifier* and *Random Forest Classifier*.
+
+---
+
+### 🔍 Evaluating Classification Models
+
+#### i) Log Loss (Cross-Entropy Loss)
+- Measures the performance of a classification model whose output is a **probability value between 0 and 1**.
+- Lower the value, better the model.
+- Formula:
+  \[
+  \text{Log Loss} = -\frac{1}{N} \sum (y \cdot \log(\hat{y}) + (1 - y) \cdot \log(1 - \hat{y}))
+  \]
+
+#### ii) Confusion Matrix
+- A 2x2 table used for evaluating binary classification:
+  - **TP**: True Positives
+  - **FP**: False Positives
+  - **FN**: False Negatives
+  - **TN**: True Negatives
+
+- Useful metrics derived from it:
+  - Accuracy = (TP + TN) / Total
+  - Precision = TP / (TP + FP)
+  - Recall = TP / (TP + FN)
+  - F1 Score = 2 * (Precision * Recall) / (Precision + Recall)
+
+#### iii) AUC - ROC Curve
+- **ROC** = Receiver Operating Characteristic
+- Plots **True Positive Rate vs False Positive Rate** at various thresholds.
+- **AUC** = Area Under Curve; higher is better.
+  - AUC = 1 → perfect classifier
+  - AUC = 0.5 → random guess
+
+---
+
+### ✅ Summary
+
+| Model Type | Description | Example Algorithms |
+|------------|-------------|---------------------|
+| Linear | Assumes linear boundary | Logistic Regression, Linear SVM |
+| Non-Linear | Can model complex boundaries | k-NN, SVM (RBF), Decision Trees, Random Forest |
+| Evaluation | Assess model performance | Confusion Matrix, Log Loss, AUC-ROC |
+
+
+
+
+=====================================================================================================================================
+#Day    7:07:00
+
+# Logistic Regression
+
+# 📘 Logistic Regression
+
+## 🔍 What is Logistic Regression?
+
+Logistic regression is a **statistical method** used for **binary classification problems**, where the target/output variable is **categorical** and typically has **two possible values**, such as:
+- Yes / No
+- Success / Failure
+- 1 / 0
+
+It is used when the data is **linearly separable**, meaning there exists a linear boundary between the two classes.
+
+---
+
+## 🧠 Key Concepts
+
+- Logistic regression models the relationship between **independent variables** and the **log-odds of the dependent variable**.
+- It uses the **sigmoid function** to convert the linear output into a **probability** between **0 and 1**.
+- The model predicts the **probability of belonging to a particular class**.
+
+---
+
+## 🧮 Sigmoid Function
+
+The **sigmoid function** is defined as:
+
+\[
+\text{sigmoid}(z) = \frac{1}{1 + e^{-z}}
+\]
+
+Where:
+- `z` is the linear combination of input features (`z = w₀ + w₁x₁ + w₂x₂ + ...`)
+- Output range: **(0, 1)**
+- Threshold: **0.5** – used to classify into class 0 or 1
+
+---
+
+### 📉 Sigmoid Curve (S-shaped)
+                      ...............
+
+                    /          
+
+                   /
+
+       .......... /.......... 0.5 Threshold Value
+
+                 /
+
+                /
+
+               /
+
+     .........
+
+
+- The curve flattens near 0 and 1
+- Allows mapping of any real value to a probability
+
+---
+
+## 📚 Beyond Binary: Multi-Class Logistic Regression
+
+Logistic Regression can be extended for **multi-class problems** using the **Softmax Function**.
+
+### 🔢 Softmax Function:
+
+\[
+\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{k} e^{z_j}}
+\]
+
+Where:
+- \( z_i \) is the score (logit) for class \( i \)
+- \( k \) is the number of classes
+- Converts logits into **probabilities that sum to 1**
+
+---
+
+## 🧩 Types of Logistic Regression
+
+| Type                         | Description                                                   |
+|------------------------------|---------------------------------------------------------------|
+| **Binary Logistic Regression**     | Two outcome classes (e.g., Yes/No)                          |
+| **Multinomial Logistic Regression** | More than two unordered outcome classes                    |
+| **Ordinal Logistic Regression**    | More than two **ordered** outcome classes (e.g., Low/Medium/High) |
+
+---
+
+## 💼 Applications of Logistic Regression
+
+1. **Medical Diagnosis**  
+   - Predicting presence or absence of disease based on symptoms, tests
+
+2. **Marketing Analytics**  
+   - Predicting whether a customer will purchase a product
+
+3. **Credit Scoring**  
+   - Estimating loan default risk from financial history
+
+4. **Spam Detection**  
+   - Classifying emails as spam or not spam
+
+5. **Customer Churn**  
+   - Predicting whether a customer will leave a service
+
+---
+
+## ✅ Summary
+
+- Logistic Regression is a powerful and interpretable **classification algorithm**
+- Works best for **linearly separable** problems
+- Extended to multi-class using **Softmax**
+- Uses **sigmoid** to convert linear output into probabilities
+
+
+
+=====================================================================================================================================
+#Day    
+
+# 📌 Practical Implementation of Logistic Regression
+#### Logistic Regression Binary classification - Binary input
+
+
+## 🎯 Goal: Binary Classification using Logistic Regression (input: Age, output: Purchased/Not)
+
+---
+
+### 1️⃣ Importing Required Libraries
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+````
+
+🧠 **What I learned**:
+
+* `pandas` is used for loading and manipulating structured data.
+* `matplotlib.pyplot` and `seaborn` are for visualizing data patterns.
+
+---
+
+### 2️⃣ Reading the Dataset
+
+```python
+dataset = pd.read_csv(r'C:\Users\junai\Desktop\coding\ML\accurate_subscription_data.csv')
+dataset.head()
+```
+
+🧠 **What I learned**:
+
+* The dataset contains three columns: `Age`, `EstimatedSalary`, and `Purchased`.
+* The file used earlier had low accuracy (\~50%), so we use a newly generated high-quality dataset.
+
+---
+
+### 3️⃣ Dropping Irrelevant Columns
+
+```python
+dataset.drop(columns=['EstimatedSalary'], inplace=True)
+dataset.head()
+```
+
+🧠 **What I learned**:
+
+* We're focusing only on **1 input feature**: `Age`, to test simple binary logistic regression.
+* `drop()` removes unnecessary features from the DataFrame.
+
+---
+
+### 4️⃣ Visualizing the Data
+
+```python
+plt.figure(figsize=(4, 3))
+sns.scatterplot(x='Age', y='Purchased', data=dataset)
+plt.show()
+```
+
+🧠 **What I learned**:
+
+* Scatter plot helps check if the data is **linearly separable**.
+* We can use Logistic Regression if the data shows a clear boundary between classes.
+
+---
+
+### 5️⃣ Splitting Independent (X) and Dependent (y) Variables
+
+```python
+X = dataset[['Age']]
+y = dataset['Purchased']
+```
+
+🧠 **What I learned**:
+
+* `X` is the input feature (Age).
+* `y` is the output/label (Purchased).
+
+---
+
+### 6️⃣ Train-Test Split
+
+```python
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+🧠 **What I learned**:
+
+* We split the data into training (80%) and testing (20%) sets.
+* `random_state` ensures reproducibility of the split.
+
+---
+
+### 7️⃣ Importing and Training the Logistic Regression Model
+
+```python
+from sklearn.linear_model import LogisticRegression
+lr = LogisticRegression()
+lr.fit(X_train, y_train)
+```
+
+🧠 **What I learned**:
+
+* `LogisticRegression()` creates a classifier object.
+* `.fit()` trains the model on training data.
+
+---
+
+### 8️⃣ Evaluating the Model Accuracy
+
+```python
+lr.score(X_test, y_test)*100
+```
+
+🧠 **What I learned**:
+
+* `.score()` returns the accuracy on test data.
+* The accuracy may be low since we're using only one feature (`Age`).
+
+---
+
+### 9️⃣ Making Predictions
+
+```python
+lr.predict([[40]])
+```
+
+🧠 **What I learned**:
+
+* Predicts whether a 40-year-old will purchase the subscription.
+* Important: Input must be in the **same format and shape** as the training data.
+
+---
+
+### 🔟 Visualizing the Prediction Line
+
+```python
+plt.figure(figsize=(4, 3))
+sns.scatterplot(x='Age', y='Purchased', data=dataset)
+sns.lineplot(x="Age", y=lr.predict(X), data=dataset, color='red')
+plt.show()
+```
+
+🧠 **What I learned**:
+
+* Plots a decision boundary using the model’s predictions.
+* Since we only used 1 feature and didn’t scale the data, the curve appears more like a step line instead of a smooth S-shape.
+
+---
+
+### ⚠️ Observation
+
+> The plot doesn’t show the ideal sigmoid (S-shaped) curve.
+> Why?
+
+* Using only one input feature limits the model's capability.
+* Logistic regression produces probabilities, but `predict()` gives binary labels (0/1).
+  To visualize the curve better, use `predict_proba()` instead of `predict()`.
+
+---
+
+### ✅ Summary
+
+| Step | Concept                                            |
+| ---- | -------------------------------------------------- |
+| 1–3  | Load and clean the dataset                         |
+| 4    | Visualize data to check linear separability        |
+| 5–6  | Prepare inputs and split the dataset               |
+| 7–8  | Train and evaluate logistic regression model       |
+| 9–10 | Predict new values and visualize decision boundary |
+
+📌 Next Step:
+
+* Use both `Age` and `EstimatedSalary` for better accuracy.
+* Scale inputs using `StandardScaler`.
+* Visualize sigmoid curve using `predict_proba()`.
+
+
+
+=====================================================================================================================================
+#Day    7:41:00
+
+# 📌 Practical Implementation of Logistic Regression
+#### Logistic Regression Binary classification - Binary input
 
 
 =====================================================================================================================================
