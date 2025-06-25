@@ -696,6 +696,255 @@ $$
 =====================================================================================================================================
 #Day    6:45:00
 
-Regularization Techniques Practical
+Ridge Regularization / L2 Technique – Practical Implementation
+
+## 🔎 What is Ridge?
+
+* **Ridge Regression** (also known as **L2 Regularization**) is a technique used to **reduce overfitting** by penalizing large coefficients.
+* It does not remove features (unlike Lasso), but **shrinks them**.
+* Ideal when **all features contribute** and **multicollinearity** exists.
+
+---
+
+## ✨ Goal of the Practical:
+
+Compare **Linear Regression**, **Lasso Regression (L1)**, and **Ridge Regression (L2)** models on house price data, and evaluate:
+
+* Model scores
+* Coefficients behavior
+* Errors (MSE, MAE, R²)
+
+---
+
+## 📦 Step 1: Import Libraries
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+```
+
+* `pandas`: for data manipulation
+* `matplotlib / seaborn`: for visualizations
+* `StandardScaler`: for feature scaling
+* `train_test_split`: to divide data into train/test sets
+
+---
+
+## 📂 Step 2: Load Dataset
+
+```python
+dataset = pd.read_csv(r"C:\Users\junai\Desktop\coding\ML\house_prices_data.csv")
+dataset.head()
+```
+
+---
+
+## 📊 Step 3: Check Correlation Matrix
+
+```python
+plt.figure(figsize=(10, 10))
+sns.heatmap(dataset.corr(), annot=True)
+plt.show()
+```
+
+* **Correlation heatmap** shows relationships between variables and helps check linearity.
+* If values are **not strongly linear**, regression may not perform well without adjustments.
+
+---
+
+## 🔀 Step 4: Prepare Data (Split into X and Y)
+
+```python
+X = dataset.iloc[:, :-1]  # All columns except 'price'
+Y = dataset["price"]      # Target variable
+```
+
+---
+
+## ⚖️ Step 5: Scale Features
+
+```python
+sc = StandardScaler()
+sc.fit(X)
+X = pd.DataFrame(sc.transform(X), columns=X.columns)
+```
+
+* StandardScaler transforms data so each feature has **mean = 0** and **std = 1**
+* Important for **regularization methods** (like Ridge/Lasso)
+
+---
+
+## 🧪 Step 6: Train/Test Split
+
+```python
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+```
+
+* 80% data for training, 20% for testing
+
+---
+
+## 🧮 Step 7: Linear Regression
+
+```python
+from sklearn.linear_model import LinearRegression, Lasso, Ridge
+
+lr = LinearRegression()
+lr.fit(X_train, Y_train)
+```
+
+### 🔍 Evaluate Linear Regression
+
+```python
+lr.score(X_test, Y_test)*100
+```
+
+* Returns R² score as a percentage
+
+### 📈 Visualize Coefficients
+
+```python
+plt.figure(figsize=(15, 7))
+plt.bar(X.columns, lr.coef_)
+plt.title("Coefficients of Linear Regression Model")
+plt.xlabel("Columns")
+plt.ylabel("Coefficient Value")
+plt.show()
+```
+
+---
+
+## 🧪 Step 8: Lasso Regression (L1)
+
+```python
+la = Lasso(alpha=0.01)  # alpha is the penalty term
+la.fit(X_train, Y_train)
+la.score(X_test, Y_test)*100
+```
+
+* Lasso tends to **eliminate** less important features by setting their coefficients to **0**
+
+### 📈 Visualize Lasso Coefficients
+
+```python
+plt.figure(figsize=(15, 7))
+plt.bar(X.columns, la.coef_)
+plt.title("Coefficients of Lasso Model")
+plt.xlabel("Columns")
+plt.ylabel("Coefficient Value")
+plt.show()
+```
+
+---
+
+## 🧪 Step 9: Ridge Regression (L2)
+
+```python
+ri = Ridge(alpha=0.01)
+ri.fit(X_train, Y_train)
+ri.score(X_test, Y_test)*100
+```
+
+* Ridge shrinks coefficients but **doesn’t eliminate** them
+
+### 📈 Visualize Ridge Coefficients
+
+```python
+plt.figure(figsize=(15, 7))
+plt.bar(X.columns, ri.coef_)
+plt.title("Coefficients of Ridge Model")
+plt.xlabel("Columns")
+plt.ylabel("Coefficient Value")
+plt.show()
+```
+
+---
+
+## 📉 Step 10: Compare Errors Across Models
+
+```python
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+import numpy as np
+```
+
+```python
+print("Linear Regression Model")
+print("MSE = " , mean_squared_error(lr.predict(X_test), Y_test))
+print("MAE = ",mean_absolute_error(lr.predict(X_test), Y_test))
+print("RMSE = ", np.sqrt(mean_squared_error(lr.predict(X_test), Y_test)))
+
+print("\nLasso Model")
+print("MSE = " , mean_squared_error(la.predict(X_test), Y_test))
+print("MAE = ",mean_absolute_error(la.predict(X_test), Y_test)) 
+print("RMSE = ", np.sqrt(mean_squared_error(la.predict(X_test), Y_test)))
+
+print("\nRidge Model")
+print("MSE = " , mean_squared_error(ri.predict(X_test), Y_test))
+print("MAE = ",mean_absolute_error(ri.predict(X_test), Y_test))
+print("RMSE = ", np.sqrt(mean_squared_error(ri.predict(X_test), Y_test)))
+```
+
+* **MSE**: Mean Squared Error
+* **MAE**: Mean Absolute Error
+* **RMSE**: Root Mean Squared Error (closer to original units)
+
+---
+
+## 📊 Step 11: Compare All Coefficients
+
+```python
+df = pd.DataFrame({
+    "Columns": X.columns,
+    "Linear Regression Coefficients": lr.coef_,
+    "Lasso Coefficients": la.coef_,
+    "Ridge Coefficients": ri.coef_
+})
+df
+```
+
+This shows how:
+
+* Lasso **removes** less important features
+* Ridge **shrinks** them
+* Linear Regression keeps all as-is
+
+---
+
+## 💡 Final Conclusion
+
+```python
+# Normally, Lasso and Ridge make Linear Regression better
+# But in this dataset, all models perform similarly
+# This means even Linear Regression gives good accuracy here
+# If it didn’t, we’d use Lasso (for feature selection) or Ridge (for regularization)
+```
+
+---
+
+### ✅ Summary of What You Learned:
+
+| Concept                | Purpose                                                            |
+| ---------------------- | ------------------------------------------------------------------ |
+| **Linear Regression**  | Base model to understand relationship                              |
+| **Lasso (L1)**         | Removes less important features by setting coefficients to 0       |
+| **Ridge (L2)**         | Shrinks coefficients to reduce overfitting, but keeps all features |
+| **StandardScaler**     | Required for scaling input features before applying regularization |
+| **Heatmap**            | Used to analyze feature correlation and relationship with target   |
+| **Evaluation Metrics** | MSE, MAE, RMSE, R² Score for accuracy and error analysis           |
+| **Coefficient Plot**   | Helps visualize influence of each feature on prediction            |
+
+---
+
+
+
+
+=====================================================================================================================================
+#Day    7:07:00
+
+Classification
+
 
 =====================================================================================================================================
