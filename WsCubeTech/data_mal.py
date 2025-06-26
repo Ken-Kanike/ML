@@ -299,51 +299,85 @@
 
 
 
+# import pandas as pd
+# import numpy as np
+# import random
+
+# np.random.seed(42)
+
+# n = 500
+
+# # Age between 18 and 60
+# ages = np.random.randint(18, 61, size=n)
+
+# # Salary based on age (more realistic relationship)
+# salaries = []
+# for age in ages:
+#     if age < 25:
+#         salaries.append(np.random.randint(15000, 40000))
+#     elif 25 <= age <= 40:
+#         salaries.append(np.random.randint(35000, 100000))
+#     else:
+#         salaries.append(np.random.randint(25000, 80000))
+
+# # Target variable: Purchased
+# purchased = []
+# for age, salary in zip(ages, salaries):
+#     # Good conditions to purchase
+#     if 25 <= age <= 40 and salary >= 50000:
+#         prob = 0.85
+#     elif salary > 80000:
+#         prob = 0.75
+#     elif age < 23 or salary < 25000:
+#         prob = 0.1
+#     else:
+#         prob = 0.3
+#     purchased.append(1 if random.random() < prob else 0)
+
+# # Check balance of 0s and 1s
+# print(f"Class 1 Count: {sum(purchased)} / {n}")
+
+# # Create DataFrame
+# df = pd.DataFrame({
+#     'Age': ages,
+#     'EstimatedSalary': salaries,
+#     'Purchased': purchased
+# })
+
+# # Save to CSV
+# df.to_csv("accurate_subscription_data.csv", index=False)
+# print("✅ High-quality dataset saved as 'accurate_subscription_data.csv'")
+
+
 import pandas as pd
 import numpy as np
 import random
 
+# Set random seed for reproducibility
 np.random.seed(42)
 
-n = 500
+# Generate CGPA between 5.0 to 10.0
+cgpa = np.round(np.random.uniform(5.0, 10.0, 500), 2)
 
-# Age between 18 and 60
-ages = np.random.randint(18, 61, size=n)
+# Generate exam score between 5.0 to 9.0
+score = np.round(np.random.uniform(5.0, 9.0, 500), 2)
 
-# Salary based on age (more realistic relationship)
-salaries = []
-for age in ages:
-    if age < 25:
-        salaries.append(np.random.randint(15000, 40000))
-    elif 25 <= age <= 40:
-        salaries.append(np.random.randint(35000, 100000))
-    else:
-        salaries.append(np.random.randint(25000, 80000))
+# Define a placement probability function (sigmoid-like behavior)
+def placement_probability(cgpa, score):
+    # These weights can be tweaked based on expected importance
+    weighted_sum = 0.8 * cgpa + 1.2 * score - 12.5  # bias
+    return 1 / (1 + np.exp(-weighted_sum))
 
-# Target variable: Purchased
-purchased = []
-for age, salary in zip(ages, salaries):
-    # Good conditions to purchase
-    if 25 <= age <= 40 and salary >= 50000:
-        prob = 0.85
-    elif salary > 80000:
-        prob = 0.75
-    elif age < 23 or salary < 25000:
-        prob = 0.1
-    else:
-        prob = 0.3
-    purchased.append(1 if random.random() < prob else 0)
-
-# Check balance of 0s and 1s
-print(f"Class 1 Count: {sum(purchased)} / {n}")
+# Generate placement outcome (1 for placed, 0 for not placed)
+placed = [1 if random.random() < placement_probability(c, s) else 0 for c, s in zip(cgpa, score)]
 
 # Create DataFrame
 df = pd.DataFrame({
-    'Age': ages,
-    'EstimatedSalary': salaries,
-    'Purchased': purchased
+    "cgpa": cgpa,
+    "score": score,
+    "placed": placed
 })
 
 # Save to CSV
-df.to_csv("accurate_subscription_data.csv", index=False)
-print("✅ High-quality dataset saved as 'accurate_subscription_data.csv'")
+df.to_csv("student_placement_data.csv", index=False)
+print("✅ student_placement_data.csv generated with 500 entries.")

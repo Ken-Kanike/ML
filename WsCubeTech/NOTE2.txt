@@ -1382,7 +1382,180 @@ plt.show()
 #Day    7:41:00
 
 # 📌 Practical Implementation of Logistic Regression
-#### Logistic Regression Binary classification - Binary input
+#### Logistic Regression Binary classification - Multiple input
+ 
+**logistic regression model** to predict student **placement (placed/not placed)** based on two inputs: **CGPA** and **test score**.
 
+---
+
+### 📦 **1. Importing Libraries**
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+* `pandas`: Used for loading and managing tabular data (CSV).
+* `matplotlib.pyplot`: For visualizing data using plots.
+* `seaborn`: A plotting library built on top of matplotlib, great for statistical visualizations.
+
+> **What I learned:** These are standard data science libraries used to analyze and visualize data effectively.
+
+---
+
+### 📁 **2. Load Dataset**
+
+```python
+dataset = pd.read_csv(r'C:\Users\junai\Desktop\coding\ML\student_placement_data.csv')
+dataset.head(10)
+```
+
+* Reads the CSV file.
+* `.head(10)` displays the top 10 rows to inspect the data.
+
+> **What I learned:** How to load and inspect data from a CSV file using `pandas`.
+
+---
+
+### 📊 **3. Visualize the Data**
+
+```python
+plt.figure(figsize=(4, 3))
+sns.scatterplot(x='cgpa', y='score', hue='placed', data=dataset)
+plt.show()
+```
+
+* Scatter plot to check **separation** between classes (placed = 0/1).
+* `hue='placed'` colors points based on placement.
+
+> **What I learned:** Visualization helps us see whether the problem is **linearly separable**, which is ideal for logistic regression.
+
+---
+
+### 📎 **4. Feature and Target Separation**
+
+```python
+X = dataset[['cgpa', 'score']]
+Y = dataset['placed']
+```
+
+* `X` contains **independent variables** (features): CGPA and test score.
+* `Y` contains **dependent variable** (target): placement status.
+
+> **What I learned:** It's important to separate inputs (X) and output (Y) before training a model.
+
+---
+
+### 🔀 **5. Train-Test Split**
+
+```python
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+```
+
+* Splits the dataset: 80% for training, 20% for testing.
+* `random_state=42` ensures consistent results every time.
+
+> **What I learned:** Splitting helps evaluate how well the model generalizes to unseen data.
+
+---
+
+### 🧠 **6. Train the Model**
+
+```python
+from sklearn.linear_model import LogisticRegression
+lr = LogisticRegression()
+lr.fit(X_train, y_train)
+```
+
+* Initializes and trains a logistic regression model.
+
+> **What I learned:** `fit()` trains the model using input features and target values.
+
+---
+
+### 📏 **7. Model Accuracy**
+
+```python
+lr.score(X_test, y_test)*100
+```
+
+* Returns accuracy percentage on test data.
+
+> **What I learned:** Accuracy shows how well the model predicts unseen data. (\~88% is pretty good for this dataset).
+
+---
+
+### 🔮 **8. Make Predictions**
+
+```python
+lr.predict([[8.0, 90]])
+```
+
+* Predicts placement for a student with 8.0 CGPA and 90 score.
+
+> **What I learned:** `predict()` helps us use the trained model to make future predictions.
+
+---
+
+### 🧪 **9. Visualize Decision Boundary**
+
+```python
+from mlxtend.plotting import plot_decision_regions
+
+plt.figure(figsize=(4, 3))
+plot_decision_regions(X.to_numpy(), Y.to_numpy(), clf=lr)
+plt.show()
+```
+
+* Plots the decision boundary showing how the model splits data into "placed" and "not placed" regions.
+
+> **What I learned:** `plot_decision_regions` helps us **visually interpret** how logistic regression is making its decisions.
+
+---
+
+### 🧮 **10. Logistic Regression Formula & Coefficients**
+
+```python
+print("Coefficients:", lr.coef_)
+print("Intercept:", lr.intercept_)
+```
+
+* Logistic regression uses:
+
+  $$
+  y = \frac{1}{1 + e^{-z}}, \quad \text{where} \quad z = b_0 + b_1 \cdot x_1 + b_2 \cdot x_2
+  $$
+* `coef_` gives the values of $b_1$, $b_2$
+* `intercept_` gives $b_0$
+
+> **What I learned:**
+
+* Positive coefficients → more likely to be placed when CGPA/Score increases.
+* Negative intercept → model leans toward predicting `0` (not placed) for low scores.
+* Low weights → model is not overfitting (generalizing well).
+
+---
+
+### ✅ Summary of What You Learned
+
+| Concept                  | Explanation                                                      |
+| ------------------------ | ---------------------------------------------------------------- |
+| Logistic Regression      | Classification algorithm to predict 0 or 1 using a sigmoid curve |
+| Data Exploration         | Scatter plot to understand linear separability                   |
+| Train-Test Split         | Important to evaluate model on unseen data                       |
+| Training the Model       | `LogisticRegression().fit()`                                     |
+| Accuracy Measurement     | `score()` tells how correct the model is                         |
+| Coefficients & Intercept | Helps explain how each feature influences the prediction         |
+| Decision Boundary        | Helps visualize how model makes decisions                        |
+
+
+=====================================================================================================================================
+#Day    7:54:00
+
+### Practical implementation of the logistic regression algorithm
+
+#### Logistic Regression Binary classification - Polynomial input
 
 =====================================================================================================================================
