@@ -1556,6 +1556,13 @@ print("Intercept:", lr.intercept_)
 
 ### Practical implementation of the logistic regression algorithm
 
-#### Logistic Regression Binary classification - Polynomial input
+#### Logistic Regression  - Polynomial features
 
+=====================================================================================================================================
+#Day    8:07:00
+
+### Practical implementation of the logistic regression algorithm
+
+#### Logistic Regression  -  Multiclass classification
+ 
 =====================================================================================================================================
