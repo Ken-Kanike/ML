@@ -349,35 +349,83 @@
 # print("✅ High-quality dataset saved as 'accurate_subscription_data.csv'")
 
 
+# import pandas as pd
+# import numpy as np
+# import random
+
+# # Set random seed for reproducibility
+# np.random.seed(42)
+
+# # Generate CGPA between 5.0 to 10.0
+# cgpa = np.round(np.random.uniform(5.0, 10.0, 500), 2)
+
+# # Generate exam score between 5.0 to 9.0
+# score = np.round(np.random.uniform(5.0, 9.0, 500), 2)
+
+# # Define a placement probability function (sigmoid-like behavior)
+# def placement_probability(cgpa, score):
+#     # These weights can be tweaked based on expected importance
+#     weighted_sum = 0.8 * cgpa + 1.2 * score - 12.5  # bias
+#     return 1 / (1 + np.exp(-weighted_sum))
+
+# # Generate placement outcome (1 for placed, 0 for not placed)
+# placed = [1 if random.random() < placement_probability(c, s) else 0 for c, s in zip(cgpa, score)]
+
+# # Create DataFrame
+# df = pd.DataFrame({
+#     "cgpa": cgpa,
+#     "score": score,
+#     "placed": placed
+# })
+
+# # Save to CSV
+# df.to_csv("student_placement_data.csv", index=False)
+# print("✅ student_placement_data.csv generated with 500 entries.")
+
+
+
 import pandas as pd
 import numpy as np
-import random
 
-# Set random seed for reproducibility
-np.random.seed(42)
+def generate_flower_data(filename="flowers.csv", samples_per_class=83):
+    np.random.seed(42)  # For reproducibility
 
-# Generate CGPA between 5.0 to 10.0
-cgpa = np.round(np.random.uniform(5.0, 10.0, 500), 2)
+    def create_samples(mean, std, species, count):
+        data = np.random.normal(loc=mean, scale=std, size=(count, 4))
+        df = pd.DataFrame(data, columns=[
+            'sepal_length', 'sepal_width', 'petal_length', 'petal_width'
+        ])
+        df['species'] = species
+        return df
 
-# Generate exam score between 5.0 to 9.0
-score = np.round(np.random.uniform(5.0, 9.0, 500), 2)
+    # Define typical ranges based on the Iris dataset
+    setosa = create_samples(
+        mean=[5.0, 3.4, 1.5, 0.2],
+        std=[0.3, 0.2, 0.2, 0.1],
+        species='setosa',
+        count=samples_per_class
+    )
 
-# Define a placement probability function (sigmoid-like behavior)
-def placement_probability(cgpa, score):
-    # These weights can be tweaked based on expected importance
-    weighted_sum = 0.8 * cgpa + 1.2 * score - 12.5  # bias
-    return 1 / (1 + np.exp(-weighted_sum))
+    versicolor = create_samples(
+        mean=[5.9, 2.8, 4.2, 1.3],
+        std=[0.4, 0.3, 0.3, 0.2],
+        species='versicolor',
+        count=samples_per_class
+    )
 
-# Generate placement outcome (1 for placed, 0 for not placed)
-placed = [1 if random.random() < placement_probability(c, s) else 0 for c, s in zip(cgpa, score)]
+    virginica = create_samples(
+        mean=[6.5, 3.0, 5.5, 2.0],
+        std=[0.4, 0.3, 0.4, 0.2],
+        species='virginica',
+        count=250 - 2 * samples_per_class  # To ensure exactly 250
+    )
 
-# Create DataFrame
-df = pd.DataFrame({
-    "cgpa": cgpa,
-    "score": score,
-    "placed": placed
-})
+    df_all = pd.concat([setosa, versicolor, virginica], ignore_index=True)
+    df_all = df_all.sample(frac=1, random_state=42).reset_index(drop=True)  # Shuffle
+    df_all.to_csv(filename, index=False)
 
-# Save to CSV
-df.to_csv("student_placement_data.csv", index=False)
-print("✅ student_placement_data.csv generated with 500 entries.")
+    print(f"✅ {filename} generated with {len(df_all)} rows.")
+
+# Run it
+generate_flower_data()
+
