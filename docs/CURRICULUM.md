@@ -1,7 +1,7 @@
 # Curriculum
 
 This curriculum is designed for learners who want a broad, practical foundation in machine learning.
-It combines the original data-preparation and classical-algorithm notebooks in `WsCubeTech/` with the
+It combines the original data-preparation and classical-algorithm notebooks in `Core_ML/` with the
 19 advanced modules in `Advanced_ML/`.
 
 ## Who this is for
@@ -33,7 +33,7 @@ By the end, you should be able to:
 
 ## Track 1: Foundations
 
-### Data preparation (`WsCubeTech/p1`-`p11`)
+### Data preparation (`Core_ML/p1`-`p11`)
 
 | Notebook | Topic |
 | --- | --- |
@@ -49,7 +49,7 @@ By the end, you should be able to:
 | `p10.ipynb` | Duplicates and data-type fixes |
 | `p11.ipynb` | Feature selection and train/test splitting |
 
-### Classical algorithms (`WsCubeTech/m1`-`m10`)
+### Classical algorithms (`Core_ML/m1`-`m10`)
 
 | Notebook | Topic |
 | --- | --- |

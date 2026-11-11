@@ -12,9 +12,7 @@ quickly and reproducibly on a laptop.
 | Path | Contents |
 | --- | --- |
 | [`Advanced_ML/`](Advanced_ML/) | 19 advanced modules, from k-NN and SVM to deployment and responsible AI |
-| [`WsCubeTech/`](WsCubeTech/) | Foundations: data cleaning, encoding, scaling, feature selection, regression, classification |
-| [`JupyterNoteBook/`](JupyterNoteBook/) | Introductory Jupyter notebook |
-| [`sentdex/`](sentdex/) | Supplementary notes and a small data-processing script |
+| [`Core_ML/`](Core_ML/) | Foundations: data cleaning, encoding, scaling, feature selection, regression, classification |
 | [`docs/`](docs/) | Curriculum, setup, dataset guide, and study plan |
 | `*.csv`, `*.xlsx` | Datasets used by the foundation notebooks |
 
@@ -46,7 +44,7 @@ See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and
 
 ## Foundation notebooks
 
-The `WsCubeTech` collection covers the prerequisites for the advanced modules:
+The `Core_ML` collection covers the prerequisites for the advanced modules:
 
 - **Data preparation**: cleaning, missing values, imputation, duplicates, encoding, scaling.
 - **Feature work**: outlier handling, transformations, feature selection.
@@ -59,7 +57,7 @@ pass the correct path.
 
 ## Recommended learning path
 
-1. **Foundations**: `WsCubeTech/p1` to `p11`, then `m1` to `m10`.
+1. **Foundations**: `Core_ML/p1` to `p11`, then `m1` to `m10`.
 2. **Statistics and EDA**: modules 19 and 18.
 3. **Feature engineering and core models**: modules 16, 01, 02, 03, 04, 07.
 4. **Unsupervised learning**: modules 05 and 06.

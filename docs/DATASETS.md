@@ -32,7 +32,7 @@ This keeps execution fast and avoids external downloads.
 
 ## Foundation datasets
 
-The `WsCubeTech` notebooks read files from the repository root. Start Jupyter from the root directory
+The `Core_ML` notebooks read files from the repository root. Start Jupyter from the root directory
 so the relative paths resolve.
 
 | File | Description | Used by |

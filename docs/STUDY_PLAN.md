@@ -17,7 +17,7 @@ statistics, compress the first two weeks and spend more time on the projects.
 
 - Read [`SETUP.md`](SETUP.md) and install the environment.
 - Run [`Advanced_ML/19_exploratory_data_analysis`](../Advanced_ML/19_exploratory_data_analysis/19_exploratory_data_analysis.ipynb).
-- Skim `WsCubeTech/p1.ipynb` through `p4.ipynb`.
+- Skim `Core_ML/p1.ipynb` through `p4.ipynb`.
 - Practise: load a CSV, check shape, types, missing values, duplicates, and summary statistics.
 
 **Deliverable:** a short EDA of a dataset you choose, with five findings and three modelling
@@ -28,7 +28,7 @@ recommendations.
 **Goal:** understand uncertainty and prepare clean features.
 
 - Run [`Advanced_ML/18_statistics_foundations`](../Advanced_ML/18_statistics_foundations/18_statistics_foundations.ipynb).
-- Work through `WsCubeTech/p5.ipynb` through `p11.ipynb`.
+- Work through `Core_ML/p5.ipynb` through `p11.ipynb`.
 - Run [`Advanced_ML/16_feature_engineering`](../Advanced_ML/16_feature_engineering/16_feature_engineering.ipynb).
 - Practise: confidence interval, t-test, one-hot encoding, scaling, and a leakage check.
 
@@ -41,7 +41,7 @@ which steps must be fitted inside cross-validation.
 
 - Run [`Advanced_ML/01_knn_svm`](../Advanced_ML/01_knn_svm/01_knn_svm.ipynb).
 - Run [`Advanced_ML/02_trees_ensembles`](../Advanced_ML/02_trees_ensembles/02_trees_ensembles.ipynb).
-- Review `WsCubeTech/m1.ipynb` through `m4.ipynb` for regression basics.
+- Review `Core_ML/m1.ipynb` through `m4.ipynb` for regression basics.
 - Practise: compare k-NN, SVM, a decision tree, and a random forest on one dataset.
 
 **Deliverable:** a model comparison table with accuracy, precision, recall, F1, and a short discussion
@@ -53,7 +53,7 @@ of which errors matter most.
 
 - Run [`Advanced_ML/03_model_evaluation`](../Advanced_ML/03_model_evaluation/03_model_evaluation.ipynb).
 - Run [`Advanced_ML/04_pipelines_tuning`](../Advanced_ML/04_pipelines_tuning/04_pipelines_tuning.ipynb).
-- Review `WsCubeTech/m5.ipynb` for cost functions and regularization.
+- Review `Core_ML/m5.ipynb` for cost functions and regularization.
 - Practise: nested cross-validation and a small hyperparameter search.
 
 **Deliverable:** an end-to-end pipeline with a held-out test set that was touched only once.

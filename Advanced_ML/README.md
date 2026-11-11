@@ -1,7 +1,7 @@
 # Advanced Machine Learning Modules
 
 This folder contains 19 self-contained notebooks that extend the foundation material in
-[`WsCubeTech/`](../WsCubeTech/) into modern, practical machine-learning topics.
+[`Core_ML/`](../Core_ML/) into modern, practical machine-learning topics.
 
 Each module includes:
 
