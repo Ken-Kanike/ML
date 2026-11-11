@@ -11,39 +11,10 @@ quickly and reproducibly on a laptop.
 
 | Path | Contents |
 | --- | --- |
-| [`Advanced_ML/`](Advanced_ML/) | 22 advanced modules, from k-NN and SVM to causal inference and topic modeling |
 | [`Core_ML/`](Core_ML/) | Mathematical foundations plus data cleaning, encoding, scaling, feature selection, regression, classification |
+| [`Advanced_ML/`](Advanced_ML/) | 22 advanced modules, from k-NN and SVM to causal inference and topic modeling |
 | [`docs/`](docs/) | Curriculum, setup, dataset guide, and study plan |
 | `*.csv`, `*.xlsx` | Datasets used by the foundation notebooks |
-
-## Advanced modules
-
-| # | Module | Focus |
-| --- | --- | --- |
-| 01 | [k-NN and SVM](Advanced_ML/01_knn_svm/01_knn_svm.ipynb) | Distance-based and margin-based classification, scaling, kernels |
-| 02 | [Trees and Ensembles](Advanced_ML/02_trees_ensembles/02_trees_ensembles.ipynb) | Decision trees, bagging, random forests, gradient boosting |
-| 03 | [Model Evaluation](Advanced_ML/03_model_evaluation/03_model_evaluation.ipynb) | Splits, cross-validation, classification and regression metrics |
-| 04 | [Pipelines and Tuning](Advanced_ML/04_pipelines_tuning/04_pipelines_tuning.ipynb) | ColumnTransformer, pipelines, grid and randomized search |
-| 05 | [Clustering](Advanced_ML/05_clustering/05_clustering.ipynb) | K-means, hierarchical clustering, DBSCAN, cluster validation |
-| 06 | [Dimensionality Reduction](Advanced_ML/06_dimensionality_reduction/06_dimensionality_reduction.ipynb) | PCA, t-SNE, explained variance, visualization |
-| 07 | [Imbalanced Learning](Advanced_ML/07_imbalanced_learning/07_imbalanced_learning.ipynb) | Resampling, SMOTE, class weights, precision-recall |
-| 08 | [Time Series](Advanced_ML/08_time_series/08_time_series.ipynb) | Decomposition, stationarity, lag features, ARIMA |
-| 09 | [NLP Basics](Advanced_ML/09_nlp_basics/09_nlp_basics.ipynb) | Text cleaning, bag-of-words, TF-IDF, text classification |
-| 10 | [Recommender Systems](Advanced_ML/10_recommender_systems/10_recommender_systems.ipynb) | Content-based and collaborative filtering, SVD |
-| 11 | [Anomaly Detection](Advanced_ML/11_anomaly_detection/11_anomaly_detection.ipynb) | Isolation Forest, LOF, One-Class SVM |
-| 12 | [Model Interpretability](Advanced_ML/12_model_interpretability/12_model_interpretability.ipynb) | Permutation importance, partial dependence, coefficients |
-| 13 | [Neural Networks](Advanced_ML/13_neural_networks/13_neural_networks.ipynb) | Perceptrons, MLPs, activations, regularization, decision boundaries |
-| 14 | [Deployment](Advanced_ML/14_deployment/14_deployment.ipynb) | Model serialization, FastAPI, schema validation, testing |
-| 15 | [Association Rules](Advanced_ML/15_association_rules/15_association_rules.ipynb) | Apriori, FP-Growth, support, confidence, lift |
-| 16 | [Feature Engineering](Advanced_ML/16_feature_engineering/16_feature_engineering.ipynb) | Dates, ratios, interactions, binning, target encoding, leakage |
-| 17 | [Fairness and Responsible AI](Advanced_ML/17_fairness_responsible_ai/17_fairness_responsible_ai.ipynb) | Bias, fairness metrics, mitigation, model cards |
-| 18 | [Statistics Foundations](Advanced_ML/18_statistics_foundations/18_statistics_foundations.ipynb) | Sampling, confidence intervals, hypothesis tests, power, bootstrap |
-| 19 | [Exploratory Data Analysis](Advanced_ML/19_exploratory_data_analysis/19_exploratory_data_analysis.ipynb) | Data quality, distributions, target analysis, outliers |
-| 20 | [Causal Inference](Advanced_ML/20_causal_inference/20_causal_inference.ipynb) | Potential outcomes, confounding, randomized experiments, propensity scores, difference-in-differences |
-| 21 | [Model Calibration](Advanced_ML/21_model_calibration/21_model_calibration.ipynb) | Reliability diagrams, Brier score, ECE, sigmoid and isotonic calibration, cost-sensitive thresholds |
-| 22 | [Topic Modeling](Advanced_ML/22_topic_modeling/22_topic_modeling.ipynb) | Count and TF-IDF features, LDA, NMF, perplexity, document-topic mixtures |
-
-See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and a recommended order.
 
 ## Core_ML modules
 
@@ -99,6 +70,35 @@ the repository root, so launch Jupyter from the root or pass the correct path. T
 use synthetic or built-in data. `Core_ML/data_mal.py` contains the scripts used to generate and
 deliberately degrade the practice datasets, and `Core_ML/NOTE.txt` plus `Core_ML/NOTE2.txt` contain the
 longer study notes.
+
+## Advanced modules
+
+| # | Module | Focus |
+| --- | --- | --- |
+| 01 | [k-NN and SVM](Advanced_ML/01_knn_svm/01_knn_svm.ipynb) | Distance-based and margin-based classification, scaling, kernels |
+| 02 | [Trees and Ensembles](Advanced_ML/02_trees_ensembles/02_trees_ensembles.ipynb) | Decision trees, bagging, random forests, gradient boosting |
+| 03 | [Model Evaluation](Advanced_ML/03_model_evaluation/03_model_evaluation.ipynb) | Splits, cross-validation, classification and regression metrics |
+| 04 | [Pipelines and Tuning](Advanced_ML/04_pipelines_tuning/04_pipelines_tuning.ipynb) | ColumnTransformer, pipelines, grid and randomized search |
+| 05 | [Clustering](Advanced_ML/05_clustering/05_clustering.ipynb) | K-means, hierarchical clustering, DBSCAN, cluster validation |
+| 06 | [Dimensionality Reduction](Advanced_ML/06_dimensionality_reduction/06_dimensionality_reduction.ipynb) | PCA, t-SNE, explained variance, visualization |
+| 07 | [Imbalanced Learning](Advanced_ML/07_imbalanced_learning/07_imbalanced_learning.ipynb) | Resampling, SMOTE, class weights, precision-recall |
+| 08 | [Time Series](Advanced_ML/08_time_series/08_time_series.ipynb) | Decomposition, stationarity, lag features, ARIMA |
+| 09 | [NLP Basics](Advanced_ML/09_nlp_basics/09_nlp_basics.ipynb) | Text cleaning, bag-of-words, TF-IDF, text classification |
+| 10 | [Recommender Systems](Advanced_ML/10_recommender_systems/10_recommender_systems.ipynb) | Content-based and collaborative filtering, SVD |
+| 11 | [Anomaly Detection](Advanced_ML/11_anomaly_detection/11_anomaly_detection.ipynb) | Isolation Forest, LOF, One-Class SVM |
+| 12 | [Model Interpretability](Advanced_ML/12_model_interpretability/12_model_interpretability.ipynb) | Permutation importance, partial dependence, coefficients |
+| 13 | [Neural Networks](Advanced_ML/13_neural_networks/13_neural_networks.ipynb) | Perceptrons, MLPs, activations, regularization, decision boundaries |
+| 14 | [Deployment](Advanced_ML/14_deployment/14_deployment.ipynb) | Model serialization, FastAPI, schema validation, testing |
+| 15 | [Association Rules](Advanced_ML/15_association_rules/15_association_rules.ipynb) | Apriori, FP-Growth, support, confidence, lift |
+| 16 | [Feature Engineering](Advanced_ML/16_feature_engineering/16_feature_engineering.ipynb) | Dates, ratios, interactions, binning, target encoding, leakage |
+| 17 | [Fairness and Responsible AI](Advanced_ML/17_fairness_responsible_ai/17_fairness_responsible_ai.ipynb) | Bias, fairness metrics, mitigation, model cards |
+| 18 | [Statistics Foundations](Advanced_ML/18_statistics_foundations/18_statistics_foundations.ipynb) | Sampling, confidence intervals, hypothesis tests, power, bootstrap |
+| 19 | [Exploratory Data Analysis](Advanced_ML/19_exploratory_data_analysis/19_exploratory_data_analysis.ipynb) | Data quality, distributions, target analysis, outliers |
+| 20 | [Causal Inference](Advanced_ML/20_causal_inference/20_causal_inference.ipynb) | Potential outcomes, confounding, randomized experiments, propensity scores, difference-in-differences |
+| 21 | [Model Calibration](Advanced_ML/21_model_calibration/21_model_calibration.ipynb) | Reliability diagrams, Brier score, ECE, sigmoid and isotonic calibration, cost-sensitive thresholds |
+| 22 | [Topic Modeling](Advanced_ML/22_topic_modeling/22_topic_modeling.ipynb) | Count and TF-IDF features, LDA, NMF, perplexity, document-topic mixtures |
+
+See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and a recommended order.
 
 ## Recommended learning path
 
