@@ -736,7 +736,7 @@ from sklearn.model_selection import train_test_split
 ## 📂 Step 2: Load Dataset
 
 ```python
-dataset = pd.read_csv(r"C:\Users\junai\Desktop\coding\ML\house_prices_data.csv")
+dataset = pd.read_csv(r"house_prices_data.csv")
 dataset.head()
 ```
 
@@ -1224,7 +1224,7 @@ import seaborn as sns
 ### 2️⃣ Reading the Dataset
 
 ```python
-dataset = pd.read_csv(r'C:\Users\junai\Desktop\coding\ML\accurate_subscription_data.csv')
+dataset = pd.read_csv(r'accurate_subscription_data.csv')
 dataset.head()
 ```
 
@@ -1407,7 +1407,7 @@ import seaborn as sns
 ### 📁 **2. Load Dataset**
 
 ```python
-dataset = pd.read_csv(r'C:\Users\junai\Desktop\coding\ML\student_placement_data.csv')
+dataset = pd.read_csv(r'student_placement_data.csv')
 dataset.head(10)
 ```
 

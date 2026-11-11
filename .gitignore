@@ -1,0 +1,17 @@
+# Secrets and credentials
+.env
+.env.*
+*.env
+secret_key.py
+*.pem
+*.key
+
+# Python virtual environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/

@@ -73,7 +73,7 @@ Variable -|
 1️⃣Add Python to Environment Variables
    - C:\Program Files\Python312  
    - C:\Program Files\Python312\Scripts  
-   - C:\Users\junai\AppData\Roaming\Python\Python312\site-packages\pip  
+   - pip  
 
 2️⃣Install Jupyter Notebook  
    ```sh
@@ -116,7 +116,7 @@ import matplotlib.pyplot as plt
 
 2️⃣ Reading the Dataset 
 ```python
-dataset = pd.read_excel("C:/Users/junai/Desktop/coding/ML/yahoo_data.xlsx")
+dataset = pd.read_excel("yahoo_data.xlsx")
 dataset.head(3)
 ```
 - Reads the **Excel file** into a Pandas DataFrame.  
@@ -209,7 +209,7 @@ import matplotlib.pyplot as plt
 
 #### **2️⃣ Loading the Dataset**  
 ```python
-dataset = pd.read_excel("C:/Users/junai/Desktop/coding/ML/uncleaned_data.xlsx")
+dataset = pd.read_excel("uncleaned_data.xlsx")
 dataset.head(10)
 ```
 - Reads the **Excel file** into a Pandas DataFrame.  
@@ -306,7 +306,7 @@ import matplotlib.pyplot as plt
 
 ### **2️⃣ Loading the Dataset**  
 ```python
-dataset = pd.read_excel("C:/Users/junai/Desktop/coding/ML/catg_data.xlsx")
+dataset = pd.read_excel("catg_data.xlsx")
 dataset.head(10)
 ```
 - Reads the **Excel file** into a Pandas DataFrame.  
@@ -403,7 +403,7 @@ for col in dataset.select_dtypes(include='object').columns:
 
 ### **9️⃣ Performing All Operations on Real Data**
 ```python
-dataset = pd.read_excel("C:/Users/junai/Desktop/coding/ML/catg_data.xlsx")
+dataset = pd.read_excel("catg_data.xlsx")
 ```
 - Reads the dataset again to apply filling methods properly.
 
@@ -443,7 +443,7 @@ pd.set_option('future.no_silent_downcasting', True)
 
 ### **1️⃣1️⃣ Saving the Cleaned Data**
 ```python
-dataset.to_excel("C:/Users/junai/Desktop/coding/ML/catg_data.xlsx", index=False)
+dataset.to_excel("catg_data.xlsx", index=False)
 ```
 - **Writes cleaned data** back to an Excel file.  
 - **No index saved** to keep it clean.
@@ -496,7 +496,7 @@ import matplotlib.pyplot as plt
 
 ## **2️⃣ Loading the Dataset**  
 ```python
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\uncleaned_data.xlsx")
+dataset = pd.read_excel(r"uncleaned_data.xlsx")
 dataset.head(10)
 ```
 - `pd.read_excel()`: Loads an Excel file into a Pandas DataFrame.  
@@ -641,7 +641,7 @@ import pandas as pd
 
 ## **3️⃣ Loading the Dataset**  
 ```python
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\gender_cat_data.xlsx")
+dataset = pd.read_excel(r"gender_cat_data.xlsx")
 dataset.head(10)
 ```
 - `pd.read_excel()`: Reads an Excel file into a Pandas DataFrame.  
@@ -787,7 +787,7 @@ df
 
 ## **5️⃣ Applying Label Encoding to a Real Dataset**  
 ```python
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\gender_cat_data.xlsx")
+dataset = pd.read_excel(r"gender_cat_data.xlsx")
 dataset.head(10)
 ```
 - Loaded an Excel dataset containing **categorical data**.  
@@ -914,7 +914,7 @@ Created another encoded column "Size_en_map" as an alternative to OrdinalEncoder
 python
 Copy
 Edit
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\gender_cat_data.xlsx")
+dataset = pd.read_excel(r"gender_cat_data.xlsx")
 dataset.head(10)
 Loaded a real-world Excel file containing categorical data, including a "Location" column.
 
@@ -1250,7 +1250,7 @@ print(df)
 ### 📄 Real Dataset Example
 
 ```python
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\yahoo_data.xlsx")
+dataset = pd.read_excel(r"yahoo_data.xlsx")
 print(dataset.head())
 print(dataset.shape)
 
@@ -1268,7 +1268,7 @@ Sometimes columns like `Age` are stored as strings with symbols (e.g., `'18+'`).
 ### 🧹 Cleaning Mixed Data in `Age` Column
 
 ```python
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\mixed_data.xlsx")
+dataset = pd.read_excel(r"mixed_data.xlsx")
 
 # Check column data types and unique values
 print(dataset["Age"].value_counts())
@@ -1307,7 +1307,7 @@ import numpy as np
 from sklearn.preprocessing import FunctionTransformer
 
 # Load data
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\yahoo_data.xlsx")
+dataset = pd.read_excel(r"yahoo_data.xlsx")
 
 # Check nulls
 print(dataset.isnull().sum())
@@ -1412,7 +1412,7 @@ from sklearn.linear_model import LinearRegression
 from mlxtend.feature_selection import SequentialFeatureSelector
 
 # Load dataset
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\yahoo_data.xlsx")
+dataset = pd.read_excel(r"yahoo_data.xlsx")
 
 # Separate features and target variable
 x = dataset.iloc[:, :-1]
@@ -1462,7 +1462,7 @@ print("Cross-validation R2 score:", fs.k_score_)
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-dataset = pd.read_excel(r"C:\Users\junai\Desktop\coding\ML\yahoo_data.xlsx")
+dataset = pd.read_excel(r"yahoo_data.xlsx")
 
 # Features and target
 input_data = dataset.iloc[:, :-1]

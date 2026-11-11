@@ -4,14 +4,14 @@
 # import pandas as pd
 
 # # Load the Excel file
-# file_path = "C:/Users/junai/Desktop/coding/ML/yahoo_data.xlsx"  # Replace with your actual file path
+# file_path = "yahoo_data.xlsx"  # Replace with your actual file path
 # df = pd.read_excel(file_path)
 
 # # Remove values in odd-numbered rows (keeping even rows)
 # df.loc[df.index % 2 == 0, 'Open'] = None  # Use df.index % 2 == 0 because Python uses 0-based indexing
 
 # # Save the modified file
-# df.to_excel("C:/Users/junai/Desktop/coding/ML/uncleaned_data.xlsx", index=False)
+# df.to_excel("uncleaned_data.xlsx", index=False)
 
 # print("Values from odd rows in Column B have been deleted successfully!")
 
@@ -20,7 +20,7 @@
 # import numpy as np
 
 # # Load the Excel file
-# file_path = "C:/Users/junai/Desktop/coding/ML/uncleaned_data.xlsx"  # Replace with your actual file path
+# file_path = "uncleaned_data.xlsx"  # Replace with your actual file path
 # df = pd.read_excel(file_path)
 
 # # Define the column where you want to remove values
@@ -37,7 +37,7 @@
 # df.loc[random_indices, column_name] = None
 
 # # Save the modified file
-# df.to_excel("C:/Users/junai/Desktop/coding/ML/uncleaned_data.xlsx", index=False)
+# df.to_excel("uncleaned_data.xlsx", index=False)
 
 # print(f"Randomly removed values from {num_to_remove} cells in column {column_name}!")
 
@@ -49,7 +49,7 @@
 # import string
 
 # # Load the Excel file
-# file_path = "C:/Users/junai/Desktop/coding/ML/uncleaned_data.xlsx"  # Replace with your actual file path
+# file_path = "uncleaned_data.xlsx"  # Replace with your actual file path
 # df = pd.read_excel(file_path)
 
 # # Function to generate a random 5-letter string
@@ -71,7 +71,7 @@
 # import numpy as np
 
 # # Load the Excel file
-# file_path = "C:/Users/junai/Desktop/coding/ML/catg_data.xlsx"  # Replace with your actual file path
+# file_path = "catg_data.xlsx"  # Replace with your actual file path
 # df = pd.read_excel(file_path)
 
 # # Define the column where you want to remove values
@@ -88,7 +88,7 @@
 # df.loc[random_indices, column_name] = None
 
 # # Save the modified file
-# df.to_excel("C:/Users/junai/Desktop/coding/ML/catg_data.xlsx", index=False)
+# df.to_excel("catg_data.xlsx", index=False)
 
 # print(f"Randomly removed values from {num_to_remove} cells in column {column_name}!")
 
