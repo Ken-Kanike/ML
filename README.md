@@ -42,18 +42,48 @@ quickly and reproducibly on a laptop.
 
 See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and a recommended order.
 
-## Foundation notebooks
+## Core_ML modules
 
-The `Core_ML` collection covers the prerequisites for the advanced modules:
+The `Core_ML` collection covers the prerequisites for the advanced modules: data cleaning, encoding,
+scaling, feature selection, and the classical regression and classification algorithms. These are
+working notes from the learning process; the advanced modules revisit the same ideas with cleaner
+pipelines and stronger evaluation.
 
-- **Data preparation**: cleaning, missing values, imputation, duplicates, encoding, scaling.
-- **Feature work**: outlier handling, transformations, feature selection.
-- **Regression**: simple, multiple, polynomial, cost functions, regularization.
-- **Classification**: logistic regression, confusion matrix, imbalanced data, naive Bayes.
+### Data preparation and feature engineering
+
+| # | Notebook | Topics |
+| --- | --- | --- |
+| p1 | [Data Cleaning](Core_ML/p1.ipynb) | Loading data, inspecting structure, and fixing basic quality issues |
+| p2 | [Dropping Missing Values](Core_ML/p2.ipynb) | Dropping null rows and columns, and the trade-offs |
+| p3 | [Filling Missing Values](Core_ML/p3.ipynb) | Constant and statistic-based imputation |
+| p4 | [Scikit-learn Imputation](Core_ML/p4.ipynb) | `SimpleImputer` and pipeline-safe imputation |
+| p5 | [One-Hot Encoding](Core_ML/p5.ipynb) | Nominal categories and dummy variables |
+| p6 | [Label Encoding](Core_ML/p6.ipynb) | Integer labels and when not to use them |
+| p7 | [Ordinal Encoding](Core_ML/p7.ipynb) | Encoding ordered categories |
+| p8 | [Outlier Handling](Core_ML/p8.ipynb) | IQR detection, removal, and capping |
+| p9 | [Feature Scaling](Core_ML/p9.ipynb) | Standardization vs min-max normalization |
+| p10 | [Duplicates and Data Types](Core_ML/p10.ipynb) | Duplicate rows, mixed types, and type conversion |
+| p11 | [Feature Selection](Core_ML/p11.ipynb) | Forward and backward elimination with cross-validation |
+
+### Classical machine learning
+
+| # | Notebook | Topics |
+| --- | --- | --- |
+| m1 | [Supervised Learning Overview](Core_ML/m1.ipynb) | Regression vs classification and the algorithm landscape |
+| m2 | [Simple Linear Regression](Core_ML/m2.ipynb) | One feature, line fitting, and prediction |
+| m3 | [Multiple Linear Regression](Core_ML/m3.ipynb) | Several features, coefficients, and model evaluation |
+| m4 | [Polynomial Regression](Core_ML/m4.ipynb) | Non-linear relationships with polynomial features |
+| m5 | [Cost Functions and Regularization](Core_ML/m5.ipynb) | MSE, MAE, RMSE, R2, Lasso, Ridge, and ElasticNet |
+| m6 | [Classification Overview](Core_ML/m6.ipynb) | Linear and non-linear classifiers, and evaluation metrics |
+| m7 | [Logistic Regression](Core_ML/m7.ipynb) | Sigmoid, binary and multiclass classification, decision boundaries |
+| m8 | [Confusion Matrix](Core_ML/m8.ipynb) | Precision, recall, F1, and classification error analysis |
+| m9 | [Imbalanced Data](Core_ML/m9.ipynb) | Random over/under-sampling and evaluation under imbalance |
+| m10 | [Naive Bayes](Core_ML/m10.ipynb) | Bayes theorem, independence assumptions, and text classification |
 
 Start with `p1.ipynb` and continue through `p11.ipynb`, then work through `m1.ipynb` to `m10.ipynb`.
-The foundation notebooks read datasets from the repository root, so launch Jupyter from the root or
-pass the correct path.
+The core notebooks read datasets from the repository root, so launch Jupyter from the root or pass the
+correct path. `Core_ML/data_mal.py` contains the scripts used to generate and deliberately degrade the
+practice datasets, and `Core_ML/NOTE.txt` plus `Core_ML/NOTE2.txt` contain the longer study notes.
 
 ## Recommended learning path
 
