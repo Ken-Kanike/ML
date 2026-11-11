@@ -11,8 +11,8 @@ quickly and reproducibly on a laptop.
 
 | Path | Contents |
 | --- | --- |
-| [`Advanced_ML/`](Advanced_ML/) | 19 advanced modules, from k-NN and SVM to deployment and responsible AI |
-| [`Core_ML/`](Core_ML/) | Foundations: data cleaning, encoding, scaling, feature selection, regression, classification |
+| [`Advanced_ML/`](Advanced_ML/) | 22 advanced modules, from k-NN and SVM to causal inference and topic modeling |
+| [`Core_ML/`](Core_ML/) | Mathematical foundations plus data cleaning, encoding, scaling, feature selection, regression, classification |
 | [`docs/`](docs/) | Curriculum, setup, dataset guide, and study plan |
 | `*.csv`, `*.xlsx` | Datasets used by the foundation notebooks |
 
@@ -39,15 +39,28 @@ quickly and reproducibly on a laptop.
 | 17 | [Fairness and Responsible AI](Advanced_ML/17_fairness_responsible_ai/17_fairness_responsible_ai.ipynb) | Bias, fairness metrics, mitigation, model cards |
 | 18 | [Statistics Foundations](Advanced_ML/18_statistics_foundations/18_statistics_foundations.ipynb) | Sampling, confidence intervals, hypothesis tests, power, bootstrap |
 | 19 | [Exploratory Data Analysis](Advanced_ML/19_exploratory_data_analysis/19_exploratory_data_analysis.ipynb) | Data quality, distributions, target analysis, outliers |
+| 20 | [Causal Inference](Advanced_ML/20_causal_inference/20_causal_inference.ipynb) | Potential outcomes, confounding, randomized experiments, propensity scores, difference-in-differences |
+| 21 | [Model Calibration](Advanced_ML/21_model_calibration/21_model_calibration.ipynb) | Reliability diagrams, Brier score, ECE, sigmoid and isotonic calibration, cost-sensitive thresholds |
+| 22 | [Topic Modeling](Advanced_ML/22_topic_modeling/22_topic_modeling.ipynb) | Count and TF-IDF features, LDA, NMF, perplexity, document-topic mixtures |
 
 See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and a recommended order.
 
 ## Core_ML modules
 
-The `Core_ML` collection covers the prerequisites for the advanced modules: data cleaning, encoding,
-scaling, feature selection, and the classical regression and classification algorithms. These are
-working notes from the learning process; the advanced modules revisit the same ideas with cleaner
-pipelines and stronger evaluation.
+The `Core_ML` collection covers the prerequisites for the advanced modules: the mathematics behind
+the algorithms, data cleaning, encoding, scaling, feature selection, and the classical regression and
+classification algorithms. The data-preparation and classical-model notebooks are working notes from
+the learning process; the advanced modules revisit the same ideas with cleaner pipelines and stronger
+evaluation.
+
+### Mathematical and statistical foundations
+
+| # | Notebook | Topics |
+| --- | --- | --- |
+| f1 | [Linear Algebra](Core_ML/f1_linear_algebra.ipynb) | Vectors, matrices, least squares, rank, eigenvalues, PCA, SVD |
+| f2 | [Probability](Core_ML/f2_probability.ipynb) | Distributions, expectation, Bayes, maximum likelihood, Monte Carlo |
+| f3 | [Optimization](Core_ML/f3_optimization.ipynb) | Gradients, gradient descent, learning rates, SGD, momentum, early stopping |
+| f4 | [Regression Diagnostics](Core_ML/f4_regression_diagnostics.ipynb) | Residual analysis, multicollinearity, leverage, Cook's distance, robust regression |
 
 ### Data preparation and feature engineering
 
@@ -80,19 +93,22 @@ pipelines and stronger evaluation.
 | m9 | [Imbalanced Data](Core_ML/m9.ipynb) | Random over/under-sampling and evaluation under imbalance |
 | m10 | [Naive Bayes](Core_ML/m10.ipynb) | Bayes theorem, independence assumptions, and text classification |
 
-Start with `p1.ipynb` and continue through `p11.ipynb`, then work through `m1.ipynb` to `m10.ipynb`.
-The core notebooks read datasets from the repository root, so launch Jupyter from the root or pass the
-correct path. `Core_ML/data_mal.py` contains the scripts used to generate and deliberately degrade the
-practice datasets, and `Core_ML/NOTE.txt` plus `Core_ML/NOTE2.txt` contain the longer study notes.
+Start with `f1.ipynb` to `f4.ipynb` for the mathematical foundations, then `p1.ipynb` to `p11.ipynb`,
+then `m1.ipynb` to `m10.ipynb`. The data-preparation and classical-model notebooks read datasets from
+the repository root, so launch Jupyter from the root or pass the correct path. The foundation notebooks
+use synthetic or built-in data. `Core_ML/data_mal.py` contains the scripts used to generate and
+deliberately degrade the practice datasets, and `Core_ML/NOTE.txt` plus `Core_ML/NOTE2.txt` contain the
+longer study notes.
 
 ## Recommended learning path
 
-1. **Foundations**: `Core_ML/p1` to `p11`, then `m1` to `m10`.
-2. **Statistics and EDA**: modules 19 and 18.
-3. **Feature engineering and core models**: modules 16, 01, 02, 03, 04, 07.
-4. **Unsupervised learning**: modules 05 and 06.
-5. **Specialized topics**: modules 08, 09, 10, 11, 12, 13, 15.
-6. **Professional practice**: modules 14 and 17.
+1. **Mathematical foundations**: `Core_ML/f1` to `f4`.
+2. **Core ML**: `Core_ML/p1` to `p11`, then `m1` to `m10`.
+3. **Analytical toolkit**: modules 19, 18, and 20.
+4. **Supervised learning and evaluation**: modules 16, 01, 02, 03, 04, 07, and 21.
+5. **Unsupervised learning and text**: modules 05, 06, and 22.
+6. **Specialized topics**: modules 08, 09, 10, 11, 12, 13, and 15.
+7. **Professional practice**: modules 14 and 17.
 
 The numeric module order is a reference index, not a strict prerequisite chain. See
 [`docs/STUDY_PLAN.md`](docs/STUDY_PLAN.md) for a week-by-week schedule.
@@ -145,7 +161,9 @@ If Jupyter asks for a kernel, select the Python environment where `requirements.
 ## Datasets
 
 - Advanced modules use scikit-learn built-in datasets, synthetic data, or small generated examples.
-- Foundation notebooks use the CSV and Excel files in the repository root.
+- `Core_ML` mathematical foundation notebooks use synthetic or built-in data.
+- `Core_ML` data-preparation and classical-model notebooks use the CSV and Excel files in the
+  repository root.
 - See [`docs/DATASETS.md`](docs/DATASETS.md) for the full mapping.
 
 No real personal data or credentials are included. Synthetic examples are used where privacy or

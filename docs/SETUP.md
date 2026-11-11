@@ -69,8 +69,9 @@ python -m jupyterlab
 The advanced notebooks are self-contained. Open one and use **Run All**, or run the cells from top to
 bottom.
 
-The foundation notebooks read files such as `yahoo_data.xlsx` and `student_data.csv` from the
-repository root. Start Jupyter from the root directory so those relative paths resolve.
+The data-preparation and classical-model notebooks read files such as `yahoo_data.xlsx` and
+`student_data.csv` from the repository root. Start Jupyter from the root directory so those relative
+paths resolve. The mathematical foundation notebooks (`f1`-`f4`) use synthetic or built-in data.
 
 To execute a notebook from the command line:
 

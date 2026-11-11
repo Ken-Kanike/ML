@@ -1,6 +1,6 @@
 # Advanced Machine Learning Modules
 
-This folder contains 19 self-contained notebooks that extend the foundation material in
+This folder contains 22 self-contained notebooks that extend the foundation material in
 [`Core_ML/`](../Core_ML/) into modern, practical machine-learning topics.
 
 Each module includes:
@@ -11,7 +11,9 @@ Each module includes:
 - a summary and exercises.
 
 The notebooks use built-in scikit-learn datasets, synthetic data, or small generated examples, so
-they execute quickly and do not require downloads.
+they execute quickly and do not require downloads. The focus is classical and applied machine
+learning; deep-learning frameworks and large models are out of scope. Module 13 builds a small
+multilayer perceptron from scratch with NumPy.
 
 ## Module index
 
@@ -36,18 +38,23 @@ they execute quickly and do not require downloads.
 | 17 | [Fairness and Responsible AI](17_fairness_responsible_ai/17_fairness_responsible_ai.ipynb) | Bias sources, demographic parity, equal opportunity, mitigation, model cards |
 | 18 | [Statistics Foundations](18_statistics_foundations/18_statistics_foundations.ipynb) | Sampling distributions, central limit theorem, confidence intervals, hypothesis tests, bootstrap |
 | 19 | [Exploratory Data Analysis](19_exploratory_data_analysis/19_exploratory_data_analysis.ipynb) | Data quality, univariate and target analysis, correlation, outliers, modelling implications |
+| 20 | [Causal Inference](20_causal_inference/20_causal_inference.ipynb) | Potential outcomes, confounding, randomized experiments, adjustment, propensity scores, difference-in-differences |
+| 21 | [Model Calibration](21_model_calibration/21_model_calibration.ipynb) | Reliability diagrams, Brier score, log loss, ECE, sigmoid and isotonic calibration, cost-sensitive thresholds, bootstrap |
+| 22 | [Topic Modeling](22_topic_modeling/22_topic_modeling.ipynb) | Count and TF-IDF features, LDA, NMF, perplexity, document-topic mixtures, topic evaluation |
 
 ## Recommended order
 
 If you are new to the advanced material:
 
-1. **19 Exploratory Data Analysis** and **18 Statistics Foundations** for the analytical toolkit.
+1. **19 Exploratory Data Analysis**, **18 Statistics Foundations**, and **20 Causal Inference** for
+   the analytical toolkit.
 2. **16 Feature Engineering** for representation design.
 3. **01 k-NN and SVM**, **02 Trees and Ensembles**, **03 Model Evaluation**, **04 Pipelines and Tuning**,
-   and **07 Imbalanced Learning** for supervised learning.
+   **07 Imbalanced Learning**, and **21 Model Calibration** for supervised learning.
 4. **05 Clustering** and **06 Dimensionality Reduction** for unsupervised learning.
-5. **08 Time Series**, **09 NLP Basics**, **10 Recommender Systems**, **11 Anomaly Detection**,
-   **12 Model Interpretability**, **13 Neural Networks**, and **15 Association Rules** for breadth.
+5. **08 Time Series**, **09 NLP Basics**, **22 Topic Modeling**, **10 Recommender Systems**,
+   **11 Anomaly Detection**, **12 Model Interpretability**, **13 Neural Networks**, and
+   **15 Association Rules** for breadth.
 6. **14 Deployment** and **17 Fairness and Responsible AI** for professional practice.
 
 The numbered folders are a reference index, not a strict dependency chain.

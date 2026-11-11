@@ -29,11 +29,15 @@ This keeps execution fast and avoids external downloads.
 | 17 Fairness and Responsible AI | Synthetic hiring data with an explicit group bias |
 | 18 Statistics Foundations | Simulated populations, samples, experiments, and A/B tests |
 | 19 Exploratory Data Analysis | Wine recognition dataset (`load_wine`) |
+| 20 Causal Inference | Synthetic randomized experiment, observational study, and panel data |
+| 21 Model Calibration | Synthetic classification data (`make_classification`) |
+| 22 Topic Modeling | Synthetic four-topic text corpus generated in the notebook |
 
 ## Foundation datasets
 
-The `Core_ML` notebooks read files from the repository root. Start Jupyter from the root directory
-so the relative paths resolve.
+The mathematical foundation notebooks (`f1`-`f4`) use synthetic data and scikit-learn built-in
+datasets. The data-preparation and classical-model notebooks read files from the repository root.
+Start Jupyter from the root directory so the relative paths resolve.
 
 | File | Description | Used by |
 | --- | --- | --- |

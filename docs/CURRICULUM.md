@@ -1,8 +1,8 @@
 # Curriculum
 
 This curriculum is designed for learners who want a broad, practical foundation in machine learning.
-It combines the original data-preparation and classical-algorithm notebooks in `Core_ML/` with the
-19 advanced modules in `Advanced_ML/`.
+It combines the mathematical foundations, data-preparation, and classical-algorithm notebooks in
+`Core_ML/` with the 22 advanced modules in `Advanced_ML/`.
 
 ## Who this is for
 
@@ -15,10 +15,14 @@ It combines the original data-preparation and classical-algorithm notebooks in `
 
 By the end, you should be able to:
 
+- use the linear algebra, probability, and optimization ideas behind ML algorithms;
 - clean, explore, and prepare tabular data;
 - choose and evaluate supervised and unsupervised models;
 - build reproducible pipelines and tune hyperparameters;
 - handle imbalanced data, time series, text, and recommendations;
+- distinguish prediction from causal effect estimation;
+- measure and improve probability calibration;
+- discover topics in unlabeled text;
 - interpret models and communicate their limitations;
 - detect and mitigate bias;
 - package a model behind an API;
@@ -28,10 +32,20 @@ By the end, you should be able to:
 
 - Python basics: variables, functions, loops, lists, dictionaries.
 - Familiarity with NumPy and pandas is helpful but not required.
-- Basic algebra and comfort with plots.
+- Basic algebra and comfort with plots. The `f1`-`f4` notebooks build the linear algebra,
+  probability, optimization, and regression-diagnostics background you need.
 - No deep-learning or statistics background is assumed.
 
 ## Track 1: Foundations
+
+### Mathematical and statistical foundations (`Core_ML/f1`-`f4`)
+
+| Notebook | Topic |
+| --- | --- |
+| `f1_linear_algebra.ipynb` | Vectors, matrices, least squares, eigenvalues, PCA, SVD |
+| `f2_probability.ipynb` | Distributions, expectation, Bayes, maximum likelihood, Monte Carlo |
+| `f3_optimization.ipynb` | Gradients, gradient descent, learning rates, SGD, momentum, early stopping |
+| `f4_regression_diagnostics.ipynb` | Residual analysis, multicollinearity, influence, robust regression |
 
 ### Data preparation (`Core_ML/p1`-`p11`)
 
@@ -76,6 +90,7 @@ Build the habits that make modelling reliable.
 | --- | --- |
 | [19 Exploratory Data Analysis](../Advanced_ML/19_exploratory_data_analysis/19_exploratory_data_analysis.ipynb) | Understand the data before choosing a model |
 | [18 Statistics Foundations](../Advanced_ML/18_statistics_foundations/18_statistics_foundations.ipynb) | Quantify uncertainty and interpret experiments |
+| [20 Causal Inference](../Advanced_ML/20_causal_inference/20_causal_inference.ipynb) | Separate association from intervention effects |
 | [16 Feature Engineering](../Advanced_ML/16_feature_engineering/16_feature_engineering.ipynb) | Represent the problem well and avoid leakage |
 
 ## Track 3: Core supervised learning
@@ -87,6 +102,7 @@ Build the habits that make modelling reliable.
 | [03 Model Evaluation](../Advanced_ML/03_model_evaluation/03_model_evaluation.ipynb) | Honest splits, cross-validation, metrics |
 | [04 Pipelines and Tuning](../Advanced_ML/04_pipelines_tuning/04_pipelines_tuning.ipynb) | Reproducible preprocessing and search |
 | [07 Imbalanced Learning](../Advanced_ML/07_imbalanced_learning/07_imbalanced_learning.ipynb) | Resampling, class weights, PR-AUC, thresholds |
+| [21 Model Calibration](../Advanced_ML/21_model_calibration/21_model_calibration.ipynb) | Probability quality, reliability diagrams, calibration, cost-sensitive decisions |
 
 ## Track 4: Unsupervised learning
 
@@ -101,6 +117,7 @@ Build the habits that make modelling reliable.
 | --- | --- |
 | [08 Time Series](../Advanced_ML/08_time_series/08_time_series.ipynb) | Temporal validation, stationarity, ARIMA |
 | [09 NLP Basics](../Advanced_ML/09_nlp_basics/09_nlp_basics.ipynb) | Text features and classification |
+| [22 Topic Modeling](../Advanced_ML/22_topic_modeling/22_topic_modeling.ipynb) | Unsupervised discovery of themes in text |
 | [10 Recommender Systems](../Advanced_ML/10_recommender_systems/10_recommender_systems.ipynb) | Content and collaborative filtering |
 | [11 Anomaly Detection](../Advanced_ML/11_anomaly_detection/11_anomaly_detection.ipynb) | Outlier detection without balanced labels |
 | [12 Model Interpretability](../Advanced_ML/12_model_interpretability/12_model_interpretability.ipynb) | Global and local explanations |
@@ -128,6 +145,10 @@ Build the habits that make modelling reliable.
    a model card with mitigation recommendations.
 6. **Deployment project**: package a model behind FastAPI, add validation and tests, and document the
    API contract.
+7. **Causal effect study**: define a treatment, draw a DAG, choose an identification strategy, and
+   report the estimate with its assumptions and sensitivity checks.
+8. **Topic-model exploration**: collect a public text corpus, compare LDA and NMF, and evaluate topics
+   with top words, stability, and a downstream task.
 
 ## How to use the notebooks
 

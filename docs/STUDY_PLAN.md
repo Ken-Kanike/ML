@@ -11,6 +11,19 @@ statistics, compress the first two weeks and spend more time on the projects.
 - **Write** a five-line learning log: what you tried, what happened, why, and what you would test next.
 - **Commit** your work regularly if you keep a personal fork.
 
+## Week 0: Mathematical foundations (recommended)
+
+**Goal:** build the linear algebra, probability, and optimization background used throughout the
+course. Skip or skim this week if you already have it.
+
+- Run `Core_ML/f1_linear_algebra.ipynb` and `Core_ML/f2_probability.ipynb`.
+- Run `Core_ML/f3_optimization.ipynb` and `Core_ML/f4_regression_diagnostics.ipynb`.
+- Practise: derive a least-squares solution, compute a posterior probability, implement one gradient
+  step, and interpret a residual plot.
+
+**Deliverable:** a one-page note connecting dot products, likelihood, gradients, and linear
+regression.
+
 ## Week 1: Setup and data fluency
 
 **Goal:** get the environment running and learn to inspect a dataset.
@@ -54,6 +67,8 @@ of which errors matter most.
 - Run [`Advanced_ML/03_model_evaluation`](../Advanced_ML/03_model_evaluation/03_model_evaluation.ipynb).
 - Run [`Advanced_ML/04_pipelines_tuning`](../Advanced_ML/04_pipelines_tuning/04_pipelines_tuning.ipynb).
 - Review `Core_ML/m5.ipynb` for cost functions and regularization.
+- Optional: run [`Advanced_ML/21_model_calibration`](../Advanced_ML/21_model_calibration/21_model_calibration.ipynb)
+  when your model outputs probabilities.
 - Practise: nested cross-validation and a small hyperparameter search.
 
 **Deliverable:** an end-to-end pipeline with a held-out test set that was touched only once.
@@ -75,6 +90,8 @@ of which errors matter most.
 
 - Run [`Advanced_ML/08_time_series`](../Advanced_ML/08_time_series/08_time_series.ipynb).
 - Run [`Advanced_ML/09_nlp_basics`](../Advanced_ML/09_nlp_basics/09_nlp_basics.ipynb).
+- Optional: run [`Advanced_ML/22_topic_modeling`](../Advanced_ML/22_topic_modeling/22_topic_modeling.ipynb)
+  for unlabeled text.
 - Practise: a chronological split, a naive forecast baseline, TF-IDF, and a confusion matrix for text.
 
 **Deliverable:** a forecast comparison and a text-classification error analysis.
@@ -86,6 +103,8 @@ of which errors matter most.
 - Run [`Advanced_ML/10_recommender_systems`](../Advanced_ML/10_recommender_systems/10_recommender_systems.ipynb).
 - Run [`Advanced_ML/11_anomaly_detection`](../Advanced_ML/11_anomaly_detection/11_anomaly_detection.ipynb).
 - Run [`Advanced_ML/12_model_interpretability`](../Advanced_ML/12_model_interpretability/12_model_interpretability.ipynb).
+- Optional: run [`Advanced_ML/20_causal_inference`](../Advanced_ML/20_causal_inference/20_causal_inference.ipynb)
+  when the question is about an intervention rather than a prediction.
 - Practise: precision@k, contamination sensitivity, permutation importance.
 
 **Deliverable:** a short report explaining one model's global and local behaviour.
