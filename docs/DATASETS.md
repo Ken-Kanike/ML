@@ -36,8 +36,9 @@ This keeps execution fast and avoids external downloads.
 ## Foundation datasets
 
 The mathematical foundation notebooks (`f1`-`f4`) use synthetic data and scikit-learn built-in
-datasets. The data-preparation and classical-model notebooks read files from the repository root.
-Start Jupyter from the root directory so the relative paths resolve.
+datasets. The workflow notebook `m1a_ml_workflow.ipynb` uses the built-in Breast Cancer Wisconsin
+dataset (`load_breast_cancer`). The data-preparation and classical-model notebooks read files from
+the repository root. Start Jupyter from the root directory so the relative paths resolve.
 
 | File | Description | Used by |
 | --- | --- | --- |

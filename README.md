@@ -54,6 +54,7 @@ evaluation.
 | # | Notebook | Topics |
 | --- | --- | --- |
 | m1 | [Supervised Learning Overview](Core_ML/m1.ipynb) | Regression vs classification and the algorithm landscape |
+| m1a | [ML Workflow](Core_ML/m1a_ml_workflow.ipynb) | ML issues, applications, project steps, train/validation/test workflow, specificity |
 | m2 | [Simple Linear Regression](Core_ML/m2.ipynb) | One feature, line fitting, and prediction |
 | m3 | [Multiple Linear Regression](Core_ML/m3.ipynb) | Several features, coefficients, and model evaluation |
 | m4 | [Polynomial Regression](Core_ML/m4.ipynb) | Non-linear relationships with polynomial features |
@@ -65,7 +66,7 @@ evaluation.
 | m10 | [Naive Bayes](Core_ML/m10.ipynb) | Bayes theorem, independence assumptions, and text classification |
 
 Start with `f1.ipynb` to `f4.ipynb` for the mathematical foundations, then `p1.ipynb` to `p11.ipynb`,
-then `m1.ipynb` to `m10.ipynb`. The data-preparation and classical-model notebooks read datasets from
+then `m1.ipynb`, `m1a_ml_workflow.ipynb`, and `m2.ipynb` to `m10.ipynb`. The data-preparation and classical-model notebooks read datasets from
 the repository root, so launch Jupyter from the root or pass the correct path. The foundation notebooks
 use synthetic or built-in data. `Core_ML/data_mal.py` contains the scripts used to generate and
 deliberately degrade the practice datasets, and `Core_ML/NOTE.txt` plus `Core_ML/NOTE2.txt` contain the

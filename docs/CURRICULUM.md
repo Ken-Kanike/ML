@@ -68,13 +68,14 @@ By the end, you should be able to:
 | Notebook | Topic |
 | --- | --- |
 | `m1.ipynb` | Supervised learning overview |
+| `m1a_ml_workflow.ipynb` | ML issues, applications, project steps, and validation workflow |
 | `m2.ipynb` | Simple linear regression |
 | `m3.ipynb` | Multiple linear regression |
 | `m4.ipynb` | Polynomial regression |
 | `m5.ipynb` | Cost functions and regularization |
 | `m6.ipynb` | Classification overview |
 | `m7.ipynb` | Logistic regression |
-| `m8.ipynb` | Confusion matrix and classification metrics |
+| `m8.ipynb` | Confusion matrix, accuracy, precision, recall, specificity, and F1 |
 | `m9.ipynb` | Imbalanced datasets and resampling |
 | `m10.ipynb` | Naive Bayes |
 
