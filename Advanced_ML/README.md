@@ -1,7 +1,8 @@
 # Advanced Machine Learning Modules
 
-This folder contains 22 self-contained notebooks that extend the foundation material in
-[`Core_ML/`](../Core_ML/) into modern, practical machine-learning topics.
+This folder contains self-contained notebooks that extend the foundation material in
+[`Core_ML/`](../Core_ML/) into modern, practical machine-learning topics. The 22 numbered modules
+have companion notebooks for selected syllabus topics.
 
 Each module includes:
 
@@ -24,6 +25,8 @@ multilayer perceptron from scratch with NumPy.
 | 03 | [Model Evaluation](03_model_evaluation/03_model_evaluation.ipynb) | Train/validation/test splits, cross-validation, classification and regression metrics, ROC and PR curves |
 | 04 | [Pipelines and Tuning](04_pipelines_tuning/04_pipelines_tuning.ipynb) | ColumnTransformer, preprocessing pipelines, grid search, randomized search, nested cross-validation |
 | 05 | [Clustering](05_clustering/05_clustering.ipynb) | K-means, elbow and silhouette methods, hierarchical clustering, DBSCAN, cluster evaluation |
+| 05a | [Hebbian Learning](05a_hebbian_learning/05a_hebbian_learning.ipynb) | Hebb rule, normalisation, Oja's rule, PCA connections, associative memory |
+| 05b | [EM and GMM Clustering](05b_em_clustering/05b_em_clustering.ipynb) | Gaussian mixtures, EM responsibilities, soft clustering, BIC selection, comparison with k-means |
 | 06 | [Dimensionality Reduction](06_dimensionality_reduction/06_dimensionality_reduction.ipynb) | PCA, explained variance, t-SNE, visualization, downstream model performance |
 | 07 | [Imbalanced Learning](07_imbalanced_learning/07_imbalanced_learning.ipynb) | Class weights, random over/under-sampling, SMOTE, precision-recall AUC, threshold selection |
 | 08 | [Time Series](08_time_series/08_time_series.ipynb) | Decomposition, stationarity, ACF/PACF, lag features, ARIMA, walk-forward validation |
@@ -51,7 +54,8 @@ If you are new to the advanced material:
 2. **16 Feature Engineering** for representation design.
 3. **01 k-NN and SVM**, **02 Trees and Ensembles**, **03 Model Evaluation**, **04 Pipelines and Tuning**,
    **07 Imbalanced Learning**, and **21 Model Calibration** for supervised learning.
-4. **05 Clustering** and **06 Dimensionality Reduction** for unsupervised learning.
+4. **05 Clustering**, **05a Hebbian Learning**, **05b EM and GMM Clustering**, and
+   **06 Dimensionality Reduction** for unsupervised learning.
 5. **08 Time Series**, **09 NLP Basics**, **22 Topic Modeling**, **10 Recommender Systems**,
    **11 Anomaly Detection**, **12 Model Interpretability**, **13 Neural Networks**, and
    **15 Association Rules** for breadth.

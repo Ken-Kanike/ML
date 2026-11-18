@@ -15,6 +15,8 @@ This keeps execution fast and avoids external downloads.
 | 03 Model Evaluation | Breast Cancer and Diabetes datasets (`load_breast_cancer`, `load_diabetes`) |
 | 04 Pipelines and Tuning | Synthetic classification data (`make_classification`) |
 | 05 Clustering | Synthetic blobs and moons (`make_blobs`, `make_moons`) |
+| 05a Hebbian Learning | Synthetic correlated data and orthogonal Hadamard patterns generated in the notebook |
+| 05b EM and GMM Clustering | Synthetic elongated Gaussian clusters generated in the notebook |
 | 06 Dimensionality Reduction | Breast Cancer and handwritten digits (`load_breast_cancer`, `load_digits`) |
 | 07 Imbalanced Learning | Synthetic imbalanced classification data (`make_classification`) |
 | 08 Time Series | Synthetic trend, seasonal, and noise series generated in the notebook |

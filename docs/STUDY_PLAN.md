@@ -85,10 +85,14 @@ error and an odds-ratio interpretation.
 
 - Run [`Advanced_ML/07_imbalanced_learning`](../Advanced_ML/07_imbalanced_learning/07_imbalanced_learning.ipynb).
 - Run [`Advanced_ML/05_clustering`](../Advanced_ML/05_clustering/05_clustering.ipynb).
+- Run [`Advanced_ML/05a_hebbian_learning`](../Advanced_ML/05a_hebbian_learning/05a_hebbian_learning.ipynb)
+  and [`Advanced_ML/05b_em_clustering`](../Advanced_ML/05b_em_clustering/05b_em_clustering.ipynb).
 - Run [`Advanced_ML/06_dimensionality_reduction`](../Advanced_ML/06_dimensionality_reduction/06_dimensionality_reduction.ipynb).
-- Practise: precision-recall curves, SMOTE inside a pipeline, silhouette analysis.
+- Practise: precision-recall curves, SMOTE inside a pipeline, silhouette analysis, a Hebbian
+  principal-direction learner, and EM responsibilities on boundary points.
 
-**Deliverable:** an imbalanced-classification report and a cluster analysis with a validation metric.
+**Deliverable:** an imbalanced-classification report and a cluster analysis with a validation metric,
+including a comparison of k-means and a Gaussian mixture.
 
 ## Week 6: Time series and text
 

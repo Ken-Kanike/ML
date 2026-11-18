@@ -12,7 +12,7 @@ quickly and reproducibly on a laptop.
 | Path | Contents |
 | --- | --- |
 | [`Core_ML/`](Core_ML/) | Mathematical foundations plus data cleaning, encoding, scaling, feature selection, regression, classification |
-| [`Advanced_ML/`](Advanced_ML/) | 22 advanced modules, from k-NN and SVM to causal inference and topic modeling |
+| [`Advanced_ML/`](Advanced_ML/) | 22 core advanced modules plus companions, from k-NN and SVM to causal inference and topic modeling |
 | [`docs/`](docs/) | Curriculum, setup, dataset guide, and study plan |
 | `*.csv`, `*.xlsx` | Datasets used by the foundation notebooks |
 
@@ -87,6 +87,8 @@ longer study notes.
 | 03 | [Model Evaluation](Advanced_ML/03_model_evaluation/03_model_evaluation.ipynb) | Splits, cross-validation, classification and regression metrics |
 | 04 | [Pipelines and Tuning](Advanced_ML/04_pipelines_tuning/04_pipelines_tuning.ipynb) | ColumnTransformer, pipelines, grid and randomized search |
 | 05 | [Clustering](Advanced_ML/05_clustering/05_clustering.ipynb) | K-means, hierarchical clustering, DBSCAN, cluster validation |
+| 05a | [Hebbian Learning](Advanced_ML/05a_hebbian_learning/05a_hebbian_learning.ipynb) | Hebb rule, Oja's rule, PCA connections, associative memory |
+| 05b | [EM and GMM](Advanced_ML/05b_em_clustering/05b_em_clustering.ipynb) | Gaussian mixtures, E/M steps, soft clustering, BIC |
 | 06 | [Dimensionality Reduction](Advanced_ML/06_dimensionality_reduction/06_dimensionality_reduction.ipynb) | PCA, t-SNE, explained variance, visualization |
 | 07 | [Imbalanced Learning](Advanced_ML/07_imbalanced_learning/07_imbalanced_learning.ipynb) | Resampling, SMOTE, class weights, precision-recall |
 | 08 | [Time Series](Advanced_ML/08_time_series/08_time_series.ipynb) | Decomposition, stationarity, lag features, ARIMA |
@@ -113,7 +115,7 @@ See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and
 2. **Core ML**: `Core_ML/p1` to `p11`, then `m1` to `m10`, including the `m3a`, `m6a`, and `m7a` companions.
 3. **Analytical toolkit**: modules 19, 18, and 20.
 4. **Supervised learning and evaluation**: modules 16, 01, 02, 03, 04, 07, and 21.
-5. **Unsupervised learning and text**: modules 05, 06, and 22.
+5. **Unsupervised learning and text**: modules 05, 05a, 05b, 06, and 22.
 6. **Specialized topics**: modules 08, 09, 10, 11, 12, 13, and 15.
 7. **Professional practice**: modules 14 and 17.
 

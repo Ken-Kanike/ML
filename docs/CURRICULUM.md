@@ -2,7 +2,7 @@
 
 This curriculum is designed for learners who want a broad, practical foundation in machine learning.
 It combines the mathematical foundations, data-preparation, and classical-algorithm notebooks in
-`Core_ML/` with the 22 advanced modules in `Advanced_ML/`.
+`Core_ML/` with the advanced modules and companion notebooks in `Advanced_ML/`.
 
 ## Who this is for
 
@@ -114,6 +114,8 @@ Build the habits that make modelling reliable.
 | Module | Key ideas |
 | --- | --- |
 | [05 Clustering](../Advanced_ML/05_clustering/05_clustering.ipynb) | K-means, hierarchical, density-based clustering |
+| [05a Hebbian Learning](../Advanced_ML/05a_hebbian_learning/05a_hebbian_learning.ipynb) | Hebb rule, Oja's rule, PCA connections, associative memory |
+| [05b EM and GMM Clustering](../Advanced_ML/05b_em_clustering/05b_em_clustering.ipynb) | Gaussian mixtures, E/M steps, soft clustering, BIC selection |
 | [06 Dimensionality Reduction](../Advanced_ML/06_dimensionality_reduction/06_dimensionality_reduction.ipynb) | PCA, t-SNE, visualization, compression |
 
 ## Track 5: Specialized applications
