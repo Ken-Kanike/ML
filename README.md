@@ -93,6 +93,7 @@ longer study notes.
 | 07 | [Imbalanced Learning](Advanced_ML/07_imbalanced_learning/07_imbalanced_learning.ipynb) | Resampling, SMOTE, class weights, precision-recall |
 | 08 | [Time Series](Advanced_ML/08_time_series/08_time_series.ipynb) | Decomposition, stationarity, lag features, ARIMA |
 | 09 | [NLP Basics](Advanced_ML/09_nlp_basics/09_nlp_basics.ipynb) | Text cleaning, bag-of-words, TF-IDF, text classification |
+| 09a | [Text Analytics Workflow](Advanced_ML/09a_text_analytics_workflow/09a_text_analytics_workflow.ipynb) | History, seven practice areas, workflow, search, clustering, extraction, summarisation |
 | 10 | [Recommender Systems](Advanced_ML/10_recommender_systems/10_recommender_systems.ipynb) | Content-based and collaborative filtering, SVD |
 | 11 | [Anomaly Detection](Advanced_ML/11_anomaly_detection/11_anomaly_detection.ipynb) | Isolation Forest, LOF, One-Class SVM |
 | 12 | [Model Interpretability](Advanced_ML/12_model_interpretability/12_model_interpretability.ipynb) | Permutation importance, partial dependence, coefficients |
@@ -116,7 +117,7 @@ See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and
 3. **Analytical toolkit**: modules 19, 18, and 20.
 4. **Supervised learning and evaluation**: modules 16, 01, 02, 03, 04, 07, and 21.
 5. **Unsupervised learning and text**: modules 05, 05a, 05b, 06, and 22.
-6. **Specialized topics**: modules 08, 09, 10, 11, 12, 13, and 15.
+6. **Specialized topics**: modules 08, 09, 09a, 10, 11, 12, 13, and 15.
 7. **Professional practice**: modules 14 and 17.
 
 The numeric module order is a reference index, not a strict prerequisite chain. See

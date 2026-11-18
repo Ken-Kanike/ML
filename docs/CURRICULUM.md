@@ -124,6 +124,7 @@ Build the habits that make modelling reliable.
 | --- | --- |
 | [08 Time Series](../Advanced_ML/08_time_series/08_time_series.ipynb) | Temporal validation, stationarity, ARIMA |
 | [09 NLP Basics](../Advanced_ML/09_nlp_basics/09_nlp_basics.ipynb) | Text features and classification |
+| [09a Text Analytics Workflow](../Advanced_ML/09a_text_analytics_workflow/09a_text_analytics_workflow.ipynb) | History, seven practice areas, end-to-end workflow, summarisation |
 | [22 Topic Modeling](../Advanced_ML/22_topic_modeling/22_topic_modeling.ipynb) | Unsupervised discovery of themes in text |
 | [10 Recommender Systems](../Advanced_ML/10_recommender_systems/10_recommender_systems.ipynb) | Content and collaborative filtering |
 | [11 Anomaly Detection](../Advanced_ML/11_anomaly_detection/11_anomaly_detection.ipynb) | Outlier detection without balanced labels |

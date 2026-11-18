@@ -21,6 +21,7 @@ This keeps execution fast and avoids external downloads.
 | 07 Imbalanced Learning | Synthetic imbalanced classification data (`make_classification`) |
 | 08 Time Series | Synthetic trend, seasonal, and noise series generated in the notebook |
 | 09 NLP Basics | Small synthetic corpus of positive and negative product reviews |
+| 09a Text Analytics Workflow | Synthetic support tickets, toy link graph, regex extraction sample, and refund-policy article |
 | 10 Recommender Systems | Synthetic movie catalogue and user ratings |
 | 11 Anomaly Detection | Synthetic normal points plus injected anomalies |
 | 12 Model Interpretability | Breast Cancer Wisconsin dataset (`load_breast_cancer`) |
