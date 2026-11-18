@@ -98,13 +98,14 @@ including a comparison of k-means and a Gaussian mixture.
 
 **Goal:** apply ML to ordered and unstructured data.
 
-- Run [`Advanced_ML/08_time_series`](../Advanced_ML/08_time_series/08_time_series.ipynb).
+- Run [`Advanced_ML/08_time_series`](../Advanced_ML/08_time_series/08_time_series.ipynb) and
+  [`Advanced_ML/08a_arima_box_jenkins`](../Advanced_ML/08a_arima_box_jenkins/08a_arima_box_jenkins.ipynb).
 - Run [`Advanced_ML/09_nlp_basics`](../Advanced_ML/09_nlp_basics/09_nlp_basics.ipynb) and
   [`Advanced_ML/09a_text_analytics_workflow`](../Advanced_ML/09a_text_analytics_workflow/09a_text_analytics_workflow.ipynb).
 - Optional: run [`Advanced_ML/22_topic_modeling`](../Advanced_ML/22_topic_modeling/22_topic_modeling.ipynb)
   for unlabeled text.
-- Practise: a chronological split, a naive forecast baseline, TF-IDF, a confusion matrix for text,
-  and an extractive summary.
+- Practise: a chronological split, a naive forecast baseline, ACF/PACF identification,
+  residual diagnostics, TF-IDF, a confusion matrix for text, and an extractive summary.
 
 **Deliverable:** a forecast comparison, a text-classification error analysis, and a short
 text-analytics project brief naming the practice area and evaluation metric.

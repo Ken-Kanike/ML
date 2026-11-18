@@ -30,6 +30,7 @@ multilayer perceptron from scratch with NumPy.
 | 06 | [Dimensionality Reduction](06_dimensionality_reduction/06_dimensionality_reduction.ipynb) | PCA, explained variance, t-SNE, visualization, downstream model performance |
 | 07 | [Imbalanced Learning](07_imbalanced_learning/07_imbalanced_learning.ipynb) | Class weights, random over/under-sampling, SMOTE, precision-recall AUC, threshold selection |
 | 08 | [Time Series](08_time_series/08_time_series.ipynb) | Decomposition, stationarity, ACF/PACF, lag features, ARIMA, walk-forward validation |
+| 08a | [ARIMA and Box-Jenkins](08a_arima_box_jenkins/08a_arima_box_jenkins.ipynb) | AR/MA/ARMA theory, ACF/PACF identification, diagnostics, forecast intervals, cautions |
 | 09 | [NLP Basics](09_nlp_basics/09_nlp_basics.ipynb) | Text normalization, tokenization, bag-of-words, TF-IDF, linear text classifiers |
 | 09a | [Text Analytics Workflow](09a_text_analytics_workflow/09a_text_analytics_workflow.ipynb) | History, seven practice areas, workflow, TF-IDF, search, clustering, extraction, summarisation |
 | 10 | [Recommender Systems](10_recommender_systems/10_recommender_systems.ipynb) | Content-based filtering, item-item collaborative filtering, matrix factorization with SVD |
@@ -57,7 +58,7 @@ If you are new to the advanced material:
    **07 Imbalanced Learning**, and **21 Model Calibration** for supervised learning.
 4. **05 Clustering**, **05a Hebbian Learning**, **05b EM and GMM Clustering**, and
    **06 Dimensionality Reduction** for unsupervised learning.
-5. **08 Time Series**, **09 NLP Basics**, **09a Text Analytics Workflow**, **22 Topic Modeling**, **10 Recommender Systems**,
+5. **08 Time Series**, **08a ARIMA and Box-Jenkins**, **09 NLP Basics**, **09a Text Analytics Workflow**, **22 Topic Modeling**, **10 Recommender Systems**,
    **11 Anomaly Detection**, **12 Model Interpretability**, **13 Neural Networks**, and
    **15 Association Rules** for breadth.
 6. **14 Deployment** and **17 Fairness and Responsible AI** for professional practice.

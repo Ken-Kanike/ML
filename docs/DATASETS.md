@@ -20,6 +20,7 @@ This keeps execution fast and avoids external downloads.
 | 06 Dimensionality Reduction | Breast Cancer and handwritten digits (`load_breast_cancer`, `load_digits`) |
 | 07 Imbalanced Learning | Synthetic imbalanced classification data (`make_classification`) |
 | 08 Time Series | Synthetic trend, seasonal, and noise series generated in the notebook |
+| 08a ARIMA and Box-Jenkins | Simulated AR(1), MA(1), ARMA(1,1), random walk, and held-out ARMA forecast data |
 | 09 NLP Basics | Small synthetic corpus of positive and negative product reviews |
 | 09a Text Analytics Workflow | Synthetic support tickets, toy link graph, regex extraction sample, and refund-policy article |
 | 10 Recommender Systems | Synthetic movie catalogue and user ratings |
