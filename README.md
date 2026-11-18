@@ -29,6 +29,7 @@ evaluation.
 | # | Notebook | Topics |
 | --- | --- | --- |
 | f1 | [Linear Algebra](Core_ML/f1_linear_algebra.ipynb) | Vectors, matrices, least squares, rank, eigenvalues, PCA, SVD |
+| f1b | [Advanced Linear Algebra](Core_ML/f1b_linear_algebra_advanced.ipynb) | Inner products, projections, determinants, traces, positive definite matrices, diagonalization |
 | f2 | [Probability](Core_ML/f2_probability.ipynb) | Distributions, expectation, Bayes, maximum likelihood, Monte Carlo |
 | f3 | [Optimization](Core_ML/f3_optimization.ipynb) | Gradients, gradient descent, learning rates, SGD, momentum, early stopping |
 | f4 | [Regression Diagnostics](Core_ML/f4_regression_diagnostics.ipynb) | Residual analysis, multicollinearity, leverage, Cook's distance, robust regression |
@@ -65,8 +66,9 @@ evaluation.
 | m9 | [Imbalanced Data](Core_ML/m9.ipynb) | Random over/under-sampling and evaluation under imbalance |
 | m10 | [Naive Bayes](Core_ML/m10.ipynb) | Bayes theorem, independence assumptions, and text classification |
 
-Start with `f1.ipynb` to `f4.ipynb` for the mathematical foundations, then `p1.ipynb` to `p11.ipynb`,
-then `m1.ipynb`, `m1a_ml_workflow.ipynb`, and `m2.ipynb` to `m10.ipynb`. The data-preparation and classical-model notebooks read datasets from
+Start with `f1.ipynb`, `f1b_linear_algebra_advanced.ipynb`, and `f2.ipynb` to `f4.ipynb` for the
+mathematical foundations, then `p1.ipynb` to `p11.ipynb`, then `m1.ipynb`,
+`m1a_ml_workflow.ipynb`, and `m2.ipynb` to `m10.ipynb`. The data-preparation and classical-model notebooks read datasets from
 the repository root, so launch Jupyter from the root or pass the correct path. The foundation notebooks
 use synthetic or built-in data. `Core_ML/data_mal.py` contains the scripts used to generate and
 deliberately degrade the practice datasets, and `Core_ML/NOTE.txt` plus `Core_ML/NOTE2.txt` contain the
@@ -103,7 +105,7 @@ See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and
 
 ## Recommended learning path
 
-1. **Mathematical foundations**: `Core_ML/f1` to `f4`.
+1. **Mathematical foundations**: `Core_ML/f1`, `f1b`, and `f2` to `f4`.
 2. **Core ML**: `Core_ML/p1` to `p11`, then `m1` to `m10`.
 3. **Analytical toolkit**: modules 19, 18, and 20.
 4. **Supervised learning and evaluation**: modules 16, 01, 02, 03, 04, 07, and 21.

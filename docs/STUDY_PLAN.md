@@ -16,10 +16,11 @@ statistics, compress the first two weeks and spend more time on the projects.
 **Goal:** build the linear algebra, probability, and optimization background used throughout the
 course. Skip or skim this week if you already have it.
 
-- Run `Core_ML/f1_linear_algebra.ipynb` and `Core_ML/f2_probability.ipynb`.
-- Run `Core_ML/f3_optimization.ipynb` and `Core_ML/f4_regression_diagnostics.ipynb`.
-- Practise: derive a least-squares solution, compute a posterior probability, implement one gradient
-  step, and interpret a residual plot.
+- Run `Core_ML/f1_linear_algebra.ipynb` and `Core_ML/f1b_linear_algebra_advanced.ipynb`.
+- Run `Core_ML/f2_probability.ipynb`, `f3_optimization.ipynb`, and `f4_regression_diagnostics.ipynb`.
+- Practise: derive a least-squares solution, project a vector, compute a determinant and trace,
+  diagonalize a covariance matrix, compute a posterior probability, implement one gradient step,
+  and interpret a residual plot.
 
 **Deliverable:** a one-page note connecting dot products, likelihood, gradients, and linear
 regression.

@@ -43,6 +43,7 @@ By the end, you should be able to:
 | Notebook | Topic |
 | --- | --- |
 | `f1_linear_algebra.ipynb` | Vectors, matrices, least squares, eigenvalues, PCA, SVD |
+| `f1b_linear_algebra_advanced.ipynb` | Inner products, projections, determinants, traces, positive definite matrices, diagonalization |
 | `f2_probability.ipynb` | Distributions, expectation, Bayes, maximum likelihood, Monte Carlo |
 | `f3_optimization.ipynb` | Gradients, gradient descent, learning rates, SGD, momentum, early stopping |
 | `f4_regression_diagnostics.ipynb` | Residual analysis, multicollinearity, influence, robust regression |
