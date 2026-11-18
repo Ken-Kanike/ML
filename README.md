@@ -58,17 +58,21 @@ evaluation.
 | m1a | [ML Workflow](Core_ML/m1a_ml_workflow.ipynb) | ML issues, applications, project steps, train/validation/test workflow, specificity |
 | m2 | [Simple Linear Regression](Core_ML/m2.ipynb) | One feature, line fitting, and prediction |
 | m3 | [Multiple Linear Regression](Core_ML/m3.ipynb) | Several features, coefficients, and model evaluation |
+| m3a | [Stepwise Regression](Core_ML/m3a_stepwise_regression.ipynb) | Forward, backward, and bidirectional selection; AIC, BIC, adjusted R2, and cross-validation |
 | m4 | [Polynomial Regression](Core_ML/m4.ipynb) | Non-linear relationships with polynomial features |
 | m5 | [Cost Functions and Regularization](Core_ML/m5.ipynb) | MSE, MAE, RMSE, R2, Lasso, Ridge, and ElasticNet |
 | m6 | [Classification Overview](Core_ML/m6.ipynb) | Linear and non-linear classifiers, and evaluation metrics |
+| m6a | [Least-Squares Classification](Core_ML/m6a_least_squares_classification.ipynb) | Regression on plus/minus-one labels, linear boundaries, comparison with logistic regression |
 | m7 | [Logistic Regression](Core_ML/m7.ipynb) | Sigmoid, binary and multiclass classification, decision boundaries |
+| m7a | [Logistic GLM](Core_ML/m7a_logistic_glm.ipynb) | Logits, odds ratios, GLM formulation, marginal effects, and model assessment |
 | m8 | [Confusion Matrix](Core_ML/m8.ipynb) | Precision, recall, F1, and classification error analysis |
 | m9 | [Imbalanced Data](Core_ML/m9.ipynb) | Random over/under-sampling and evaluation under imbalance |
 | m10 | [Naive Bayes](Core_ML/m10.ipynb) | Bayes theorem, independence assumptions, and text classification |
 
 Start with `f1.ipynb`, `f1b_linear_algebra_advanced.ipynb`, and `f2.ipynb` to `f4.ipynb` for the
 mathematical foundations, then `p1.ipynb` to `p11.ipynb`, then `m1.ipynb`,
-`m1a_ml_workflow.ipynb`, and `m2.ipynb` to `m10.ipynb`. The data-preparation and classical-model notebooks read datasets from
+`m1a_ml_workflow.ipynb`, and `m2.ipynb` to `m10.ipynb`. The `m3a`, `m6a`, and `m7a` notebooks are
+statistical companions to the corresponding core modules. The data-preparation and classical-model notebooks read datasets from
 the repository root, so launch Jupyter from the root or pass the correct path. The foundation notebooks
 use synthetic or built-in data. `Core_ML/data_mal.py` contains the scripts used to generate and
 deliberately degrade the practice datasets, and `Core_ML/NOTE.txt` plus `Core_ML/NOTE2.txt` contain the
@@ -106,7 +110,7 @@ See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and
 ## Recommended learning path
 
 1. **Mathematical foundations**: `Core_ML/f1`, `f1b`, and `f2` to `f4`.
-2. **Core ML**: `Core_ML/p1` to `p11`, then `m1` to `m10`.
+2. **Core ML**: `Core_ML/p1` to `p11`, then `m1` to `m10`, including the `m3a`, `m6a`, and `m7a` companions.
 3. **Analytical toolkit**: modules 19, 18, and 20.
 4. **Supervised learning and evaluation**: modules 16, 01, 02, 03, 04, 07, and 21.
 5. **Unsupervised learning and text**: modules 05, 06, and 22.

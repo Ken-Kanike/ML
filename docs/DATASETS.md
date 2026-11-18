@@ -37,8 +37,11 @@ This keeps execution fast and avoids external downloads.
 
 The mathematical foundation notebooks (`f1`, `f1b`, and `f2`-`f4`) use synthetic data and
 scikit-learn built-in datasets. The workflow notebook `m1a_ml_workflow.ipynb` uses the built-in Breast Cancer Wisconsin
-dataset (`load_breast_cancer`). The data-preparation and classical-model notebooks read files from
-the repository root. Start Jupyter from the root directory so the relative paths resolve.
+dataset (`load_breast_cancer`). `m3a_stepwise_regression.ipynb` uses the built-in Diabetes dataset
+(`load_diabetes`), and `m6a_least_squares_classification.ipynb` uses synthetic classification data.
+`m7a_logistic_glm.ipynb` reads `student_placement_data.csv`. The data-preparation and
+classical-model notebooks read files from the repository root. Start Jupyter from the root directory
+so the relative paths resolve.
 
 | File | Description | Used by |
 | --- | --- | --- |
@@ -50,7 +53,7 @@ the repository root. Start Jupyter from the root directory so the relative paths
 | `mixed_data.xlsx` | Mixed types, including age values such as `18+` | `p10.ipynb` |
 | `student_data.csv` | Experience and salary | `m3.ipynb`, `m4.ipynb` |
 | `student_placements.csv` | CGPA and placement package | `m2.ipynb` |
-| `student_placement_data.csv` | CGPA, test score, and placement status | `m7.ipynb`, `m8.ipynb`, `m10.ipynb` |
+| `student_placement_data.csv` | CGPA, test score, and placement status | `m7.ipynb`, `m7a_logistic_glm.ipynb`, `m8.ipynb`, `m10.ipynb` |
 | `subscription_data.csv` | Age, salary, and purchase outcome for imbalance practice | `m9.ipynb` |
 | `uncleaned_data.xlsx` | Data with missing values | `p2.ipynb`, `p4.ipynb` |
 | `yahoo_data.xlsx` | Historical financial time-series data for cleaning and feature work | `p1.ipynb`, `p8.ipynb`, `p9.ipynb`, `p10.ipynb`, `p11.ipynb` |

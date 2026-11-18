@@ -32,13 +32,13 @@ By the end, you should be able to:
 
 - Python basics: variables, functions, loops, lists, dictionaries.
 - Familiarity with NumPy and pandas is helpful but not required.
-- Basic algebra and comfort with plots. The `f1`-`f4` notebooks build the linear algebra,
-  probability, optimization, and regression-diagnostics background you need.
+- Basic algebra and comfort with plots. The `f1`, `f1b`, and `f2`-`f4` notebooks build the linear
+  algebra, probability, optimization, and regression-diagnostics background you need.
 - No deep-learning or statistics background is assumed.
 
 ## Track 1: Foundations
 
-### Mathematical and statistical foundations (`Core_ML/f1`-`f4`)
+### Mathematical and statistical foundations (`Core_ML/f1`, `f1b`, `f2`-`f4`)
 
 | Notebook | Topic |
 | --- | --- |
@@ -64,7 +64,7 @@ By the end, you should be able to:
 | `p10.ipynb` | Duplicates and data-type fixes |
 | `p11.ipynb` | Feature selection and train/test splitting |
 
-### Classical algorithms (`Core_ML/m1`-`m10`)
+### Classical algorithms (`Core_ML/m1`-`m10` plus statistical companions)
 
 | Notebook | Topic |
 | --- | --- |
@@ -72,10 +72,13 @@ By the end, you should be able to:
 | `m1a_ml_workflow.ipynb` | ML issues, applications, project steps, and validation workflow |
 | `m2.ipynb` | Simple linear regression |
 | `m3.ipynb` | Multiple linear regression |
+| `m3a_stepwise_regression.ipynb` | Forward, backward, and bidirectional selection with AIC, BIC, adjusted R2, and cross-validation |
 | `m4.ipynb` | Polynomial regression |
 | `m5.ipynb` | Cost functions and regularization |
 | `m6.ipynb` | Classification overview |
+| `m6a_least_squares_classification.ipynb` | Least-squares classification, linear boundaries, and comparison with logistic regression |
 | `m7.ipynb` | Logistic regression |
+| `m7a_logistic_glm.ipynb` | Logit link, odds ratios, GLM formulation, marginal effects, and assessment |
 | `m8.ipynb` | Confusion matrix, accuracy, precision, recall, specificity, and F1 |
 | `m9.ipynb` | Imbalanced datasets and resampling |
 | `m10.ipynb` | Naive Bayes |

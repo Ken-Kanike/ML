@@ -56,11 +56,15 @@ which steps must be fitted inside cross-validation.
 - Run [`Advanced_ML/01_knn_svm`](../Advanced_ML/01_knn_svm/01_knn_svm.ipynb).
 - Run [`Advanced_ML/02_trees_ensembles`](../Advanced_ML/02_trees_ensembles/02_trees_ensembles.ipynb).
 - Review `Core_ML/m1.ipynb` and run `Core_ML/m1a_ml_workflow.ipynb` for the project workflow.
-- Review `Core_ML/m2.ipynb` through `m4.ipynb` for regression basics.
+- Review `Core_ML/m2.ipynb` through `m4.ipynb` for regression basics, and run
+  `Core_ML/m3a_stepwise_regression.ipynb` for model selection.
+- Run `Core_ML/m6a_least_squares_classification.ipynb` and `Core_ML/m7a_logistic_glm.ipynb` to
+  connect regression to classification and interpret odds ratios.
 - Practise: compare k-NN, SVM, a decision tree, and a random forest on one dataset.
 
 **Deliverable:** a model comparison table with accuracy, precision, recall, specificity, F1, and a
-short discussion of which errors matter most.
+short discussion of which errors matter most, plus a selected regression model with its validation
+error and an odds-ratio interpretation.
 
 ## Week 4: Evaluation and tuning
 
