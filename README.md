@@ -68,11 +68,12 @@ evaluation.
 | m8 | [Confusion Matrix](Core_ML/m8.ipynb) | Precision, recall, F1, and classification error analysis |
 | m9 | [Imbalanced Data](Core_ML/m9.ipynb) | Random over/under-sampling and evaluation under imbalance |
 | m10 | [Naive Bayes](Core_ML/m10.ipynb) | Bayes theorem, independence assumptions, and text classification |
+| m11 | [Case Studies: IRIS and Digits](Core_ML/m11_case_studies.ipynb) | End-to-end comparison, pipelines, confusion matrices, PCA exploration, error analysis |
 
 Start with `f1.ipynb`, `f1b_linear_algebra_advanced.ipynb`, and `f2.ipynb` to `f4.ipynb` for the
 mathematical foundations, then `p1.ipynb` to `p11.ipynb`, then `m1.ipynb`,
-`m1a_ml_workflow.ipynb`, and `m2.ipynb` to `m10.ipynb`. The `m3a`, `m6a`, and `m7a` notebooks are
-statistical companions to the corresponding core modules. The data-preparation and classical-model notebooks read datasets from
+`m1a_ml_workflow.ipynb`, and `m2.ipynb` to `m11.ipynb`. The `m3a`, `m6a`, and `m7a` notebooks are
+statistical companions to the corresponding core modules; `m11` is an end-to-end case-study lab. The data-preparation and classical-model notebooks read datasets from
 the repository root, so launch Jupyter from the root or pass the correct path. The foundation notebooks
 use synthetic or built-in data. `Core_ML/data_mal.py` contains the scripts used to generate and
 deliberately degrade the practice datasets, and `Core_ML/NOTE.txt` plus `Core_ML/NOTE2.txt` contain the
@@ -114,7 +115,7 @@ See [`Advanced_ML/README.md`](Advanced_ML/README.md) for module descriptions and
 ## Recommended learning path
 
 1. **Mathematical foundations**: `Core_ML/f1`, `f1b`, and `f2` to `f4`.
-2. **Core ML**: `Core_ML/p1` to `p11`, then `m1` to `m10`, including the `m3a`, `m6a`, and `m7a` companions.
+2. **Core ML**: `Core_ML/p1` to `p11`, then `m1` to `m10`, including the `m3a`, `m6a`, and `m7a` companions, then `m11` for the IRIS and digits case studies.
 3. **Analytical toolkit**: modules 19, 18, and 20.
 4. **Supervised learning and evaluation**: modules 16, 01, 02, 03, 04, 07, and 21.
 5. **Unsupervised learning and text**: modules 05, 05a, 05b, 06, and 22.
@@ -127,6 +128,7 @@ The numeric module order is a reference index, not a strict prerequisite chain. 
 ## Quick start
 
 Requirements: Python 3.10 or newer, Git, and Jupyter. The notebooks were tested with Python 3.12.
+For Anaconda/Miniconda and Google Colab, see [`docs/SETUP.md`](docs/SETUP.md).
 
 ### Windows PowerShell
 

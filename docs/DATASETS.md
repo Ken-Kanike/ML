@@ -43,8 +43,9 @@ The mathematical foundation notebooks (`f1`, `f1b`, and `f2`-`f4`) use synthetic
 scikit-learn built-in datasets. The workflow notebook `m1a_ml_workflow.ipynb` uses the built-in Breast Cancer Wisconsin
 dataset (`load_breast_cancer`). `m3a_stepwise_regression.ipynb` uses the built-in Diabetes dataset
 (`load_diabetes`), and `m6a_least_squares_classification.ipynb` uses synthetic classification data.
-`m7a_logistic_glm.ipynb` reads `student_placement_data.csv`. The data-preparation and
-classical-model notebooks read files from the repository root. Start Jupyter from the root directory
+`m7a_logistic_glm.ipynb` reads `student_placement_data.csv`. `m11_case_studies.ipynb` uses the
+built-in IRIS (`load_iris`) and handwritten-digits (`load_digits`) datasets. The data-preparation
+and classical-model notebooks read files from the repository root. Start Jupyter from the root directory
 so the relative paths resolve.
 
 | File | Description | Used by |

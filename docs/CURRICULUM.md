@@ -82,6 +82,7 @@ By the end, you should be able to:
 | `m8.ipynb` | Confusion matrix, accuracy, precision, recall, specificity, and F1 |
 | `m9.ipynb` | Imbalanced datasets and resampling |
 | `m10.ipynb` | Naive Bayes |
+| `m11_case_studies.ipynb` | End-to-end IRIS and handwritten-digits case studies |
 
 The foundation notebooks are working notes. They are intentionally kept close to the original
 learning process. The advanced modules revisit several of these ideas with cleaner, reproducible
@@ -108,6 +109,7 @@ Build the habits that make modelling reliable.
 | [04 Pipelines and Tuning](../Advanced_ML/04_pipelines_tuning/04_pipelines_tuning.ipynb) | Reproducible preprocessing and search |
 | [07 Imbalanced Learning](../Advanced_ML/07_imbalanced_learning/07_imbalanced_learning.ipynb) | Resampling, class weights, PR-AUC, thresholds |
 | [21 Model Calibration](../Advanced_ML/21_model_calibration/21_model_calibration.ipynb) | Probability quality, reliability diagrams, calibration, cost-sensitive decisions |
+| [Case Studies: IRIS and Digits](../Core_ML/m11_case_studies.ipynb) | Pipelines, model comparison, confusion matrices, PCA exploration, error analysis |
 
 ## Track 4: Unsupervised learning
 

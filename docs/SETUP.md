@@ -48,6 +48,46 @@ pip install -r requirements.txt
 python -m jupyterlab
 ```
 
+## Anaconda or Miniconda setup
+
+If you prefer conda, create a dedicated environment:
+
+```bash
+conda create -n ml-course python=3.12 -y
+conda activate ml-course
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python -m ipykernel install --user --name ml-course --display-name "Python (ML course)"
+python -m jupyterlab
+```
+
+The `pip install` step is intentional: `requirements.txt` is pip-based even when conda manages the
+Python interpreter. On Windows, run these commands in Anaconda Prompt or after `conda init` in
+PowerShell.
+
+## Google Colab
+
+Colab already provides Python and most of the scientific stack. To run the repository there:
+
+```python
+%cd /content
+!git clone https://github.com/Ken-Kanike/ML.git
+%cd ML
+!pip install -q statsmodels imbalanced-learn mlxtend openpyxl
+```
+
+Open a notebook from the Colab file browser. Start from the repository root or use the path shown in
+the notebook so files such as `student_placement_data.csv` resolve.
+
+If a notebook needs the exact versions in `requirements.txt`, install them and restart the runtime:
+
+```python
+!pip install -r requirements.txt
+```
+
+Colab sessions are temporary. Download notebooks with outputs, or save them to Google Drive, before
+the runtime disconnects.
+
 ## Register the environment as a Jupyter kernel
 
 If Jupyter does not automatically see the environment:

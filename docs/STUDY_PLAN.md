@@ -72,6 +72,8 @@ error and an odds-ratio interpretation.
 
 - Run [`Advanced_ML/03_model_evaluation`](../Advanced_ML/03_model_evaluation/03_model_evaluation.ipynb).
 - Run [`Advanced_ML/04_pipelines_tuning`](../Advanced_ML/04_pipelines_tuning/04_pipelines_tuning.ipynb).
+- Run `Core_ML/m11_case_studies.ipynb` for a worked IRIS and digits comparison with pipelines,
+  cross-validation, confusion matrices, and error analysis.
 - Review `Core_ML/m5.ipynb` for cost functions and regularization.
 - Optional: run [`Advanced_ML/21_model_calibration`](../Advanced_ML/21_model_calibration/21_model_calibration.ipynb)
   when your model outputs probabilities.
